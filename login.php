@@ -18,26 +18,20 @@
   <body>
 		<header>
 			<h1>GABINETEC</h1>
-			<input class="search" type="text" placeholder="Pesquisa  (Nome; Modelo; Cor; etc...)" name="pesquisa" id="Pesquisa">
-		</header> <br>
-		
-		<?php
-			foreach($cadastro as $cad) {
-				$desc = $cad['descricao'];
-				$valor = $cad['valor_unit'];
-				$fab = $cad['fabricante'];
-				$img = $cad['img'];
-				
-				echo "<fieldset>";
-				echo "<img src='imge/$img' width='500px' height='500px'>";
-				echo "$desc";
-				echo "$fab";
-				echo "R$$valor";
-				echo "</fieldset>";
-			}
-		?> 
+		</header>
 		<br>
+		<fieldset>
+			<form action="/index.php">
+			<label>Email:</label><br>
+			<input type="email" id="em" name="email"> <br>
+			
+			<label>Senha:</label><br>
+			<input type="passaword" id="se" name="senha"> <br><br>
 	
+			<input type="submit" value="Submit">
+			</form> 
+		</fieldset>
+		<br>
 		<footer>
 		 <br> <p>© 2021 de GABINETEC. Todos os direitos reservados.</p> <br>
 		</footer>
