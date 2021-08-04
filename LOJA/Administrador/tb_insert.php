@@ -15,31 +15,31 @@
 		<form action="carregar1.php" method="POST" enctype="multipart/form-data">
 		
 			Categoria:
-			<input type="text" name="categ">
+			<input type="text" name="categ" required>
 			<br><br>
 		
 			Descrição:
-			<input type="text" name="desc">
+			<input type="text" name="desc" required>
 			<br><br>
 			
 			Valor:
-			<input type="text" name="valor">
+			<input type="text" name="valor" required>
 			<br><br>
 			
 			Fabricante:
-			<input type="text" name="fab">
+			<input type="text" name="fab" required>
 			<br><br>
 			
 			Cor:
-			<input type="text" name="cor">
+			<input type="text" name="cor" required>
 			<br><br>
 			
 			Quantidade:
-			<input type="number" name="qntd">
+			<input type="number" name="qntd" required>
 			<br><br>
 			
 			Imagem:
-			<input type="file" name="img">
+			<input type="file" name="img" required>
 			<br><br>
 			
 			OBS:

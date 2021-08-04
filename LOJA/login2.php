@@ -1,9 +1,6 @@
 <?php
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
-
-	//echo $email;
-	//echo $senha;
 	
 	$sql="SELECT * FROM tb_Usuarios WHERE email=? AND senha=?";
 	include "conexao.php";
@@ -13,11 +10,15 @@
 	$conn = null;
 	
 	$porta = $Usuario -> rowCount();
+	session_start();
 	
 	if($porta==1){
 		foreach($Usuario as $U) {
 			$Perfil = $U['perfil'];
-			//echo $Perfil;
+			$Nome = $U['nome'];
+			$Id = $U['id_user'];
+			$_SESSION['nome'] = $Nome;
+			
 			if($Perfil == 5){
 				header("Location: Administrador/");
 			}

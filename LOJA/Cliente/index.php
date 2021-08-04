@@ -24,13 +24,29 @@
 			<h1>GABINETEC</h1> 
 			</div>
 			<input class="search" type="text" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
-			<a id="perfil" href="Perfil.php" title="Pefil"> <i class="fa fa-user-circle-o"></i></a> 
+			<div id="perfil">
+			<a id="icon" title="Pefil"> <i class="fa fa-user-circle-o"></i></a>
+				<div class="campoP">
+					<a id="name"><?php session_start(); echo $_SESSION['nome'] ?></a>
+					<hr>
+					<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
+				</div>
+			</div>
 		</header>
-
+		
 		<aside>
-		<br>
-		<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i></a> <br>
-		<a class="botoes" href='tb_insert.php' title="Adicionar Produto"> <i class='fa fa-plus'></i></a> 
+		<div class="dropdown">
+		<a class="botoes">Categoria <i class="fa fa-caret-down"></i></a>
+			<div class="dropdown-content">
+				<a href="#">Gabinetes</a>
+				<a href="#">Mouses</a>
+				<a href="#">Monitores</a>
+				<a href="#">Headsets</a>
+				<a href="#">Caixas de Som</a>
+			</div>
+		</div>
+		<a class="botoes">Manual do Usuário <i class="fa fa-info-circle"></i></a>
+		<a class="botoes"></a>
 		</aside>		
 		
 		<main>
@@ -43,44 +59,53 @@
 				$fab = $cad['fabricante'];
 				$img = $cad['img'];
 				
+				/*---------------------------------------------------- Produtos ----------------------------------------------------*/
 				echo "<div>";
 					echo "<div class='produtos-item'>";
-					echo "<fieldset width='250px' height='250px'>";
+					
+					echo "<fieldset>";
 				
 					echo "<div id='img'>";
 						echo "<img src='../imge/$img.jpg'>";
 					echo "</div>";
 				
-					echo "<div id='desc'>";
-						echo "<h4>$desc</h4>";
-					echo "</div>";
+					echo "<hr>";
 				
 					echo "<br>";
 				
-					echo "<div id='fab'>";
-						echo "<h4>$fab</h4>";
+					echo "<div id='desc'>";
+						echo "<h4>$desc</h4>";
 					echo "</div>";
+					
+					echo "<div id='fab'>";
+						echo "<p>por $fab</p>";
+					echo "</div>";
+				
+					echo "<br><br>";
 				
 					echo "<div id='valor'>";
-						echo "<h3>R$ $valor</h3>";
+						echo "<h2>R$ $valor</h2>";
 					echo "</div>";
 					
-					echo "<button id='compra' title='Comprar'><i class='fa fa-shopping-cart'></i></button>";
+					echo "<br>";
 					
-					echo "<a href='#' title='Ver Produto'><button id='compra'><i class='fa fa-search'></i></button></a>";	
-				
+					echo "<div id='buttons'>";
+					echo "<a title='Comprar' href='carrinho.php?'><button id='compra'><i class='fa fa-shopping-cart'></i></button></a>";
+					echo "<a title='Ver Produto'><button id='ver'><i class='fa fa-search'></i></button></a>";	
+					echo "</div>";
+					
 					echo "</fieldset>";
-					//echo "<div id='checkbox'>";
-						//echo "<input type='checkbox' id='check'>";
-					//echo "</div>";
+					
 					echo "</div>";
 				echo "</div>";
 				
-				echo "<style>#img {float: left;}</style>";
+				/*---------------------------------------------------- CSS ----------------------------------------------------*/
+				echo "<style>fieldset {width: 300px; height: 450px; border-style: double; border-color: #310162; border-width: 7px;}</style>";
+				echo "<style>#desc {text-align: left;}</style>";
 				echo "<style>#fab {float: left;}</style>";
-				echo "<style>#valor {clear: both;  margin-left:55px;}</style>";
-				echo "<style>#check {margin-left:33em;}</style>";
-				echo "<style>#compra {padding: 4px; float: right; font-size: 100%; border-radius: 7px; width: 10%; margin-right: 5px;}</style>";
+				echo "<style>#buttons {}</style>";
+				echo "<style>#compra {padding: 4px; font-size: 100%; border-radius: 7px; width: 20%; margin-right: 5px;}</style>";
+				echo "<style>#ver {padding: 4px; font-size: 100%; border-radius: 7px; width: 20%; margin-right: 5px;}</style>"; 
 			}
 		?>
 		</div>
@@ -92,3 +117,5 @@
 		</footer>
 </div>		
   </body> 
+  
+</html>

@@ -22,11 +22,11 @@
 		<fieldset id="boxlogi">
 			<form action="login2.php" method="POST" id="myForm">
 			<label>Email</label><br>
-			<input type="email" id="email" name="email" class="imputbox"> <br><br>
+			<input type="email" id="email" name="email" class="imputbox" required> <br><br>
 			
 			<label>Senha</label><br>
-			<input type="password" id="senha" name="senha" class="imputbox">
-			<span class="fa fa-eye-slash" onclick="mostrarOcultarSenha()"></span> <br><br>
+			<input type="password" id="senha" name="senha" class="imputbox" required>
+			<span id="olho" class="fa fa-eye-slash" onclick="mostrarOcultarSenha()"></span> <br><br>
 			<script type="text/javascript" src="funcionalidades.js"></script>
 			
 			

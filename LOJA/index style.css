@@ -7,7 +7,7 @@
 
 .container {
 	display: grid;
-	grid-template-columns:1fr;
+	grid-template-columns: 1fr;
 	grid-template-areas: "h"
 						 "m"
 						 "f"
@@ -15,7 +15,7 @@
 
 header {
 	display: grid;
-	grid-template-columns: 1fr 0.05fr;
+	grid-template-columns: 1fr 0.06fr;
 	grid-template-areas:"t b"
 						"s b";
 	background-color: #310162;
@@ -48,7 +48,7 @@ header {
 	background-color: #000;
 	border-radius: 20px;
 	color: #E3580D;
-	font-size: 170%;
+	font-size: 180%;
 	text-decoration: none;
 	justify-self: center;
 	grid-area: b;
@@ -86,6 +86,9 @@ footer {
 	color: #000;
 	background-color: #fff;
 	text-align: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 	grid-area: f;
 }
 

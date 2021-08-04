@@ -15,19 +15,19 @@
 		<form action="carregarP.php" method="POST" enctype="multipart/form-data">
 		
 			Nome:
-			<input type="text" name="nome">
+			<input type="text" name="nome" required>
 			<br><br>
 			
 			Email:
-			<input type="email" name="email">
+			<input type="email" name="email" required>
 			<br><br>
 			
 			Senha:
-			<input type="text" name="senha">
+			<input type="text" name="senha" required>
 			<br><br>
 			
 			Perfil:
-			<input type="number" name="perfil">
+			<input type="number" name="perfil" required>
 			<br><br>
 			
 			OBS:
