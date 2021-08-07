@@ -7,65 +7,92 @@
 
 .container {
 	display: grid;
-	grid-template-columns: 5em 1fr;
-	grid-template-areas: "a h"
-						"a m"
-						 "a f"
+	grid-template-columns: 1fr;
+	grid-template-areas: "h"
+						 "p"
+						 "m"
+						 "f"
 }
 
 header {
-
+	display: grid;
+	grid-template-columns: 1fr 0.06fr;
+	grid-template-areas:"t p"
+						"s p";
 	background-color: #310162;
 	font-family: "Audiowide", sans-serif;
-    font-size: 180%;
+    font-size: 130%;
     color: #E3580D;
 	text-align: center;
-	grid-area: h
-	
+	align-items: center;
+	grid-area: h;
+}
+
+#title {
+	margin-left: 92px;
+	grid-area: t;
 }
 
 .search {
+	justify-self: center;
 	border-radius: 12px;
-	width: 15%;
+	width: 17%;
 	padding: 3px;
-	margin-bottom: 1em;
 	border :none;
+	margin-bottom: 12px;
+	margin-left: 95px;
+	grid-area: s;
 }
 
-aside {
-	background-color: #000000;
-	grid-area: a;
-	grid-column-start: 1;
-	grid-column-end: 1;
-	grid-row-start: 1;
-	grid-row-end: 4;
+#icon {
+	display: flex;
+	background-color: #000;
+	border-radius: 20px;
+	color: #99FF00;
+	font-size: 180%;
+	text-decoration: none;
+	justify-self: center;
+	grid-area: p;
+}
+
+.painel {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	text-align: center;
+	align-items: center;
+	margin-top: 2em;
+	grid-gap: 2em;
+	margin-left: 25em;
+	margin-right: 25em;
+	grid-area: p;
+}
+
+.icones {
+	background-color: #fff;
+	border-radius: 15px;
+	padding: 15px;
+	border-style: solid;
+	border-width: 6px;
+	font-family: "Audiowide", sans-serif;
+    font-size: 130%;
 }
 
 .botoes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 180%;
-  padding: 15%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 60px;
+	text-decoration: none;
 }
 
 main {
-	grid-area: m;
 	margin-top: 2em;
-	margin-left: 5em;
-	margin-right: 5em;
-	
-}
-
-.produtos-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 2em;
+	grid-area: m;
 }
 
 @media (max-width: 1000px) {
-	.produtos-grid {
-		grid-template-columns: 1fr;
+	.painel {
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 }
 
@@ -90,5 +117,3 @@ fieldset {
 	background-color:#fff;
 	border-radius: 0px 12px 12px;
 }
-
-/*-------------------------------------------MENU-------------------------------------------------*/

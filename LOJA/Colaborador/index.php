@@ -1,5 +1,5 @@
 <?php
-	$sql = "SELECT * FROM Produtos_tb Order by rand() limit 20";
+	$sql = "SELECT * FROM Produtos_tb";
 	include "conexao.php";
 	$cadastro = $conn -> prepare($sql);
 	$cadastro -> execute();
@@ -20,60 +20,52 @@
   <body>
 <div class="container">   
 		<header>
-			<h1>COLABORADOR</h1> 
+			<div id="title">
+			<h1>COLABORADOR</h1>
+			</div>
 			<input class="search" type="text" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
+			<a id="icon" title="Perfil"> <i class="fa fa-user-circle-o"></i></a>
 		</header>
 		
-		<aside>
-		<br>
-		<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i></a> <br>
-		<a class="botoes" href='tb_insert.php' title="Adicionar Produto"> <i class='fa fa-plus'></i></a> 
-		</aside>
+		<div class="painel">
+			<div class="icones">
+				<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i></a>
+			</div>
+			<div class="icones">		
+				<a class="botoes" href='tb_insert.php' title="Adicionar Produto"><i class='fa fa-cart-plus'></i></a>Adicionar Produto 
+			</div>
+		</div>	
 		
 		<main>
-		<div class='produtos-grid'>
+		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
+			<tr>
+				<th>Produto</th>
+				<th>Descrição</th>
+				<th>Marcas</th>
+				<th>Categoria</th>
+				<th>Preço</th>
+			</tr>
 		<?php
 			foreach($cadastro as $cad) {
 				
+				$id = $cad['id_prod'];
 				$desc = $cad['descricao'];
-				$valor = $cad['valor_unit'];
 				$fab = $cad['fabricante'];
+				$categ = $cad['categoria'];
+				$valor = $cad['valor_unit'];
 				$img = $cad['img'];
 				
-				echo "<div>";
-					echo "<div class='produtos-item'>";
-					echo "<fieldset width='250px' height='250px'>";
+				//---------------------------------------- HTML ----------------------------------------\\
+				echo "<tr>";
+				echo "<td><img src='../imge/$img.jpg'></td>";
+				echo "<td>$desc</td>";
+				echo "<td>$fab</td>";
+				echo "<td>$categ</td>";
+				echo "<td>$valor</td>";
+				echo "</tr>";
 				
-					echo "<div id='img'>";
-						echo "<img src='../imge/$img.jpg'>";
-					echo "</div>";
-				
-					echo "<div id='desc'>";
-						echo "<h3>$desc</h3>";
-					echo "</div>";
-				
-					echo "<br>";
-				
-					echo "<div id='fab'>";
-						echo "<h4>$fab</h4>";
-					echo "</div>";
-				
-					echo "<div id='valor'>";
-						echo "<h3>R$ $valor</h3>";
-					echo "</div>";
-				
-					echo "</fieldset>";
-					//echo "<div id='checkbox'>";
-						//echo "<input type='checkbox' id='check'>";
-					//echo "</div>";
-					echo "</div>";
-				echo "</div>";
-					
-				
-				echo "<style>fieldset {clear: both;}</style>";
-				echo "<style>#img {float: left;}</style>";
-				echo "<style>#valor {clear: both;  margin-left:55px;}</style>";
-				echo "<style>#check {margin-left:33em;}</style>";
+				//----------------------------------------- CSS -----------------------------------------\\
+				echo "<style>tr {background-color: #fff;}</style>";
 			}
 		?> 
 		</div>

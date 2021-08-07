@@ -28,8 +28,8 @@ header {
 }
 
 #title {
-	grid-area: t;
 	margin-left: 92px;
+	grid-area: t;
 }
 
 .search {
@@ -38,9 +38,9 @@ header {
 	width: 17%;
 	padding: 3px;
 	border :none;
-	grid-area: s;
 	margin-bottom: 12px;
 	margin-left: 95px;
+	grid-area: s;
 }
 
 .botoes {
@@ -55,10 +55,10 @@ header {
 }
 
 main {
-	grid-area: m;
 	margin-top: 2em;
 	margin-left: 5em;
 	margin-right: 5em;
+	grid-area: m;
 }
 
 .produtos-grid {
