@@ -23,7 +23,7 @@
 			<div id="title">
 			<h1>COLABORADOR</h1>
 			</div>
-			<input class="search" type="text" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
+			<input class="search" type="search" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
 			<a id="icon" title="Perfil"> <i class="fa fa-user-circle-o"></i></a>
 		</header>
 		

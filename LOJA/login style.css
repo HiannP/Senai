@@ -45,6 +45,7 @@ main {
 }
 
 #boxlogi {
+	font-family: "Audiowide", sans-serif;
 	padding: 30px;
 	text-align: center;
 	font-size: 150%;
@@ -67,6 +68,7 @@ main {
 .imputbox {
 	font-size: 100%;
 	border-style: double;
+	width: 95%;
 	background: none;
 }
 

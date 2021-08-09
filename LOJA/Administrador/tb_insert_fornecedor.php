@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Inserção de Usuário</title>
+    <title>Inserção de Fornecedor</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
 		<hr>
 		<h2>
-			Inserção de Usuário
+			Inserção de Fornecedor
 		</h2>
 		<hr>
 		
-		<form action="carregarP.php" method="POST" enctype="multipart/form-data">
+		<form action="#" method="POST" enctype="multipart/form-data">
 		
 			Nome:
 			<input type="text" name="nome" required>
@@ -22,12 +22,8 @@
 			<input type="email" name="email" required>
 			<br><br>
 			
-			Senha:
-			<input type="text" name="senha" required>
-			<br><br>
-			
-			Perfil:
-			<input type="number" name="perfil" required> <small>Níveis: 1 => Cliente | 3 => Colaborador | 5 => Administrador</small>
+			Telefone:
+			<input type="tel" name="tele" pattern="[0-9]{4}-[0-9]{4}"> <small>(Opcional)</small>
 			<br><br>
 			
 			OBS:

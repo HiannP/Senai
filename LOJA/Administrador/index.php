@@ -23,7 +23,6 @@
 			<div id="title">
 			<h1>ADM</h1>
 			</div>
-			<input class="search" type="text" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
 			<a id="icon" title="Perfil"> <i class="fa fa-user-circle-o"></i></a>
 		</header>
 		
@@ -32,37 +31,38 @@
 				<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i></a>
 			</div>
 			<div class="icones">		
-				<a class="botoes" href='tb_insert.php' title="Adicionar Produto"><i class='fa fa-cart-plus'></i></a>Adicionar Produto 
+				<a class="botoes" href='tb_insert_produto.php' title="Adicionar Produto"><i class='fa fa-cart-plus'></i></a>Adicionar Produto 
 			</div>
 			<div class="icones">
-				<a class="botoes" href="lista_usuarios.php" title="Lista de Usuários"> <i class="fa fa-list-ul"></i></a>Lista de Usuários 
+				<a class="botoes" href="lista_usuarios.php" title="Lista de Usuários"> <i class="fa fa-list-ul"></i></a>Lista de Usuários
 			</div>
 			<div class="icones">
-				<a class="botoes" href='tb_insert_usuario.php' title="Inserir Usuários"> <i class='fa fa-user-plus'></i></a>Inserir Usuários
+				<a class="botoes" href='tb_insert_usuario.php' title="Inserir Usuário"> <i class='fa fa-user-plus'></i></a>Inserir Usuário
 			</div>
 			<div class="icones">
-				<a class="botoes" href='#' title="Lista de Fornedeores"> <i class='fa fa-building'></i></a>Lista de Fornedeores
+				<a class="botoes" href='lista_fornecedores.php' title="Lista de Fornedeores"> <i class='fa fa-building'></i></a>Lista de Fornecedeores
 			</div>
 			<div class="icones">
-				<a class="botoes" href='#' title="Inserir Fornecedor"> <i class='fa fa-search-plus'></i></a>Inserir Fornecedor
+				<a class="botoes" href='tb_insert_fornecedor.php' title="Inserir Fornecedor"> <i class='fa fa-trademark'></i></a>Inserir Fornecedor
 			</div>
 			<div class="icones">
-				<a class="botoes" href='#' title="Lista de Categorias"> <i class='fa fa-list'></i></a>Lista de Categorias
+				<a class="botoes" href='lista_categorias.php' title="Lista de Categorias"> <i class='fa fa-paste'></i></a>Lista de Categorias
 			</div>
 			<div class="icones">
-				<a class="botoes" href='#' title="Inserir Categoria"> <i class='fa fa-plus'></i></a>Inserir Categoria
+				<a class="botoes" href='tb_insert_categoria.php' title="Adicionar Categoria"> <i class='fa fa-plus'></i></a>Adicionar Categoria
 			</div>
 			
 		</div>
-		
 		<main>
+		<input class="search" type="search" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)"> <i class="fa fa-search" style="color: #fff;"></i>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<tr>
 				<th>Produto</th>
 				<th>Descrição</th>
 				<th>Marcas</th>
 				<th>Categoria</th>
-				<th>Preço</th>
+				<th>Quantidade</th>
+				<th>Preço (R$)</th>
 				<th>Opções</th>
 			</tr>
 		<?php
@@ -72,15 +72,17 @@
 				$desc = $cad['descricao'];
 				$fab = $cad['fabricante'];
 				$categ = $cad['categoria'];
+				$qntd = $cad['qntd'];
 				$valor = $cad['valor_unit'];
 				$img = $cad['img'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tr>";
-				echo "<td><img src='../imge/$img.jpg'></td>";
+				echo "<td><img src='../imge/$img.jpg' height='100' width='100'></td>";
 				echo "<td>$desc</td>";
 				echo "<td>$fab</td>";
 				echo "<td>$categ</td>";
+				echo "<td>$qntd</td>";
 				echo "<td>$valor</td>";
 				echo "<td><a title='Editar' href='tb_update.php?id_prod=$id'><i class='fa fa-pencil'></i></a> 
 					  <a title='Excluir' href='tb_delete.php?id_prod=$id&descricao=$desc&img=$img'><i class='fa fa-trash'></i></a></td>";

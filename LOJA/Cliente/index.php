@@ -23,7 +23,7 @@
 			<div id="title">
 			<h1>GABINETEC</h1> 
 			</div>
-			<input class="search" type="text" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
+			<input class="search" type="search" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
 			<div id="perfil">
 			<a id="icon" title="Pefil"> <i class="fa fa-user-circle-o"></i></a>
 				<div class="campoP">

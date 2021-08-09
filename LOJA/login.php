@@ -20,7 +20,7 @@
 		<main>
 		<div id="boxfield">
 		<fieldset id="boxlogi">
-			<form action="login2.php" method="POST" id="myForm">
+			<form action="login2.php" method="POST">
 			<label>Email</label><br>
 			<input type="email" id="email" name="email" class="imputbox" required> <br><br>
 			

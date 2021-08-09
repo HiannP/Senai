@@ -16,9 +16,8 @@
 
 header {
 	display: grid;
-	grid-template-columns: 1fr 0.06fr;
-	grid-template-areas:"t p"
-						"s p";
+	grid-template-columns: 1fr 0.05fr;
+	grid-template-areas:"t p";
 	background-color: #310162;
 	font-family: "Audiowide", sans-serif;
     font-size: 130%;
@@ -34,14 +33,13 @@ header {
 }
 
 .search {
-	justify-self: center;
-	border-radius: 12px;
-	width: 17%;
-	padding: 3px;
-	border :none;
-	margin-bottom: 12px;
-	margin-left: 95px;
-	grid-area: s;
+	border-radius: 3px;
+	width: 18%;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-left: 48px;
+	border-color: #000;
+	border-width: 3px;
 }
 
 #icon {
@@ -62,9 +60,16 @@ header {
 	align-items: center;
 	margin-top: 2em;
 	grid-gap: 2em;
-	margin-left: 25em;
-	margin-right: 25em;
+	padding-left: 25em;
+	padding-right: 25em;
 	grid-area: p;
+}
+
+@media (max-width: 1000px) {
+	.painel {
+		padding-left: 26em;
+		padding-right: 25em;
+	}
 }
 
 .icones {
@@ -90,16 +95,11 @@ main {
 	grid-area: m;
 }
 
-@media (max-width: 1000px) {
-	.painel {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
-}
-
 body {
 	background-color: #001459;
 	font-family: sans-serif;
 	font-size: 1em;
+	margin-bottom: 100px;
 }
 
 footer {
