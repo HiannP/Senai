@@ -23,27 +23,34 @@
 			<div id="title">
 			<h1>COLABORADOR</h1>
 			</div>
-			<input class="search" type="search" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
-			<a id="icon" title="Perfil"> <i class="fa fa-user-circle-o"></i></a>
-		</header>
-		
-		<div class="painel">
-			<div class="icones">
-				<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i></a>
+			<div id="perfil">
+			<a id="icon" title="Perfil"> <i class="fa fa-user-circle"></i></a>
+				<div class="campoP">
+					<a id="name"><?php session_start(); echo $_SESSION['nome'] ?></a>
+					<hr>
+					<a class="botoes"><i class="fa fa-user-circle-o"></i> Perfil</a>
+					<a class="botoes"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
+					<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
+				</div>
 			</div>
+		</header>
+			
+		<div class="painel">	
 			<div class="icones">		
-				<a class="botoes" href='tb_insert.php' title="Adicionar Produto"><i class='fa fa-cart-plus'></i></a>Adicionar Produto 
+				<a class="ico" href='tb_insert_produto.php' title="Adicionar Produto"><i class='fa fa-cart-plus'></i></a>Adicionar Produto 
 			</div>
 		</div>	
 		
 		<main>
+		<input class="search" type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<tr>
 				<th>Produto</th>
 				<th>Descrição</th>
 				<th>Marcas</th>
 				<th>Categoria</th>
-				<th>Preço</th>
+				<th>Quantidade</th>
+				<th>Preço (R$)</th>
 			</tr>
 		<?php
 			foreach($cadastro as $cad) {
@@ -52,15 +59,17 @@
 				$desc = $cad['descricao'];
 				$fab = $cad['fabricante'];
 				$categ = $cad['categoria'];
+				$qntd = $cad['qntd'];
 				$valor = $cad['valor_unit'];
 				$img = $cad['img'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tr>";
-				echo "<td><img src='../imge/$img.jpg'></td>";
+				echo "<td><img src='../imge/$img.jpg' height='100' width='100'></td>";
 				echo "<td>$desc</td>";
 				echo "<td>$fab</td>";
 				echo "<td>$categ</td>";
+				echo "<td>$qntd</td>";
 				echo "<td>$valor</td>";
 				echo "</tr>";
 				

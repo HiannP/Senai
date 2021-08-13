@@ -1,8 +1,14 @@
 <?php
 	$sql = "SELECT * FROM Produtos_tb Order by rand() limit 20";
 	include "conexao.php";
-	$cadastro = $conn -> prepare($sql);
-	$cadastro -> execute();
+	$produtos = $conn -> prepare($sql);
+	$produtos -> execute();
+	$conn = null;
+	
+	$sql1 = "SELECT * FROM tb_Categoria";
+	include "conexao.php";
+	$categorias = $conn -> prepare($sql1);
+	$categorias -> execute();
 	$conn = null;
 ?>
 
@@ -23,12 +29,15 @@
 			<div id="title">
 			<h1>GABINETEC</h1> 
 			</div>
-			<input class="search" type="search" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
+			<input class="search" type="search" onkeyup="pesquisaProduto()" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
+			<script type="text/javascript" src="../funcionalidades.js"></script>
 			<div id="perfil">
-			<a id="icon" title="Pefil"> <i class="fa fa-user-circle-o"></i></a>
+			<a id="icon" title="Perfil"> <i class="fa fa-user-circle"></i></a>
 				<div class="campoP">
 					<a id="name"><?php session_start(); echo $_SESSION['nome'] ?></a>
 					<hr>
+					<a class="botoes"><i class="fa fa-user-circle-o"></i> Perfil</a>
+					<a class="botoes"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
 					<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>
@@ -38,22 +47,26 @@
 		<div class="dropdown">
 		<a class="botoes">Categoria <i class="fa fa-caret-down"></i></a>
 			<div class="dropdown-content">
-				<a href="#">Gabinetes</a>
-				<a href="#">Mouses</a>
-				<a href="#">Monitores</a>
-				<a href="#">Headsets</a>
-				<a href="#">Caixas de Som</a>
+			<?php
+				foreach($categorias as $cate) {
+				
+					$categ = $cate['id_categoria'];
+					$nome = $cate['nome'];
+
+					echo "<a>$nome</a>";
+				}
+			?>	
 			</div>
 		</div>
-		<a class="botoes">Manual do Usuário <i class="fa fa-info-circle"></i></a>
-		<a class="botoes"></a>
+		
 		</aside>		
 		
 		<main>
 		<div class='produtos-grid'>
 		<?php
-			foreach($cadastro as $cad) {
+			foreach($produtos as $cad) {
 				
+				$id = $cad['id_prod'];
 				$desc = $cad['descricao'];
 				$valor = $cad['valor_unit'];
 				$fab = $cad['fabricante'];
@@ -103,7 +116,6 @@
 				echo "<style>fieldset {width: 300px; height: 450px; border-style: double; border-color: #310162; border-width: 7px;}</style>";
 				echo "<style>#desc {text-align: left;}</style>";
 				echo "<style>#fab {float: left;}</style>";
-				echo "<style>#buttons {}</style>";
 				echo "<style>#compra {padding: 4px; font-size: 100%; border-radius: 7px; width: 20%; margin-right: 5px;}</style>";
 				echo "<style>#ver {padding: 4px; font-size: 100%; border-radius: 7px; width: 20%; margin-right: 5px;}</style>"; 
 			}

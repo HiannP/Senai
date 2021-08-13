@@ -18,14 +18,14 @@ $upload = move_uploaded_file($img_temp, '../imge/'.$img);
 
 if(isset($upload)){
 	$sql = "INSERT INTO Produtos_tb VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	include "conexao.php";
+	include "../conexao.php";
 	$cadastro = $conn -> prepare($sql);
 	$cadastro -> execute(array($id_prod, $categoria, $descricao, $valor_unit, $fabricante, $cor, $qntd, $img, $obs));
 	$conn = null;
 	
 	echo "<script>
 				alert('Produto inserido com sucesso!'); 
-				window.location.href='index.php'; 
+				window.location.href='../index.php'; 
 		 </script>";
 	
 }

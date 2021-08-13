@@ -26,7 +26,7 @@
 			
 			<label>Senha</label><br>
 			<input type="password" id="senha" name="senha" class="imputbox" required>
-			<span id="olho" class="fa fa-eye-slash" onclick="mostrarOcultarSenha()"></span> <br><br>
+			<span id="olho" class="fa fa-eye" onclick="mostrarOcultarSenha()"></span> <br><br>
 			<script type="text/javascript" src="funcionalidades.js"></script>
 			
 			

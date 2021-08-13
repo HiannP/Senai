@@ -23,38 +23,47 @@
 			<div id="title">
 			<h1>ADM</h1>
 			</div>
-			<a id="icon" title="Perfil"> <i class="fa fa-user-circle-o"></i></a>
+			<div id="perfil">
+			<a id="icon" title="Perfil"> <i class="fa fa-user-circle"></i></a>
+				<div class="campoP">
+					<a id="name"><?php session_start(); echo $_SESSION['nome'] ?></a>
+					<hr>
+					<a class="botoes"><i class="fa fa-user-circle-o"></i> Perfil</a>
+					<a class="botoes"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
+					<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
+				</div>
+			</div>
 		</header>
 		
 		<div class="painel">
-			<div class="icones">
-				<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i></a>
-			</div>
 			<div class="icones">		
-				<a class="botoes" href='tb_insert_produto.php' title="Adicionar Produto"><i class='fa fa-cart-plus'></i></a>Adicionar Produto 
+				<a class="ico" href='Inserir/tb_insert_produto.php' title="Adicionar Produto"><i class='fa fa-cart-plus'></i></a>Adicionar Produto 
 			</div>
 			<div class="icones">
-				<a class="botoes" href="lista_usuarios.php" title="Lista de Usuários"> <i class="fa fa-list-ul"></i></a>Lista de Usuários
+				<a class="ico" href="Listas/lista_usuarios.php" title="Lista de Usuários"> <i class="fa fa-list-ul"></i></a>Lista de Usuários
 			</div>
 			<div class="icones">
-				<a class="botoes" href='tb_insert_usuario.php' title="Inserir Usuário"> <i class='fa fa-user-plus'></i></a>Inserir Usuário
+				<a class="ico" href='Inserir/tb_insert_usuario.php' title="Inserir Usuário"> <i class='fa fa-user-plus'></i></a>Inserir Usuário
 			</div>
 			<div class="icones">
-				<a class="botoes" href='lista_fornecedores.php' title="Lista de Fornedeores"> <i class='fa fa-building'></i></a>Lista de Fornecedeores
+				<a class="ico" href='Listas/lista_fornecedores.php' title="Lista de Fornedeores"> <i class='fa fa-building'></i></a>Lista de Fornecedeores
 			</div>
 			<div class="icones">
-				<a class="botoes" href='tb_insert_fornecedor.php' title="Inserir Fornecedor"> <i class='fa fa-trademark'></i></a>Inserir Fornecedor
+				<a class="ico" href='Inserir/tb_insert_fornecedor.php' title="Inserir Fornecedor"> <i class='fa fa-trademark'></i></a>Inserir Fornecedor
 			</div>
 			<div class="icones">
-				<a class="botoes" href='lista_categorias.php' title="Lista de Categorias"> <i class='fa fa-paste'></i></a>Lista de Categorias
+				<a class="ico" href='Listas/lista_categorias.php' title="Lista de Categorias"> <i class='fa fa-paste'></i></a>Lista de Categorias
 			</div>
 			<div class="icones">
-				<a class="botoes" href='tb_insert_categoria.php' title="Adicionar Categoria"> <i class='fa fa-plus'></i></a>Adicionar Categoria
+				<a class="ico" href='Inserir/tb_insert_categoria.php' title="Adicionar Categoria"> <i class='fa fa-plus'></i></a>Adicionar Categoria
+			</div>
+			<div class="icones">
+				<a class="ico" href='Inserir/tb_insert_categoria.php' title="Relatórios Semanais"> <i class='fa fa-file-text-o'></i></a>Relatórios Semanais
 			</div>
 			
 		</div>
 		<main>
-		<input class="search" type="search" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)"> <i class="fa fa-search" style="color: #fff;"></i>
+		<input class="search" type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<tr>
 				<th>Produto</th>
@@ -90,6 +99,7 @@
 				
 				//----------------------------------------- CSS -----------------------------------------\\
 				echo "<style>tr {background-color: #fff;}</style>";
+				
 			}
 		?> 
 		</main>
