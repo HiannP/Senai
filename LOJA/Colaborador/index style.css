@@ -67,7 +67,6 @@ header {
 
 .campoP {
 	display: none;
-	transform: translate(-22px,1px);
 	background-color: #333333;
 	overflow: hidden;
 	position: absolute;
@@ -75,6 +74,13 @@ header {
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
 	z-index: 1;
+}
+
+@media (max-width: 1024px) {
+	.campoP {
+		position: fixed;
+		float: left;
+	}
 }
 
 .campoP a {

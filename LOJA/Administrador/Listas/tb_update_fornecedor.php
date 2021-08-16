@@ -10,26 +10,23 @@
 		$nome = $p["nome"];
 		$email = $p["email"];
 		$tel = $p["telefone"];
-		$obs = $p["obs"];
 	}
 	
 	if(isset($_POST['salvar'])){
 		$nome = $_POST['nome'];
 		$email = $_POST['email'];
 		$tel = $_POST['telefone'];
-		$obs = $_POST['obs'];
 		
 	$sql = "
 		UPDATE tb_Marcas SET 
 		nome=?,
 		email=?,
 		telefone=?,
-		obs=?
 		WHERE id_marcas=?
 	";
 	include "../conexao.php";
 	$alterar = $conn -> prepare($sql);
-	$alterar -> execute(array($nome, $email, $tel, $obs, $id));	
+	$alterar -> execute(array($nome, $email, $tel, $id));	
 	$conn = null;
 	
 	echo" <script>
@@ -43,35 +40,37 @@
     <title>Alterar Fornecedor</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="insert style.css">
+	<link rel="stylesheet" type="text/css" href="../Inserir/insert style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
   </head>
+  
   <body>
-		<hr>
-		<h2>
+  <div class="container">
+		<header>
+		<h1>
 			Alteração de Fornecedor
-		</h2>
-		<hr>
+		</h1>
+		</header>
 		
+		<main>
 		<form action="#" method="POST">
 		
 			Nome: 
-			<input type="text" name="nome" value="<?php echo $nome; ?>" required>
+			<input type="text" name="nome" value="<?php echo $nome; ?>" class="campo" required>
 			<br><br>
 			
 			Email:
-			<input type="text" name="email" value="<?php echo $email; ?>" required>
+			<input type="text" name="email" value="<?php echo $email; ?>" class="campo" required>
 			<br><br>
 			
 			Telefone:
-			<input type="tel" name="tele" value="<?php echo $tel; ?>" pattern="[0-9]{4}-[0-9]{4}"> <small style="color: gray;">(Opcional)</small>
+			<input type="tel" name="tele" value="<?php echo $tel; ?>" pattern="[0-9]{4}-[0-9]{4}" class="campo"> <br><small style="color: gray;">(Opcional)</small>
 			<br><br>
 			
-			OBS:
-			<input type="text" name="obs" value="<?php echo $obs; ?>">
-			<br><br>
-			
-			<input type="submit" name="salvar" value="Salvar">
+			<input type="submit" name="salvar" value="Salvar" id="salvar">
+			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
 		</form>
-		<hr>
+		</main>
+  </div>		
   </body>
 </html>

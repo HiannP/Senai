@@ -3,7 +3,7 @@
 	padding: 0;
 }
 
-/*-------------------------------------------CORPO-------------------------------------------------*/
+/*------------------------------------------- CORPO -------------------------------------------------*/
 
 .container {
 	display: grid;
@@ -16,16 +16,16 @@
 
 header {
 	display: grid;
-	grid-template-columns: 1fr 0.05fr;
-	grid-template-areas:"t p"
-						"s p";
+	grid-template-columns: 1fr;
+	grid-template-areas:"t c p"
+						"s c p";
 	background-color: #310162;
 	align-items: center;
 	grid-area: h;
 }
 
 #title {
-	margin-left: 92px;
+	margin-left: 140px;
 	justify-self: center;
 	font-size: 130%;
 	font-family: "Audiowide", sans-serif;
@@ -33,15 +33,35 @@ header {
 	grid-area: t;
 }
 
+@media (max-width: 1000px) {
+	#title {
+		font-size: 100%;
+		margin-left: 52px;
+	}
+}
+
+@media (width: 1024px) {
+	#title {
+		margin-left: 48px;
+	}
+}
+
 .search {
 	border-radius: 12px;
-	min-width: 17%;
+	width: 18%;
 	padding: 3px;
 	border :none;
 	margin-bottom: 12px;
-	margin-left: 95px;
+	margin-left: 140px;
 	justify-self: center;
 	grid-area: s;
+}
+
+@media (max-width: 1024px) {
+	.search {
+		margin-left: 52px;
+		width: 65%;
+	}
 }
 
 #perfil {
@@ -56,11 +76,37 @@ header {
 	display: flex;
 	color: #00CCFF;
 	font-size: 230%;
+	margin-right: 30px;
 	border-radius: 20px;
+	cursor: pointer;
 	background-color: #000;
 	justify-self: center;
 	text-decoration: none;
 }
+
+@media (max-width: 1024px) {
+	#icon {
+		margin-right: 10px;
+	}
+}
+
+#cart {
+	margin-right: 30px;
+	color: #fff;
+	font-size: 230%;
+	grid-area: c;
+}
+
+@media (max-width: 1024px) {
+	#cart {
+		position: absolute;
+		top: 18px;
+		left: 12px;
+		right: 8em;
+	}
+}
+
+/*----------------------- Campo Perfil -----------------------*/
 
 #name {
 	font-family: "Audiowide", sans-serif;
@@ -69,7 +115,6 @@ header {
 
 .campoP {
 	display: none;
-	transform: translate(-22px,1px);
 	background-color: #333333;
 	overflow: hidden;
 	position: absolute;
@@ -79,13 +124,27 @@ header {
 	z-index: 1;
 }
 
+@media (max-width: 1024px) {
+	.campoP {
+		position: fixed;
+		float: left;
+	}
+}
+
 .campoP a {
 	float: none;
 	color: white;
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
+	font-size: 19px;
 	text-align: center;
+}
+
+@media (max-width: 1000px) {
+	.campoP a {
+		font-size: 100%;
+	}
 }
 
 #perfil:hover .campoP {display: block;}
@@ -98,12 +157,16 @@ header {
     background-color: #000;
 }
 
+/*-----------------------------------------------------------*/
+
 main {
 	text-align: center;
 	padding: 50px;
 	justify-self: center;
 	grid-area: m;
 }
+
+/*----------------------- Categorias -----------------------*/
 
 aside {
 	background-color: #000;
@@ -114,14 +177,15 @@ aside {
 	color: #E3580D;
 	font-size: 120%;
 	cursor: pointer;
-	padding-right: 30px;
+
 }
 
 .dropdown {
 	float: left;
 	overflow: hidden;
 	font-family: "Audiowide", sans-serif;
-	margin-left: 40px;
+	margin-left: 30px;
+	cursor: pointer;
 }
 
 .dropdown-content {
@@ -166,7 +230,7 @@ aside {
 
 body {
 	background-color: #001459;
-	background-image: url("back3.jpg");
+	background-image: url("../back3.jpg");
 	font-family: sans-serif;
 	font-size: 1em;
 }
@@ -183,9 +247,44 @@ footer {
 	grid-area: f;
 }
 
+/*----------------------- Produtos -----------------------*/
+
 fieldset {
-	background-color:#fff;
+	width: 300px; 
+	height: 450px;
+	background-color:#fff; 
+	padding: 1%; 
+	border-style: double; 
+	border-color: #310162; 
+	border-width: 7px; 
 	border-radius: 5px;
-	padding: 1%;
-	border: none;
+}
+
+#desc {
+	display: -webkit-box;
+	text-align: left; 
+	overflow: hidden; 
+	text-overflow: ellipsis;  
+	-webkit-line-clamp: 2; 
+	-webkit-box-orient: vertical;
+}
+
+#fab {
+	float: left; 
+	color: #CC0000;
+}
+
+#compra {
+	padding: 4px; 
+	font-size: 100%; 
+	border-radius: 7px; 
+	width: 30%; 
+	margin-right: 5px;
+}
+
+#ver {
+	padding: 4px; 
+	font-size: 100%; 
+	border-radius: 7px; 
+	width: 30%;
 }

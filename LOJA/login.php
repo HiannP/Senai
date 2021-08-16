@@ -6,10 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="login style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script>
-	
-	</script>
+
   </head>
   <body>
   <div class="container"> 
@@ -25,8 +22,8 @@
 			<input type="email" id="email" name="email" class="imputbox" required> <br><br>
 			
 			<label>Senha</label><br>
-			<input type="password" id="senha" name="senha" class="imputbox" required>
-			<span id="olho" class="fa fa-eye" onclick="mostrarOcultarSenha()"></span> <br><br>
+			<input type="password" id="senha" name="senha" class="imputbox" required> <br>
+			<input type="checkbox" onclick="mostrarOcultarSenha()" id="checkbox"> <small id="legend" style="font-size: 70%; ">Mostrar Senha</small> <br><br>
 			<script type="text/javascript" src="funcionalidades.js"></script>
 			
 			
@@ -36,15 +33,12 @@
 		</fieldset>
 		</div>
 		</main>
-		<footer>
-		 <br> <p>© 2021 de GABINETEC. Todos os direitos reservados.</p> <br>
-		</footer>
   </div>
   </body>
 </html>
 
-		<!-- padilha.hiann@gmail.com | senha:h5
+   <!-- padilha.hiann@gmail.com | senha:h5
 
 		cezar.jenzura@gmail.com | senha:c1
 
-		patri.trik@gmail.com | senha:p3 -->
+		patri.trik@gmail.com 	| senha:p3 -->

@@ -1,5 +1,11 @@
 <?php
 
+	$id_user = $_GET['id_user'];
+	$sql = "SELECT * FROM tb_Vendas WHERE FK_id_user='$id_user'";
+	include "../conexao.php";
+	$user = $conn -> prepare($sql);
+	$user -> execute();	
+	$conn = null;
 ?>
 
 <!DOCTYPE html>
@@ -7,30 +13,23 @@
 	<head>
 		<title>Carrinho de Compras</title>
 		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="index style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 	</head>
 	
 	<body>
 <div class="container"> 
-		<header>
-			<div id="title">
+		<header id="title">
 			<h1>GABINETEC</h1> 
-			</div>
-			<a id="perfil" title="Pefil"> <i class="fa fa-user-circle-o"></i></a> 
 		</header>	
 		
 		<main>
 		<div class='produtos-grid'>
 		<?php
-			foreach($cadastro as $cad) {
 				
-				$desc = $cad['descricao'];
-				$valor = $cad['valor_unit'];
-				$fab = $cad['fabricante'];
-				$img = $cad['img'];
+				echo $id_user;
 				
-				
-				
-			}
+			
 		?>
 		</div>
 		<br><br>

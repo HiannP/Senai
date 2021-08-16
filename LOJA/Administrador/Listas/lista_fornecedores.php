@@ -22,14 +22,13 @@
 		<h1>Lista de Fornecedores</h1>
 		</header>
 		<main>
-		<input class="search" type="search" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)"> <i class="fa fa-search" style="color: #fff;" id="lupa"></i>
+		<input class="search" type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;" id="lupa"></i>
 		<table  border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<tr>
 				<th>ID</th>
 				<th>Nome</th>
 				<th>Email</th>
 				<th>Telefone</th>
-				<th>OBS</th>
 				<th>Opções</th>
 			</tr>
 		<?php
@@ -38,7 +37,6 @@
 				$nome = $cad['nome'];
 				$email = $cad['email'];
 				$tel = $cad['telefone'];
-				$obs = $cad['obs'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tr>";
@@ -46,7 +44,6 @@
 				echo "<td>$nome</td>";
 				echo "<td>$email</td>";
 				echo "<td>$tel</td>";
-				echo "<td>$obs</td>";
 				echo "<td><a title='Editar' href='tb_update_fornecedor.php?id_marcas=$id'><i class='fa fa-pencil'></i></a> 
 					  <a title='Excluir' href='tb_delete_fornecedor.php?id_marcas=$id&nome=$nome'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";

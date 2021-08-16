@@ -30,11 +30,8 @@
 			<input type="tel" name="tele" placeholder="Ex: 3223-9339" pattern="[0-9]{4}-[0-9]{4}" class="campo"> <br><small style="color: gray;">(Opcional)</small>
 			<br><br>
 			
-			OBS:
-			<input type="text" name="obs" class="campo">
-			<br><br>
-			
-			<input type="submit" name="salvar" value="Salvar">
+			<input type="submit" name="salvar" value="Salvar" id="salvar">
+			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
 		</form>
 		</main>
   </div>

@@ -18,6 +18,7 @@
 			$Nome = $U['nome'];
 			$Id = $U['id_user'];
 			$_SESSION['nome'] = $Nome;
+			$_SESSION['id_user'] = $Id;
 			
 			if($Perfil == 5){
 				header("Location: Administrador/");
@@ -32,7 +33,7 @@
 	}
 	else {
 		echo" <script>
-		alert('Usuário ou Senha não encontrados');
+		alert('Usuário ou Senha icorreto(s)');
 		window.location.href='login.php';
 		</script>";
 	}

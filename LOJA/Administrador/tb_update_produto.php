@@ -12,7 +12,6 @@
 		$fab = $p["fabricante"];
 		$cor = $p["cor"];
 		$qntd = $p["qntd"];
-		$obs = $p["obs"];
 	}
 	
 	if(isset($_POST['salvar'])){
@@ -21,7 +20,6 @@
 		$fab = $_POST['fab'];
 		$cor = $_POST['cor'];
 		$qntd = $_POST['qntd'];
-		$obs = $_POST['obs'];
 		
 	$sql = "
 		UPDATE Produtos_tb SET 
@@ -30,12 +28,11 @@
 		fabricante=?,
 		cor=?,
 		qntd=?,
-		obs=?
 		WHERE id_prod=?
 	";
 	include "conexao.php";
 	$alterar = $conn -> prepare($sql);
-	$alterar -> execute(array($desc, $valor, $fab, $cor, $qntd, $obs, $id));	
+	$alterar -> execute(array($desc, $valor, $fab, $cor, $qntd, $id));	
 	$conn = null;
 	
 	echo" <script>
@@ -49,46 +46,49 @@
     <title>Alterar Produto</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="Inserir/insert style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
   </head>
+  
   <body>
-		<hr>
-		<h2>
+  <div class="container">
+		<header>
+		<h1>
 			Alteração de Produto
-		</h2>
-		<hr>
+		</h1>
+		</header>
 		
+		<main>
 		<form action="#" method="POST">
 		
-			Descrição: 
-			<input type="text" name="desc" value="<?php echo $desc; ?>">
+			Descrição <br> 
+			<input type="text" name="desc" value="<?php echo $desc; ?>" class="campo" required>
 			<br><br>
 			
-			Valor:
-			<input type="text" name="valor" value="<?php echo $valor; ?>">
+			Valor <br>
+			<input type="text" name="valor" value="<?php echo $valor; ?>" class="campo" required>
 			<br><br>
 			
-			Fabricante:
-			<input type="text" name="fab" value="<?php echo $fab; ?>">
+			Fabricante <br>
+			<input type="text" name="fab" value="<?php echo $fab; ?>" class="campo" required>
 			<br><br>
 			
-			Cor:
-			<input type="text" name="cor" value="<?php echo $cor; ?>">
+			Cor <br>
+			<input type="text" name="cor" value="<?php echo $cor; ?>" class="campo" required>
 			<br><br>
 			
-			Quantidade:
-			<input type="number" name="qntd" value="<?php echo $qntd; ?>">
+			Quantidade <br>
+			<input type="number" name="qntd" value="<?php echo $qntd; ?>" class="campo" required>
 			<br><br>
 			
-			Imagem:
-			<input type="file" name="img">
+			Imagem <br>
+			<input type="file" name="img" required>
 			<br><br>
 			
-			OBS:
-			<input type="text" name="obs" value="<?php echo $obs; ?>">
-			<br><br>
-			
-			<input type="submit" name="salvar" value="Salvar">
+			<input type="submit" name="salvar" value="Salvar" id="salvar">
+			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
 		</form>
-		<hr>
+		</main>
+  </div>		
   </body>
 </html>

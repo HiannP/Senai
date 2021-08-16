@@ -8,22 +8,19 @@
 	$conn = null;
 	foreach($categ as $p){
 		$nome = $p["nome"];
-		$obs = $p["obs"];
 	}
 	
 	if(isset($_POST['salvar'])){
 		$nome = $_POST['nome'];
-		$obs = $_POST['obs'];
 		
 	$sql = "
 		UPDATE tb_Categoria SET 
 		nome=?,
-		obs=?
 		WHERE id_categoria=?
 	";
 	include "../conexao.php";
 	$alterar = $conn -> prepare($sql);
-	$alterar -> execute(array($nome, $obs, $id));	
+	$alterar -> execute(array($nome, $id));	
 	$conn = null;
 	
 	echo" <script>
@@ -37,27 +34,29 @@
     <title>Alterar Categoria</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="insert style.css">
+	<link rel="stylesheet" type="text/css" href="../Inserir/insert style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
   </head>
+  
   <body>
-		<hr>
-		<h2>
+  <div class="container">
+		<header>
+		<h1>
 			Alteração de Categoria
-		</h2>
-		<hr>
+		</h1>
+		</header>
 		
+		<main>
 		<form action="#" method="POST">
 		
 			Nome: 
-			<input type="text" name="nome" value="<?php echo $nome; ?>" required>
+			<input type="text" name="nome" value="<?php echo $nome; ?>" class="campo" required>
 			<br><br>
 			
-			OBS:
-			<input type="text" name="obs" value="<?php echo $obs; ?>">
-			<br><br>
-			
-			<input type="submit" name="salvar" value="Salvar">
+			<input type="submit" name="salvar" value="Salvar" id="salvar">
+			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
 		</form>
-		<hr>
+		</main>
+  </div>	
   </body>
 </html>

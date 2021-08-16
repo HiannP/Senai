@@ -11,7 +11,6 @@
 		$email = $p["email"];
 		$senha = $p["senha"];
 		$perfil = $p["perfil"];
-		$obs = $p["obs"];
 	}
 	
 	if(isset($_POST['salvar'])){
@@ -19,7 +18,6 @@
 		$email = $_POST['email'];
 		$senha = $_POST['senha'];
 		$perfil = $_POST['perfil'];
-		$obs = $_POST['obs'];
 		
 	$sql = "
 		UPDATE Usuarios_tb SET 
@@ -27,12 +25,11 @@
 		email=?,
 		senha=?,
 		perfil=?,
-		obs=?
 		WHERE id_user=?
 	";
 	include "../conexao.php";
 	$alterar = $conn -> prepare($sql);
-	$alterar -> execute(array($nome, $email, $senha, $perfil, $obs, $id));	
+	$alterar -> execute(array($nome, $email, $senha, $perfil, $id));	
 	$conn = null;
 	
 	echo" <script>
@@ -46,39 +43,40 @@
     <title>Alterar Produto</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="insert style.css">
+	<link rel="stylesheet" type="text/css" href="../Inserir/insert style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
   </head>
   <body>
-		<hr>
-		<h2>
+  <div class="container">
+		<header>
+		<h1>
 			Alteração de Usuários
-		</h2>
-		<hr>
+		</h1>
+		</header>
 		
+		<main>
 		<form action="#" method="POST">
 		
 			Nome: 
-			<input type="text" name="nome" value="<?php echo $nome; ?>" required>
+			<input type="text" name="nome" value="<?php echo $nome; ?>" class="campo" required>
 			<br><br>
 			
 			Email:
-			<input type="text" name="email" value="<?php echo $email; ?>" required>
+			<input type="text" name="email" value="<?php echo $email; ?>" class="campo" required>
 			<br><br>
 			
 			Senha:
-			<input type="text" name="senha" value="<?php echo $senha; ?>" required>
+			<input type="text" name="senha" value="<?php echo $senha; ?>" class="campo" required>
 			<br><br>
 			
 			Perfil:
-			<input type="text" name="perfil" value="<?php echo $perfil; ?>" required>
+			<input type="text" name="perfil" value="<?php echo $perfil; ?>" class="campo" required>
 			<br><br>
 			
-			OBS:
-			<input type="text" name="obs" value="<?php echo $obs; ?>">
-			<br><br>
-			
-			<input type="submit" name="salvar" value="Salvar">
+			<input type="submit" name="salvar" value="Salvar" id="salvar">
+			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
 		</form>
-		<hr>
+		</main>
+  </div>		
   </body>
 </html>

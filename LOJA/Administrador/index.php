@@ -24,12 +24,12 @@
 			<h1>ADM</h1>
 			</div>
 			<div id="perfil">
-			<a id="icon" title="Perfil"> <i class="fa fa-user-circle"></i></a>
+			<a id="icon"> <i class="fa fa-user-circle"></i></a>
 				<div class="campoP">
 					<a id="name"><?php session_start(); echo $_SESSION['nome'] ?></a>
 					<hr>
-					<a class="botoes"><i class="fa fa-user-circle-o"></i> Perfil</a>
-					<a class="botoes"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
+					<a class="botoes" href="#" title="Perfil"><i class="fa fa-user-circle-o"></i> Perfil</a>
+					<a class="botoes" href="manual_usuario.php" title="Manual do Usuário"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
 					<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 				<a class="ico" href='Inserir/tb_insert_categoria.php' title="Adicionar Categoria"> <i class='fa fa-plus'></i></a>Adicionar Categoria
 			</div>
 			<div class="icones">
-				<a class="ico" href='Inserir/tb_insert_categoria.php' title="Relatórios Semanais"> <i class='fa fa-file-text-o'></i></a>Relatórios Semanais
+				<a class="ico" href='#' title="Relatórios Semanais"> <i class='fa fa-file-text-o'></i></a>Relatórios Semanais
 			</div>
 			
 		</div>
@@ -93,8 +93,8 @@
 				echo "<td>$categ</td>";
 				echo "<td>$qntd</td>";
 				echo "<td>$valor</td>";
-				echo "<td><a title='Editar' href='tb_update.php?id_prod=$id'><i class='fa fa-pencil'></i></a> 
-					  <a title='Excluir' href='tb_delete.php?id_prod=$id&descricao=$desc&img=$img'><i class='fa fa-trash'></i></a></td>";
+				echo "<td><a title='Editar' href='tb_update_produto.php?id_prod=$id'><i class='fa fa-pencil'></i></a> 
+					  <a title='Excluir' href='tb_delete_produto.php?id_prod=$id&descricao=$desc&img=$img'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				
 				//----------------------------------------- CSS -----------------------------------------\\

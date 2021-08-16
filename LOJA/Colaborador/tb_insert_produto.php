@@ -46,10 +46,6 @@
 			<input type="file" name="img">
 			<br><br>
 			
-			OBS <br>
-			<input type="text" name="obs" class="campo">
-			<br><br>
-			
 			<input type="submit" name="salvar" value="Salvar">
 		</form>
 		</main>

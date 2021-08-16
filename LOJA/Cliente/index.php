@@ -1,5 +1,5 @@
 <?php
-	$sql = "SELECT * FROM Produtos_tb Order by rand() limit 20";
+	$sql = "SELECT * FROM Produtos_tb limit 20";
 	include "conexao.php";
 	$produtos = $conn -> prepare($sql);
 	$produtos -> execute();
@@ -10,15 +10,20 @@
 	$categorias = $conn -> prepare($sql1);
 	$categorias -> execute();
 	$conn = null;
+	
+	session_start();
+	$nome = $_SESSION['nome'];
+	$id_user = $_SESSION['id_user'];
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>index</title>
+    <title>GABINETEC</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="index style.css">
+	<link rel="stylesheet" type="text/css" href="visualizacao.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -30,15 +35,15 @@
 			<h1>GABINETEC</h1> 
 			</div>
 			<input class="search" type="search" onkeyup="pesquisaProduto()" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
-			<script type="text/javascript" src="../funcionalidades.js"></script>
+			<a href="carrinho.php?id_user=<?php echo $id_user ?>" id="cart" title="Carrinho"><i class="fa fa-shopping-cart"></i></a>
 			<div id="perfil">
 			<a id="icon" title="Perfil"> <i class="fa fa-user-circle"></i></a>
 				<div class="campoP">
-					<a id="name"><?php session_start(); echo $_SESSION['nome'] ?></a>
+					<a id="name"><?php echo $nome ?></a>
 					<hr>
-					<a class="botoes"><i class="fa fa-user-circle-o"></i> Perfil</a>
-					<a class="botoes"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
-					<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
+					<a><i class="fa fa-user-circle-o"></i> Perfil</a>
+					<a><i class="fa fa-info-circle"></i> Manual do Usuário</a>
+					<a href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>
 		</header>
@@ -58,7 +63,6 @@
 			?>	
 			</div>
 		</div>
-		
 		</aside>		
 		
 		<main>
@@ -66,19 +70,19 @@
 		<?php
 			foreach($produtos as $cad) {
 				
-				$id = $cad['id_prod'];
+				$id_prod = $cad['id_prod'];
 				$desc = $cad['descricao'];
 				$valor = $cad['valor_unit'];
 				$fab = $cad['fabricante'];
-				$img = $cad['img'];
+				$img = $cad['img']; 
 				
 				/*---------------------------------------------------- Produtos ----------------------------------------------------*/
 				echo "<div>";
-					echo "<div class='produtos-item'>";
+					echo "<div class='produtos-item' id='inner'>";
 					
 					echo "<fieldset>";
 				
-					echo "<div id='img'>";
+					echo "<div id='img' title='$desc'>";
 						echo "<img src='../imge/$img.jpg'>";
 					echo "</div>";
 				
@@ -94,7 +98,7 @@
 						echo "<p>por $fab</p>";
 					echo "</div>";
 				
-					echo "<br><br>";
+					echo "<br><br><br><br>";
 				
 					echo "<div id='valor'>";
 						echo "<h2>R$ $valor</h2>";
@@ -102,32 +106,42 @@
 					
 					echo "<br>";
 					
-					echo "<div id='buttons'>";
-					echo "<a title='Comprar' href='carrinho.php?'><button id='compra'><i class='fa fa-shopping-cart'></i></button></a>";
-					echo "<a title='Ver Produto'><button id='ver'><i class='fa fa-search'></i></button></a>";	
+					echo "<div>";
+					echo "<a title='Comprar' href='requisicao_pedido.php?id_prod=$id_prod&id_user=$id_user&valor_unit=$valor'><button id='compra'><i class='fa fa-cart-arrow-down'></i> Comprar</button></a>";
+					echo "<a title='Ver Produto'><button id='ver' onclick='visualiza()'><i class='fa fa-search'></i> Visualizar</button></a>";
+					echo "<script type='text/javascript' src='../funcionalidades.js'></script>";
 					echo "</div>";
-					
+				
+					echo "<div id='myModal' class='modal'>
+							<div class='modal-content'>
+								<div class='modal-header'>
+									<span class='close'>&times;</span>
+									<h2>$desc</h2>
+								</div>
+								<div class='modal-body'>
+									<img src='../imge/$img.jpg'>
+									<p>por $fab</p>
+								</div>
+								<div class='modal-footer'>
+									<h3>R$ $valor</h3>
+								</div>
+							</div>
+						  </div>";	
+				
 					echo "</fieldset>";
 					
 					echo "</div>";
-				echo "</div>";
+				echo "</div>"; 
 				
-				/*---------------------------------------------------- CSS ----------------------------------------------------*/
-				echo "<style>fieldset {width: 300px; height: 450px; border-style: double; border-color: #310162; border-width: 7px;}</style>";
-				echo "<style>#desc {text-align: left;}</style>";
-				echo "<style>#fab {float: left;}</style>";
-				echo "<style>#compra {padding: 4px; font-size: 100%; border-radius: 7px; width: 20%; margin-right: 5px;}</style>";
-				echo "<style>#ver {padding: 4px; font-size: 100%; border-radius: 7px; width: 20%; margin-right: 5px;}</style>"; 
 			}
 		?>
 		</div>
 		<br><br>
 		</main>
-	
 		<footer>
 		 <br> <p>© 2021 de GABINETEC. Todos os direitos reservados.</p> <br>
 		</footer>
+</div>
 </div>		
   </body> 
-  
 </html>

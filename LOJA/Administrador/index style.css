@@ -16,7 +16,7 @@
 
 header {
 	display: grid;
-	grid-template-columns: 1fr 0.05fr;
+	grid-template-columns: 1fr;
 	grid-template-areas:"t i";
 	background-color: #310162;
 	align-items: center;
@@ -56,6 +56,8 @@ header {
 	border-radius: 20px;
 	color: #FF0011;
 	font-size: 230%;
+	cursor: pointer;
+	margin-right: 30px;
 	justify-self: center;
 	text-decoration: none;
 }
@@ -67,7 +69,6 @@ header {
 
 .campoP {
 	display: none;
-	transform: translate(-22px,1px);
 	background-color: #333333;
 	overflow: hidden;
 	position: absolute;
@@ -75,6 +76,13 @@ header {
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
 	z-index: 1;
+}
+
+@media (max-width: 1024px) {
+	.campoP {
+		position: fixed;
+		float: left;
+	}
 }
 
 .campoP a {

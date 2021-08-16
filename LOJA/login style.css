@@ -33,14 +33,18 @@ body {
 	background-color: #001459;
 	background-image: url("back3.jpg");
 	font-family: sans-serif;
+	overflow: hidden;
 }
 
 main {
 	margin-top: 11em;
-	margin-bottom: 16em;
-	margin-right: 3em;
-	margin-left: 3em;
 	grid-area: m;
+}
+
+@media (max-width: 1000px) {
+	main {
+		margin-top: 7em;
+	}
 }
 
 /*-------------------------------------------LOGAR-------------------------------------------------*/
@@ -51,7 +55,6 @@ main {
 }
 
 #boxlogi {
-	font-family: "Audiowide", sans-serif;
 	padding: 20px;
 	text-align: center;
 	font-size: 150%;
@@ -66,15 +69,12 @@ main {
 
 @media (max-width: 1000px) {
 	#boxlogi {
-		width: 15em;
+		font-size: 100%;
 	}
 }
 
-#olho {
-	position: absolute;
-	cursor: pointer;
-	margin-top: 3px;
-	margin-left: -30px;
+label {
+	font-family: "Audiowide", sans-serif;
 }
 
 .imputbox {
@@ -82,6 +82,12 @@ main {
 	border-style: double;
 	width: 95%;
 	background: none;
+}
+
+@media (max-width: 1000px) {
+	#checkbox {
+		margin-top: 10px;
+	}
 }
 
 #buttonlogi1 {
@@ -97,6 +103,12 @@ main {
 	cursor: pointer;
 }
 
+@media (max-width: 1000px) {
+	#buttonlogi1 {
+		padding: 7px 15px;
+	}
+}
+
 #buttonlogi2 {
 	background-color: #CC0000; /* Red */
 	border: none;
@@ -110,19 +122,8 @@ main {
 	cursor: pointer;
 }
 
-footer {
-	font-family: sans-serif;
-	color: #000;
-	background-color: #fff;
-	text-align: center;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	grid-area: f;
-}
-
 @media (max-width: 1000px) {
-	footer {
-		font-size: 120%;
+	#buttonlogi2 {
+		padding: 7px 15px;
 	}
 }

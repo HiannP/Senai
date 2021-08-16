@@ -20,24 +20,26 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="insert style.css">
+		<link rel="stylesheet" type="text/css" href="delete style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<title>Deletar Fornecedor</title>
 	</head>	
 	
+  <div class="container">	
 	<header>
-	<h1 align="center">Excluir Fornecedor?</h1>
+	<h1>Excluir Fornecedor?</h1>
 	</header>
 		
-		<p>
-				<p align="center">ID: <?php echo $id; ?></p>
-				<p align="center">Nome: <?php echo $nome; ?></p>
-		</p>
-		
-		<center>	
+		<main>
+			ID: <?php echo $id; ?> <br><br>
+			Fornecedor: <?php echo $nome; ?>
+			<br><br>
 			<form method="POST" action="#">
-				<input type="submit" name="sim" value="Sim">
-				<input type="button" value="Não" onclick='window.history.back();'>
+				<input type="submit" name="sim" value="Sim" id="deletar">
+				<input type="button" value="Não" onclick='window.history.back();' id="voltar">
 			</form>
-		</center>
+		</main>
+  </div>		
 	</body>
 </html>

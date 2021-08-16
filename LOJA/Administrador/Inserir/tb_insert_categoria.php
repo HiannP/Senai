@@ -22,11 +22,8 @@
 			<input type="text" name="nome" class="campo" required>
 			<br><br>
 			
-			OBS:
-			<input type="text" name="obs" class="campo">
-			<br><br>
-			
-			<input type="submit" name="salvar" value="Salvar">
+			<input type="submit" name="salvar" value="Salvar" id="salvar">
+			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
 		</form>
 		</main>
   </div>
