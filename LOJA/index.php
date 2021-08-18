@@ -1,5 +1,5 @@
 <?php
-	$sql = "SELECT * FROM Produtos_tb limit 20";
+	$sql = "SELECT * FROM tb_Produtos limit 20";
 	include "conexao.php";
 	$cadastro = $conn -> prepare($sql);
 	$cadastro -> execute();
@@ -53,12 +53,12 @@
 		<main>
 		<div class='produtos-grid'>
 		<?php
-			foreach($cadastro as $cad) {
+			foreach($cadastro as $prod) {
 				
-				$desc = $cad['descricao'];
-				$valor = $cad['valor_unit'];
-				$fab = $cad['fabricante'];
-				$img = $cad['img'];
+				$desc = $prod['descricao'];
+				$valor = $prod['valor_unit'];
+				$fab = $prod['fabricante'];
+				$img = $prod['img'];
 				
 				/*---------------------------------------------------- Produtos ----------------------------------------------------*/
 				echo "<div>";
@@ -82,8 +82,6 @@
 						echo "<p>por $fab</p>";
 					echo "</div>";
 				
-					echo "<br><br><br><br>";
-				
 					echo "<div id='valor'>";
 						echo "<h2>R$ $valor</h2>";
 					echo "</div>";
@@ -91,7 +89,7 @@
 					echo "<br>";
 					
 					echo "<div>";
-					echo "<a title='Comprar' href='login.php'><button id='compra'><i class='fa fa-shopping-cart'></i> Comprar</button></a>";
+					echo "<a title='Comprar' href='login.php'><button id='compra'><i class='fa fa-cart-arrow-down'></i> Comprar</button></a>";
 					echo "<a title='Ver Produto'><button id='ver'><i class='fa fa-search'></i> Visualizar</button></a>";	
 					echo "</div>";
 					

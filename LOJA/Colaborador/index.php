@@ -1,5 +1,5 @@
 <?php
-	$sql = "SELECT * FROM Produtos_tb";
+	$sql = "SELECT * FROM tb_Produtos";
 	include "conexao.php";
 	$cadastro = $conn -> prepare($sql);
 	$cadastro -> execute();

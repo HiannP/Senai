@@ -3,7 +3,7 @@
 	padding: 0;
 }
 
-/*------------------------------------------- CORPO -------------------------------------------------*/
+/*----------------------- Body -----------------------*/
 
 .container {
 	display: grid;
@@ -64,6 +64,8 @@ header {
 	}
 }
 
+/*-------------------------- Perfil --------------------------*/
+
 #perfil {
 	overflow: hidden;
 	padding: 1px;
@@ -89,6 +91,8 @@ header {
 		margin-right: 10px;
 	}
 }
+
+/*-------------------------- Carrinho --------------------------*/
 
 #cart {
 	margin-right: 30px;
@@ -216,9 +220,11 @@ aside {
     display: block;
 }
 
+/*-------------------------------------------------------*/
+
 .produtos-grid {
 	display: grid;
-	grid-template-columns: 0.2fr 0.2fr 0.2fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 2em;
 }
 
@@ -272,6 +278,10 @@ fieldset {
 #fab {
 	float: left; 
 	color: #CC0000;
+}
+
+#valor {
+	margin-top: 5em;
 }
 
 #compra {

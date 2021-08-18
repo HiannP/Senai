@@ -5,7 +5,7 @@
 
 	if(isset($_POST['sim'])){
 	unlink("../imge/$img.jpg");
-	$sql = "DELETE FROM Produtos_tb WHERE id_prod='$id'";
+	$sql = "DELETE FROM tb_Produtos WHERE id_prod='$id'";
 	include "conexao.php";
 	$delete = $conn -> prepare($sql);
 	$delete -> execute();	

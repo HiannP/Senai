@@ -188,6 +188,10 @@ fieldset {
 	color: #CC0000;
 }
 
+#valor {
+	margin-top: 5em;
+}
+
 #compra {
 	padding: 4px; 
 	font-size: 100%; 

@@ -1,3 +1,12 @@
+<?php
+	$sql = "SELECT * FROM tb_Categoria";
+	include "../conexao.php";
+	$categoria = $conn -> prepare($sql);
+	$categoria -> execute();
+	$conn = null;
+	
+?>	
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -19,7 +28,7 @@
 		<form action="carregarProduto.php" method="POST" enctype="multipart/form-data">
 		
 			Categoria <br>
-			<input type="text" name="categ" class="campo" required>
+			<select name="categ" class="campo" required><option></option></select>
 			<br><br>
 		
 			Descrição <br>

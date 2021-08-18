@@ -1,7 +1,7 @@
 <?php
 	
 	$id = $_GET['id_prod'];
-	$sql = "SELECT * FROM Produtos_tb WHERE id_prod='$id'";
+	$sql = "SELECT * FROM tb_Produtos WHERE id_prod='$id'";
 	include "conexao.php";
 	$prod = $conn -> prepare($sql);
 	$prod -> execute();	

@@ -1,5 +1,5 @@
 <?php
-	$sql = "SELECT * FROM Produtos_tb limit 20";
+	$sql = "SELECT * FROM tb_Produtos limit 20";
 	include "conexao.php";
 	$produtos = $conn -> prepare($sql);
 	$produtos -> execute();
@@ -41,7 +41,7 @@
 				<div class="campoP">
 					<a id="name"><?php echo $nome ?></a>
 					<hr>
-					<a><i class="fa fa-user-circle-o"></i> Perfil</a>
+					<a href="perfil.php?id_user=<?php echo $id_user ?>?" title="Perfil"><i class="fa fa-user-circle-o"></i> Perfil</a>
 					<a><i class="fa fa-info-circle"></i> Manual do Usuário</a>
 					<a href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
@@ -68,13 +68,13 @@
 		<main>
 		<div class='produtos-grid'>
 		<?php
-			foreach($produtos as $cad) {
+			foreach($produtos as $prod) {
 				
-				$id_prod = $cad['id_prod'];
-				$desc = $cad['descricao'];
-				$valor = $cad['valor_unit'];
-				$fab = $cad['fabricante'];
-				$img = $cad['img']; 
+				$id_prod = $prod['id_prod'];
+				$desc = $prod['descricao'];
+				$valor = $prod['valor_unit'];
+				$fab = $prod['fabricante'];
+				$img = $prod['img']; 
 				
 				/*---------------------------------------------------- Produtos ----------------------------------------------------*/
 				echo "<div>";
@@ -97,8 +97,6 @@
 					echo "<div id='fab'>";
 						echo "<p>por $fab</p>";
 					echo "</div>";
-				
-					echo "<br><br><br><br>";
 				
 					echo "<div id='valor'>";
 						echo "<h2>R$ $valor</h2>";

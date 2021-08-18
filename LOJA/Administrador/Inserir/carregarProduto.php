@@ -16,7 +16,7 @@ $img = uniqid().".".$formato;
 $upload = move_uploaded_file($img_temp, '../imge/'.$img);
 
 if(isset($upload)){
-	$sql = "INSERT INTO Produtos_tb VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	$sql = "INSERT INTO tb_Produtos VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	include "../conexao.php";
 	$cadastro = $conn -> prepare($sql);
 	$cadastro -> execute(array($id_prod, $categoria, $descricao, $valor_unit, $fabricante, $cor, $qntd, $img));
