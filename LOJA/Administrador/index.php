@@ -1,4 +1,13 @@
 <?php
+	session_start();
+	$Perfil = $_SESSION['perfil'];
+	$nome = $_SESSION['nome'];
+	$id_user = $_SESSION['id_user'];
+
+	if(!isset($Perfil) or ($Perfil != 5)) {
+		header('Location: ../login.php');
+	}	
+	
 	$sql = "SELECT * FROM tb_Produtos";
 	include "conexao.php";
 	$cadastro = $conn -> prepare($sql);
@@ -26,11 +35,11 @@
 			<div id="perfil">
 			<a id="icon"> <i class="fa fa-user-circle"></i></a>
 				<div class="campoP">
-					<a id="name"><?php session_start(); echo $_SESSION['nome'] ?></a>
+					<a id="name"><?php echo $nome ?></a>
 					<hr>
 					<a class="botoes" href="#" title="Perfil"><i class="fa fa-user-circle-o"></i> Perfil</a>
 					<a class="botoes" href="manual_usuario.php" title="Manual do Usuário"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
-					<a class="botoes" href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
+					<a class="botoes" href="../logout.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>
 		</header>
@@ -58,7 +67,7 @@
 				<a class="ico" href='Inserir/tb_insert_categoria.php' title="Adicionar Categoria"> <i class='fa fa-plus'></i></a>Adicionar Categoria
 			</div>
 			<div class="icones">
-				<a class="ico" href='#' title="Relatórios Semanais"> <i class='fa fa-file-text-o'></i></a>Relatórios Semanais
+				<a class="ico" href='Listas/relatorio.php' title="Relatórios Semanais"> <i class='fa fa-file-text-o'></i></a>Relatórios
 			</div>
 			
 		</div>
@@ -87,7 +96,7 @@
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tr>";
-				echo "<td><img src='../imge/$img.jpg' height='100' width='100'></td>";
+				echo "<td id='img'><img src='../imge/$img.jpg' height='100' width='100'></td>";
 				echo "<td>$desc</td>";
 				echo "<td>$fab</td>";
 				echo "<td>$categ</td>";

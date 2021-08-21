@@ -1,22 +1,25 @@
 <?php
+	include "conexao.php";
+	
+	session_start();
+
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
+	$senha = md5($senha);
 	
-	$sql="SELECT * FROM tb_Usuarios WHERE email=? AND senha=?";
-	include "conexao.php";
+	$sql = "SELECT * FROM tb_Usuarios WHERE email='$email' AND senha='$senha'";
 	$Usuario = $conn -> prepare($sql);
 	$Usuario -> execute(array($email, $senha));
-	
 	$conn = null;
 	
 	$porta = $Usuario -> rowCount();
-	session_start();
 	
 	if($porta==1){
 		foreach($Usuario as $U) {
 			$Perfil = $U['perfil'];
 			$Nome = $U['nome'];
 			$Id = $U['id_user'];
+			$_SESSION['perfil'] = $Perfil;
 			$_SESSION['nome'] = $Nome;
 			$_SESSION['id_user'] = $Id;
 			

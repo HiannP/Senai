@@ -31,6 +31,40 @@ header {
 	border-width: 3px;
 }
 
+.acoes {
+	padding-right: 15px;
+}
+
+@media (max-width: 1024px) {
+	.acoes {
+		padding-right: 0;
+	}
+}
+
+.inserir {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	border-radius: 5px;
+	color: white;
+	padding: 1px 15px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.voltar {
+	background-color: #CC0000; /* Red */
+	border: none;
+	border-radius: 5px;
+	color: white;
+	padding: 1px 15px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+}
+
 main {
 	margin-top: 2em;
 	align-items: center;

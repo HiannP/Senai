@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 	$sql = "SELECT * FROM tb_Categoria";
 	include "../conexao.php";
@@ -6,6 +5,8 @@
 	$cadastro -> execute();
 	$conn = null;
 ?>
+
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <title>Lista de Categorias</title>
@@ -20,6 +21,10 @@
   <div class="container"> 
 		<header>
 		<h1>Lista de Categorias</h1>
+		<div class="acoes">
+		<a class="inserir" href="#">INSERIR</a>
+		<a class="voltar" href="../index.php">VOLTAR</a>
+		</div>
 		</header>
 		<main>
 		<input class="search" type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;" id="lupa"></i>

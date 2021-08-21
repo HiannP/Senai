@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 	$sql = "SELECT * FROM tb_Usuarios";
 	include "../conexao.php";
@@ -6,6 +5,8 @@
 	$cadastro -> execute();
 	$conn = null;
 ?>
+
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <title>Lista de Usuarios</title>
@@ -20,7 +21,12 @@
   <div class="container"> 
 		<header>
 		<h1>Lista de Usuarios</h1>
+		<div class="acoes">
+		<a class="inserir" href="../Inserir/tb_insert_usuario.php">INSERIR</a>
+		<a class="voltar" href="../index.php">VOLTAR</a>
+		</div>
 		</header>
+		
 		<main>
 		<input class="search" type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;" id="lupa"></i>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">

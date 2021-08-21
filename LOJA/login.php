@@ -17,7 +17,7 @@
 		<main>
 		<div id="boxfield">
 		<fieldset id="boxlogi">
-			<form action="login2.php" method="POST">
+			<form action="carregarLogin.php" method="POST">
 			<label>Email</label><br>
 			<input type="email" id="email" name="email" class="imputbox" required> <br><br>
 			
@@ -29,6 +29,9 @@
 			
 			<input type="submit" value="Logar" id="buttonlogi1">
 			<input type="button" value="Voltar" onclick="window.location.href='index.php';" id="buttonlogi2">
+			
+			<br><br>
+			<p class="cadastro">Não possui um cadastrado? <a id="cadastro1" href="cadastro.php">Clique aqui.</a></p>
 			</form>		
 		</fieldset>
 		</div>
@@ -36,9 +39,3 @@
   </div>
   </body>
 </html>
-
-   <!-- padilha.hiann@gmail.com | senha:h5
-
-		cezar.jenzura@gmail.com | senha:c1
-
-		patri.trik@gmail.com 	| senha:p3 -->

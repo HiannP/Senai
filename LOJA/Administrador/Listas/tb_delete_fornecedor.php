@@ -11,7 +11,7 @@
 	
 	echo "<script>
 				alert('Fornecedor excluido com sucesso!'); 
-				window.location.href='index.php'; 
+				window.location.href='lista_fornecedores.php'; 
 		 </script>";
 	}
 ?>

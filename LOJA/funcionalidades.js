@@ -1,3 +1,5 @@
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+
 function mostrarOcultarSenha() {
 	
 	var senha = document.getElementById("senha");
@@ -39,4 +41,10 @@ function visualiza() {
 		modal.style.display = "none";
 	  }
 	}
+}
+
+function totalProd() {
+	
+	var valor = document.getElementById("senha");
+	
 }

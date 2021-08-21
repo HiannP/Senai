@@ -1,5 +1,5 @@
 <?php
-	$sql = "SELECT * FROM tb_Marcas";
+	$sql = "SELECT * FROM tb_Vendas";
 	include "../conexao.php";
 	$cadastro = $conn -> prepare($sql);
 	$cadastro -> execute();
@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Lista de Fornecedores</title>
+    <title>Relatórios</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="lista style.css">
@@ -20,37 +20,42 @@
   <body>
   <div class="container"> 
 		<header>
-		<h1>Lista de Fornecedores</h1>
-		<div class="acoes">
-		<a class="inserir" href="#">INSERIR</a>
-		<a class="voltar" href="../index.php">VOLTAR</a>
-		</div>
+		<h1>Relatórios</h1>
 		</header>
 		<main>
 		<input class="search" type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;" id="lupa"></i>
-		<table  border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
+		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<tr>
 				<th>ID</th>
-				<th>Nome</th>
-				<th>Email</th>
-				<th>Telefone</th>
+				<th>ID do Produto</th>
+				<th>ID do Cliente</th>
+				<th>Quantidade</th>
+				<th>Data de Compra</th>
+				<th>Preço</th>
+				<th>Situação</th>
 				<th>Opções</th>
 			</tr>
 		<?php
 			foreach($cadastro as $cad) {
-				$id = $cad['id_marcas'];
-				$nome = $cad['nome'];
-				$email = $cad['email'];
-				$tel = $cad['telefone'];
+				$id = $cad['id_venda'];
+				$FK_id_prod = $cad['FK_id_prod'];
+				$FK_id_user = $cad['FK_id_user'];
+				$qntd = $cad['qntd'];
+				$data = $cad['data_compra'];
+				$valor = $cad['valor_unit'];
+				$situacao = $cad['situacao'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tr>";
 				echo "<td>$id</td>";
-				echo "<td>$nome</td>";
-				echo "<td>$email</td>";
-				echo "<td>$tel</td>";
-				echo "<td><a title='Editar' href='tb_update_fornecedor.php?id_marcas=$id'><i class='fa fa-pencil'></i></a> 
-					  <a title='Excluir' href='tb_delete_fornecedor.php?id_marcas=$id&nome=$nome'><i class='fa fa-trash'></i></a></td>";
+				echo "<td>$FK_id_prod</td>";
+				echo "<td>$FK_id_user</td>";
+				echo "<td>$qntd</td>";
+				echo "<td>$data</td>";
+				echo "<td>$valor</td>";
+				echo "<td>$situacao</td>";
+				echo "<td><a title='Editar' href='#'><i class='fa fa-pencil'></i></a> 
+					  <a title='Excluir' href='tb_delete_relatorio.php?id_venda=$id&data_compra=$data'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				
 				//----------------------------------------- CSS -----------------------------------------\\

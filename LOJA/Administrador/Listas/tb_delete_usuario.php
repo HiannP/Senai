@@ -11,7 +11,7 @@
 	
 	echo "<script>
 				alert('Usuario excluido com sucesso!'); 
-				window.location.href='index.php'; 
+				window.location.href='lista_usuarios.php'; 
 		 </script>";
 	}
 ?>

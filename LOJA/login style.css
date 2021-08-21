@@ -127,3 +127,12 @@ label {
 		padding: 7px 15px;
 	}
 }
+
+.cadastro {
+	font-size: 70%;
+}
+
+#cadastro1 {
+	font-size: 90%;
+	text-decoration: none;
+}

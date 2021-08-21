@@ -1,4 +1,13 @@
 <?php
+	session_start();
+	$Perfil = $_SESSION['perfil'];
+	$nome = $_SESSION['nome'];
+	$id_user = $_SESSION['id_user'];
+	
+	if(!isset($Perfil) or ($Perfil != 1)) {
+		header('Location: ../login.php');
+	}	
+	
 	$sql = "SELECT * FROM tb_Produtos limit 20";
 	include "conexao.php";
 	$produtos = $conn -> prepare($sql);
@@ -10,10 +19,6 @@
 	$categorias = $conn -> prepare($sql1);
 	$categorias -> execute();
 	$conn = null;
-	
-	session_start();
-	$nome = $_SESSION['nome'];
-	$id_user = $_SESSION['id_user'];
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +48,7 @@
 					<hr>
 					<a href="perfil.php?id_user=<?php echo $id_user ?>?" title="Perfil"><i class="fa fa-user-circle-o"></i> Perfil</a>
 					<a><i class="fa fa-info-circle"></i> Manual do Usuário</a>
-					<a href="../login.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
+					<a href="../logout.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>
 		</header>

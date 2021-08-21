@@ -106,6 +106,15 @@
 		<footer>
 		 <br> <p>© 2021 de GABINETEC. Todos os direitos reservados.</p> <br>
 		</footer>
+		<script type="text/javascript">
+		  window._mfq = window._mfq || [];
+		  (function() {
+			var mf = document.createElement("script");
+			mf.type = "text/javascript"; mf.defer = true;
+			mf.src = "//cdn.mouseflow.com/projects/ec8b8a87-793d-4016-aa0a-9ed100792e59.js";
+			document.getElementsByTagName("head")[0].appendChild(mf);
+		  })();
+		</script>
 </div>		
   </body> 
 </html>

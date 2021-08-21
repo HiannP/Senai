@@ -10,7 +10,6 @@
 		$desc = $p["descricao"];
 		$valor = $p["valor_unit"];
 		$fab = $p["fabricante"];
-		$cor = $p["cor"];
 		$qntd = $p["qntd"];
 	}
 	
@@ -18,7 +17,6 @@
 		$desc = $_POST['desc'];
 		$valor = $_POST['valor'];
 		$fab = $_POST['fab'];
-		$cor = $_POST['cor'];
 		$qntd = $_POST['qntd'];
 		
 	$sql = "
@@ -26,13 +24,12 @@
 		descricao=?,
 		valor_unit=?,
 		fabricante=?,
-		cor=?,
 		qntd=?,
 		WHERE id_prod=?
 	";
 	include "conexao.php";
 	$alterar = $conn -> prepare($sql);
-	$alterar -> execute(array($desc, $valor, $fab, $cor, $qntd, $id));	
+	$alterar -> execute(array($desc, $valor, $fab, $qntd, $id));	
 	$conn = null;
 	
 	echo" <script>
@@ -71,10 +68,6 @@
 			
 			Fabricante <br>
 			<input type="text" name="fab" value="<?php echo $fab; ?>" class="campo" required>
-			<br><br>
-			
-			Cor <br>
-			<input type="text" name="cor" value="<?php echo $cor; ?>" class="campo" required>
 			<br><br>
 			
 			Quantidade <br>
