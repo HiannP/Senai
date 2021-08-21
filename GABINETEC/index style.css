@@ -188,8 +188,16 @@ fieldset {
 	color: #CC0000;
 }
 
+#fabVis {
+	 width: 97%; 
+}
+
 #valor {
 	margin-top: 5em;
+}
+
+#valVis {
+	width: 97%;
 }
 
 #compra {

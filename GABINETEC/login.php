@@ -4,6 +4,7 @@
     <title>Login</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="funcionalidades.js"></script>
 	<link rel="stylesheet" type="text/css" href="login style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 
@@ -24,8 +25,6 @@
 			<label>Senha</label><br>
 			<input type="password" id="senha" name="senha" class="imputbox" required> <br>
 			<input type="checkbox" onclick="mostrarOcultarSenha()" id="checkbox"> <small id="legend" style="font-size: 70%; ">Mostrar Senha</small> <br><br>
-			<script type="text/javascript" src="funcionalidades.js"></script>
-			
 			
 			<input type="submit" value="Logar" id="buttonlogi1">
 			<input type="button" value="Voltar" onclick="window.location.href='index.php';" id="buttonlogi2">

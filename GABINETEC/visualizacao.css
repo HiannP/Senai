@@ -15,17 +15,24 @@
 
 /* Modal Content */
 .modal-content {
+  color: #CC0000;
   position: relative;
   background-color: #fefefe;
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 80%;
+  width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s
+}
+
+@media (max-width: 1000px) {
+	.modal-content {
+		width: 85%;
+	}
 }
 
 /* Add Animation */
@@ -41,7 +48,7 @@
 
 /* The Close Button */
 .close {
-  color: white;
+  color: #000;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -49,7 +56,6 @@
 
 .close:hover,
 .close:focus {
-  color: #000;
   text-decoration: none;
   cursor: pointer;
 }

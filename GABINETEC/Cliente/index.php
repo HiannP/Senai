@@ -27,8 +27,10 @@
     <title>GABINETEC</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="index style.css">
-	<link rel="stylesheet" type="text/css" href="visualizacao.css">
+	<link rel="stylesheet" type="text/css" href="../visualizacao.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -83,10 +85,10 @@
 				
 				/*---------------------------------------------------- Produtos ----------------------------------------------------*/
 				echo "<div>";
-					echo "<div class='produtos-item' id='inner'>";
+					echo "<div class='produtos-item'>";
 					
 					echo "<fieldset>";
-				
+
 					echo "<div id='img' title='$desc'>";
 						echo "<img src='../imge/$img.jpg'>";
 					echo "</div>";
@@ -111,33 +113,40 @@
 					
 					echo "<div>";
 					echo "<a title='Comprar' href='requisicao_pedido.php?id_prod=$id_prod&id_user=$id_user&valor_unit=$valor'><button id='compra'><i class='fa fa-cart-arrow-down'></i> Comprar</button></a>";
-					echo "<a title='Ver Produto'><button id='ver' onclick='visualiza()'><i class='fa fa-search'></i> Visualizar</button></a>";
-					echo "<script type='text/javascript' src='../funcionalidades.js'></script>";
+					echo "<button id='ver' data-toggle='modal' data-target='#modalProduto$id_prod' title='Ver Produto'><i class='fa fa-search'></i> Visualizar</button>";
 					echo "</div>";
-				
-					echo "<div id='myModal' class='modal'>
-							<div class='modal-content'>
-								<div class='modal-header'>
-									<span class='close'>&times;</span>
-									<h2>$desc</h2>
-								</div>
-								<div class='modal-body'>
-									<img src='../imge/$img.jpg'>
-									<p>por $fab</p>
-								</div>
-								<div class='modal-footer'>
-									<h3>R$ $valor</h3>
-								</div>
-							</div>
-						  </div>";	
 				
 					echo "</fieldset>";
-					
+
+					echo "<div class='modal fade' id='modalProduto$id_prod' tabindex='-1' role='dialog' aria-labelledby='ModalLabel' aria-hidden='true'>
+					  <div class='modal-dialog' role='document'>
+						<div class='modal-content'>
+						  <div class='modal-header'>
+							<h3 class='modal-title' id='ModalLabel'>$desc</h3>
+							<button class='close' data-dismiss='modal' aria-label='Fechar'>
+							  <span aria-hidden='true'>&times;</span>
+							</button>
+						  </div>
+						  <div class='modal-body'>
+							<img src='../imge/$img.jpg'>
+							<br>
+							<div id='fabVis'>
+							por $fab
+							</div>
+						  </div>
+						  <div class='modal-footer'>
+						  <div id='valVis'>
+						  <h2>R$ $valor</h2>
+						  </div>
+						  </div>
+						</div>
+					  </div>
+					</div>";
 					echo "</div>";
-				echo "</div>"; 
-				
+				echo "</div>";
 			}
 		?>
+		
 		</div>
 		<br><br>
 		</main>

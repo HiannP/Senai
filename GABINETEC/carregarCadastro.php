@@ -4,7 +4,7 @@ $id_user = "";
 $nome = $_POST['nome'];
 $sobre = $_POST['sobrenome'];
 $email = $_POST['email'];
-$senha = $_POST['senha'];
+$senha = $_POST['confiSenha'];
 $senhaSegura = md5($senha);
 $perfil = 1;
 date_default_timezone_set('America/Sao_Paulo');
