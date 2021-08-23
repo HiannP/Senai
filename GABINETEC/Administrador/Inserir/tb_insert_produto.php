@@ -1,3 +1,18 @@
+<?php
+	
+	$sql = "SELECT * FROM tb_Categorias";
+	include "../conexao.php";
+	$categorias = $conn -> prepare($sql);
+	$categorias -> execute();
+	$conn = null;
+	
+	$sql1 = "SELECT * FROM tb_Marcas";
+	include "../conexao.php";
+	$marcas = $conn -> prepare($sql1);
+	$marcas -> execute();
+	$conn = null;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -19,19 +34,41 @@
 		<form action="carregarProduto.php" method="POST" enctype="multipart/form-data">
 		
 			Categoria <br>
-			<input type="text" name="categ" class="campo" required>
+			<select name="categ" class="campo" required>
+				<option></option>
+				<?php
+				foreach($categorias as $cate) {
+				
+					$categ = $cate['id_categoria'];
+					$nomeC = $cate['categoria'];
+
+					echo "<option value='$categ'>$nomeC</a>";
+				}
+				?>
+			</select>
 			<br><br>
 		
 			Descrição <br>
 			<input type="text" name="desc" class="campo" required>
 			<br><br>
 			
-			Valor <br>
+			Preço (R$) <br>
 			<input type="text" name="valor" class="campo" required>
 			<br><br>
 			
 			Fabricante <br>
-			<input type="text" name="fab" class="campo" required>
+			<select name="fab" class="campo" required>
+			<option></option>
+				<?php
+				foreach($marcas as $marc) {
+				
+					$marca = $marc['id_marca'];
+					$nomeM = $marc['marca'];
+
+					echo "<option value='$marca'>$nomeM</a>";
+				}
+				?>
+			</select>
 			<br><br>
 			
 			Quantidade <br>
@@ -39,11 +76,12 @@
 			<br><br>
 			
 			Imagem <br>
-			<input type="file" name="img">
+			<input type="file" name="img"> <br>
+			<small style="font-size: 70%; color: gray;">Dimensão de Imagem <br>!!! RECOMENDADA !!!: 200 X 200</small>
 			<br><br>
 			
 			<input type="submit" name="salvar" value="Salvar" id="salvar">
-			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
+			<input type="button" value="Voltar" onclick="window.location.href='../index.php';" id="voltar">
 		</form>
 		</main>
   </div>	

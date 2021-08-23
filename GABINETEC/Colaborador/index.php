@@ -8,10 +8,14 @@
 		header('Location: ../login.php');
 	}
 
-	$sql = "SELECT * FROM tb_Produtos";
+	$sql = "SELECT * FROM tb_Produtos AS A
+			INNER JOIN tb_Categorias AS B
+			INNER JOIN tb_Marcas AS C
+			ON A.FK_id_categoria = B.id_categoria
+			AND A.FK_id_marca = C.id_marca";
 	include "conexao.php";
-	$cadastro = $conn -> prepare($sql);
-	$cadastro -> execute();
+	$produtos = $conn -> prepare($sql);
+	$produtos -> execute();
 	$conn = null;
 ?>
 
@@ -22,6 +26,8 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="index style.css">
+	<script type="text/javascript" src="../funcionalidades.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -51,8 +57,9 @@
 		</div>	
 		
 		<main>
-		<input class="search" type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
+		<input class="search" oninput="pesquisa()" id='search' type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
+			<thead>
 			<tr>
 				<th>Produto</th>
 				<th>Descrição</th>
@@ -61,26 +68,29 @@
 				<th>Quantidade</th>
 				<th>Preço (R$)</th>
 			</tr>
+			</thead>
 		<?php
-			foreach($cadastro as $cad) {
+			foreach($produtos as $prod) {
 				
-				$id = $cad['id_prod'];
-				$desc = $cad['descricao'];
-				$fab = $cad['fabricante'];
-				$categ = $cad['categoria'];
-				$qntd = $cad['qntd'];
-				$valor = $cad['valor_unit'];
-				$img = $cad['img'];
+				$id = $prod['id_prod'];
+				$desc = $prod['descricao'];
+				$fab = $prod['marca'];
+				$categ = $prod['categoria'];
+				$qntd = $prod['qntd'];
+				$valor = $prod['valor_unit'];
+				$img = $prod['img'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
+				echo "<tbody id='pesquisado'>";
 				echo "<tr>";
-				echo "<td><img src='../imge/$img.jpg' height='100' width='100'></td>";
+				echo "<td id='img'><img src='../imge/$img.jpg' height='100' width='100'></td>";
 				echo "<td>$desc</td>";
 				echo "<td>$fab</td>";
 				echo "<td>$categ</td>";
 				echo "<td>$qntd</td>";
 				echo "<td>$valor</td>";
 				echo "</tr>";
+				echo "</tbody>";
 				
 				//----------------------------------------- CSS -----------------------------------------\\
 				echo "<style>tr {background-color: #fff;}</style>";

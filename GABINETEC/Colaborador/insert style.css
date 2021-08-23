@@ -21,6 +21,12 @@ header {
 	grid-area: h;
 }
 
+@media (max-width: 1000px) {
+	header {
+		font-size: 90%;
+	}
+}
+
 main {
 	margin-top: 2em;
 	font-family: sans-serif;
@@ -32,10 +38,37 @@ main {
 }
 
 .campo {
-	width: 100%;
-	font-size: 16px;
+	width: 90%;
+	font-size: 20px;
 	border: none;
 	border-radius: 4px; 
+	text-align: center;
+}
+
+#salvar {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	border-radius: 5px;
+	color: white;
+	padding: 12px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+#voltar {
+	background-color: #CC0000; /* Red */
+	border: none;
+	border-radius: 5px;
+	color: white;
+	padding: 12px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
 }
 
 body {
@@ -43,21 +76,4 @@ body {
 	font-family: sans-serif;
 	font-size: 1em;
 	margin-bottom: 100px;
-}
-
-footer {
-	font-family: sans-serif;
-	color: #000;
-	background-color: #fff;
-	text-align: center;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	grid-area: f;
-}
-
-@media (max-width: 1024px) {
-	header {
-		font-size: 90%;
-	}
 }

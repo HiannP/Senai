@@ -13,6 +13,8 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="lista style.css">
+	<script type="text/javascript" src="../../funcionalidades.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -28,8 +30,9 @@
 		</header>
 		
 		<main>
-		<input class="search" type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;" id="lupa"></i>
+		<input class="search" oninput="pesquisa()" id='search' type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
+			<thead>
 			<tr>
 				<th>ID</th>
 				<th>Nome</th>
@@ -38,6 +41,7 @@
 				<th>OBS</th>
 				<th>Opções</th>
 			</tr>
+			</thead>
 		<?php
 			foreach($cadastro as $cad) {
 				$id = $cad['id_user'];
@@ -47,6 +51,7 @@
 				$obs = $cad['obs'];
 
 				//---------------------------------------- HTML ----------------------------------------\\
+				echo "<tbody id='pesquisado'>";
 				echo "<tr>";
 				echo "<td>$id</td>";
 				echo "<td>$nome</td>";
@@ -55,7 +60,7 @@
 				echo "<td>$obs</td>";
 				echo "<td><a title='Editar' href='tb_update_usuario.php?id_user=$id'><i class='fa fa-pencil'></i></a> 
 					  <a title='Excluir' href='tb_delete_usuario.php?id_user=$id&nome=$nome'><i class='fa fa-trash'></i></a></td>";
-				echo "</tr>";
+				echo "</tbody>";
 				
 				//----------------------------------------- CSS -----------------------------------------\\
 				echo "<style>tr {background-color: #fff;}</style>";

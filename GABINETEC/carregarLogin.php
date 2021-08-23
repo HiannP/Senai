@@ -1,6 +1,4 @@
 <?php
-	include "conexao.php";
-	
 	session_start();
 
 	$email = $_POST['email'];
@@ -8,6 +6,7 @@
 	$senha = md5($senha);
 	
 	$sql = "SELECT * FROM tb_Usuarios WHERE email='$email' AND senha='$senha'";
+	include "conexao.php";
 	$Usuario = $conn -> prepare($sql);
 	$Usuario -> execute(array($email, $senha));
 	$conn = null;

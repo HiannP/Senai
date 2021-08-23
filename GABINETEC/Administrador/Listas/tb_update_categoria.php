@@ -1,7 +1,7 @@
 <?php
 	
 	$id = $_GET['id_categoria'];
-	$sql = "SELECT * FROM tb_Categoria WHERE id_categoria='$id'";
+	$sql = "SELECT * FROM tb_Categorias WHERE id_categoria='$id'";
 	include "../conexao.php";
 	$categ = $conn -> prepare($sql);
 	$categ -> execute();	
@@ -14,7 +14,7 @@
 		$nome = $_POST['nome'];
 		
 	$sql = "
-		UPDATE tb_Categoria SET 
+		UPDATE tb_Categorias SET 
 		nome=?,
 		WHERE id_categoria=?
 	";

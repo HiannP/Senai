@@ -8,12 +8,16 @@
 		header('Location: ../login.php');
 	}	
 	
-	$sql = "SELECT * FROM tb_Produtos limit 20";
+	$sql = "SELECT * FROM tb_Produtos AS A
+			INNER JOIN tb_Categorias AS B 
+			INNER JOIN tb_Marcas AS C 
+			ON A.FK_id_categoria = B.id_categoria 
+			AND A.FK_id_marca = C.id_marca";
 	include "conexao.php";
 	$produtos = $conn -> prepare($sql);
 	$produtos -> execute();
 	$conn = null;
-	
+
 	$sql1 = "SELECT * FROM tb_Categoria";
 	include "conexao.php";
 	$categorias = $conn -> prepare($sql1);
@@ -41,15 +45,15 @@
 			<div id="title">
 			<h1>GABINETEC</h1> 
 			</div>
-			<input class="search" type="search" onkeyup="pesquisaProduto()" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
+			<input class="search" type="search" placeholder="Pesquisa (Nome, Modelo, Marca, etc...)">
 			<a href="carrinho.php?id_user=<?php echo $id_user ?>" id="cart" title="Carrinho"><i class="fa fa-shopping-cart"></i></a>
 			<div id="perfil">
 			<a id="icon" title="Perfil"> <i class="fa fa-user-circle"></i></a>
 				<div class="campoP">
 					<a id="name"><?php echo $nome ?></a>
 					<hr>
-					<a href="perfil.php?id_user=<?php echo $id_user ?>?" title="Perfil"><i class="fa fa-user-circle-o"></i> Perfil</a>
-					<a><i class="fa fa-info-circle"></i> Manual do Usuário</a>
+					<a href="perfil.php?id_user=<?php echo $id_user ?>" title="Perfil"><i class="fa fa-user-circle-o"></i> Perfil</a>
+					<a href="#"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
 					<a href="../logout.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>
@@ -57,19 +61,20 @@
 		
 		<aside>
 		<div class="dropdown">
-		<a class="botoes">Categoria <i class="fa fa-caret-down"></i></a>
+		<a class="categoria">Categoria <i class="fa fa-caret-down"></i></a>
 			<div class="dropdown-content">
 			<?php
 				foreach($categorias as $cate) {
 				
 					$categ = $cate['id_categoria'];
-					$nome = $cate['nome'];
+					$nome = $cate['categoria'];
 
 					echo "<a>$nome</a>";
 				}
 			?>	
 			</div>
 		</div>
+		<a class="agendar">Agendar Personalização <i class="fa fa-calendar"></i></a>	
 		</aside>		
 		
 		<main>
@@ -80,8 +85,9 @@
 				$id_prod = $prod['id_prod'];
 				$desc = $prod['descricao'];
 				$valor = $prod['valor_unit'];
-				$fab = $prod['fabricante'];
-				$img = $prod['img']; 
+				$fab = $prod['marca'];
+				$categ = $prod['categoria'];
+				$img = $prod['img'];
 				
 				/*---------------------------------------------------- Produtos ----------------------------------------------------*/
 				echo "<div>";
@@ -102,7 +108,7 @@
 					echo "</div>";
 					
 					echo "<div id='fab'>";
-						echo "<p>por $fab</p>";
+						echo "<p>Vendido por $fab</p>";
 					echo "</div>";
 				
 					echo "<div id='valor'>";
@@ -110,14 +116,14 @@
 					echo "</div>";
 					
 					echo "<br>";
-					
-					echo "<div>";
-					echo "<a title='Comprar' href='requisicao_pedido.php?id_prod=$id_prod&id_user=$id_user&valor_unit=$valor'><button id='compra'><i class='fa fa-cart-arrow-down'></i> Comprar</button></a>";
-					echo "<button id='ver' data-toggle='modal' data-target='#modalProduto$id_prod' title='Ver Produto'><i class='fa fa-search'></i> Visualizar</button>";
-					echo "</div>";
-				
-					echo "</fieldset>";
 
+					echo "<div>";
+					echo "<a title='Comprar' href='requisicao_pedido.php?id_prod=$id_prod&id_user=$id_user&valor_unit=$valor'> <button id='compra'><i class='fa fa-cart-arrow-down'></i> Comprar</button></a>";
+					echo "<button id='ver' data-toggle='modal' data-target='#modalProduto$id_prod' title='Ver Produto'><i class='fa fa-search'></i> Visualizar</button>";	
+					echo "</div>";
+					
+					echo "</fieldset>";
+					
 					echo "<div class='modal fade' id='modalProduto$id_prod' tabindex='-1' role='dialog' aria-labelledby='ModalLabel' aria-hidden='true'>
 					  <div class='modal-dialog' role='document'>
 						<div class='modal-content'>
@@ -131,13 +137,16 @@
 							<img src='../imge/$img.jpg'>
 							<br>
 							<div id='fabVis'>
-							por $fab
+							Vendido por $fab
+							</div>
+							<div id='valVis'>
+							<h2>R$ $valor</h2>
 							</div>
 						  </div>
 						  <div class='modal-footer'>
-						  <div id='valVis'>
-						  <h2>R$ $valor</h2>
-						  </div>
+							<div id='categVis'>
+							<h2>Categoria: $categ</h2>
+							</div>
 						  </div>
 						</div>
 					  </div>

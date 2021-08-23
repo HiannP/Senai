@@ -30,7 +30,7 @@
 			<input type="button" value="Voltar" onclick="window.location.href='index.php';" id="buttonlogi2">
 			
 			<br><br>
-			<p class="cadastro">Não possui um cadastrado? <a id="cadastro1" href="cadastro.php">Clique aqui.</a></p>
+			<p class="cadastro">Não possui um cadastro? <a id="cadastro1" href="cadastro.php">Clique aqui.</a></p>
 			</form>		
 		</fieldset>
 		</div>

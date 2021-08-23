@@ -17,15 +17,15 @@
 header {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-areas:"t p"
-						"s p";
+	grid-template-areas:"t c p"
+						"s c p";
 	background-color: #310162;
 	align-items: center;
 	grid-area: h;
 }
 
 #title {
-	margin-left: 85px;
+	margin-left: 140px;
 	justify-self: center;
 	font-size: 130%;
 	font-family: "Audiowide", sans-serif;
@@ -36,7 +36,13 @@ header {
 @media (max-width: 1000px) {
 	#title {
 		font-size: 100%;
-		margin-right: 35px;
+		margin-left: 52px;
+	}
+}
+
+@media (width: 1024px) {
+	#title {
+		margin-left: 48px;
 	}
 }
 
@@ -46,17 +52,19 @@ header {
 	padding: 3px;
 	border :none;
 	margin-bottom: 12px;
-	margin-left: 75px;
+	margin-left: 140px;
 	justify-self: center;
 	grid-area: s;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
 	.search {
+		margin-left: 52px;
 		width: 65%;
-		margin-right: 25px;
 	}
 }
+
+/*-------------------------- Logar-se --------------------------*/
 
 #icon {
 	display: flex;
@@ -77,6 +85,26 @@ header {
 	}
 }
 
+/*-------------------------- Carrinho --------------------------*/
+
+#cart {
+	margin-right: 30px;
+	color: #fff;
+	font-size: 230%;
+	grid-area: c;
+}
+
+@media (max-width: 1024px) {
+	#cart {
+		position: absolute;
+		top: 18px;
+		left: 12px;
+		right: 8em;
+	}
+}
+
+/*-------------------------------------------------------------*/
+
 main {
 	text-align: center;
 	padding: 50px;
@@ -84,24 +112,31 @@ main {
 	grid-area: m;
 }
 
-/*----------------------- Categorias -----------------------*/
-
 aside {
 	background-color: #000;
 	grid-area: a;
 }
 
-.botoes {
+/*----------------------- Categoria -----------------------*/
+
+.categoria {
 	color: #E3580D;
 	font-family: "Audiowide", sans-serif;
 	font-size: 120%;
 	cursor: pointer;
 }
 
+@media (max-width: 1000px) {
+	.categoria {
+		font-size: 100%;
+	}
+}
+
 .dropdown {
 	float: left;
 	overflow: hidden;
 	margin-left: 40px;
+	cursor: pointer;
 }
 
 .dropdown-content {
@@ -189,7 +224,11 @@ fieldset {
 }
 
 #fabVis {
-	 width: 97%; 
+	 width: 98%; 
+}
+
+#categVis {
+	 width: 98%;
 }
 
 #valor {
@@ -197,7 +236,8 @@ fieldset {
 }
 
 #valVis {
-	width: 97%;
+	width: 98%;
+	color: #000;
 }
 
 #compra {

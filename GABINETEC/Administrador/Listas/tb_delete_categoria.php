@@ -3,7 +3,7 @@
 	$nome = $_GET['nome'];
 
 	if(isset($_POST['sim'])){
-	$sql = "DELETE FROM tb_Categoria WHERE id_categoria='$id'";
+	$sql = "DELETE FROM tb_Categorias WHERE id_categoria='$id'";
 	include "../conexao.php";
 	$delete = $conn -> prepare($sql);
 	$delete -> execute();	

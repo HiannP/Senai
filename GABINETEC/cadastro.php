@@ -32,15 +32,17 @@
 			<br><br>
 			
 			Senha:
-			<input type="text" name="senha" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial" required>
-			<br><br>
+			<input type="password" id="senha" name="senha" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" 
+			title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial" required> <br>
+			<input type="checkbox" onclick="mostrarOcultarSenha()" id="checkbox"> <small id="legend" style="font-size: 70%; ">Mostrar Senha</small> <br><br>
 			
 			Confirmar Senha:
-			<input type="text" name="confiSenha" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial" required>
-			<br><br>
+			<input type="password" id="confiSenha" name="confiSenha" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" 
+			title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial" required> <br>
+			<br>
 			
-			<input type="submit" name="salvar" value="Salvar" onsubmit="return validar()" id="salvar">
-			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
+			<input type="submit" name="salvar" value="Salvar" onclick="validar()" id="salvar">
+			<input type="button" value="Voltar" onclick="window.location.href='login.php';" id="voltar">
 		</form>
 		</main>
   </div>

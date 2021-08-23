@@ -1,6 +1,7 @@
 <?php
 	$id = $_GET['id_venda'];
 	$data = $_GET['data_compra'];
+	$situacao = $_GET['situacao'];
 
 	if(isset($_POST['sim'])){
 	$sql = "DELETE FROM tb_Vendas WHERE id_venda='$id'";
@@ -33,8 +34,8 @@
 		
 		<main>
 			ID: <?php echo $id; ?> <br><br>
-			Data de Requisição: <?php echo $data; ?>
-			<br><br>
+			Data de Requisição: <?php echo $data; ?> <br><br>
+			Situação: <?php echo $situacao; ?> <br><br>
 			<form method="POST" action="#">
 				<input type="submit" name="sim" value="Sim" id="deletar">
 				<input type="button" value="Não" onclick='window.history.back();' id="voltar">

@@ -3,7 +3,7 @@
 	padding: 0;
 }
 
-/*----------------------- Body -----------------------*/
+/*------------------------------------------- CORPO -------------------------------------------------*/
 
 .container {
 	display: grid;
@@ -170,24 +170,29 @@ main {
 	grid-area: m;
 }
 
-/*----------------------- Categorias -----------------------*/
-
 aside {
 	background-color: #000;
 	grid-area: a;
 }
 
-.botoes {
+/*----------------------- Categoria -----------------------*/
+
+.categoria {
 	color: #E3580D;
 	font-size: 120%;
+	font-family: "Audiowide", sans-serif;
 	cursor: pointer;
+}
 
+@media (max-width: 1000px) {
+	.categoria {
+		font-size: 100%;
+	}
 }
 
 .dropdown {
 	float: left;
 	overflow: hidden;
-	font-family: "Audiowide", sans-serif;
 	margin-left: 30px;
 	cursor: pointer;
 }
@@ -220,7 +225,24 @@ aside {
     display: block;
 }
 
-/*-------------------------------------------------------*/
+/*----------------------- Agendamento -----------------------*/
+
+.agendar {
+	font-family: "Audiowide", sans-serif;
+	color: #E3580D;
+	font-size: 120%;
+	cursor: pointer;
+	margin-left: 40px;
+}
+
+@media (max-width: 1000px) {
+	.agendar {
+		margin-left: 25px;
+		font-size: 100%;
+	}
+}
+
+/*-----------------------------------------------------------*/
 
 .produtos-grid {
 	display: grid;
@@ -281,7 +303,11 @@ fieldset {
 }
 
 #fabVis {
-	 width: 97%; 
+	 width: 98%; 
+}
+
+#categVis {
+	 width: 98%;
 }
 
 #valor {
@@ -289,7 +315,8 @@ fieldset {
 }
 
 #valVis {
-	width: 97%;
+	width: 98%;
+	color: #000;
 }
 
 #compra {

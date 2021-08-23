@@ -12,13 +12,13 @@ $img_size = $arquivo['size'];
 $img_temp = $arquivo['tmp_name'];
 $formato = pathinfo($img_name, PATHINFO_EXTENSION);
 $img = uniqid().".".$formato;
-$upload = move_uploaded_file($img_temp, '../imge/'.$img);
+$upload = move_uploaded_file($img_temp, '../../imge/'.$img);
 
 if(isset($upload)){
-	$sql = "INSERT INTO tb_Produtos VALUES (?, ?, ?, ?, ?, ?, ?)";
+	$sql = "INSERT INTO tb_Produtos(FK_id_categoria, descricao, valor_unit, FK_id_marca, qntd, img) VALUES (:FK_id_categoria, :descricao, :valor_unit, :FK_id_marca, :qntd, :img)";
 	include "../conexao.php";
 	$cadastro = $conn -> prepare($sql);
-	$cadastro -> execute(array($id_prod, $categoria, $descricao, $valor_unit, $fabricante, $qntd, $img));
+	$cadastro -> execute(array(':FK_id_categoria'=>$categoria, ':descricao'=>$descricao, ':valor_unit'=>$valor_unit, ':FK_id_marca'=>$fabricante, ':qntd'=>$qntd, ':img'=>$img));
 	$conn = null;
 	
 	echo "<script>

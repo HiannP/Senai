@@ -1,15 +1,20 @@
 <?php
-	$sql = "SELECT * FROM tb_Produtos limit 20";
+	$sql = "SELECT * FROM tb_Produtos AS A
+			INNER JOIN tb_Categorias AS B 
+			INNER JOIN tb_Marcas AS C 
+			ON A.FK_id_categoria = B.id_categoria 
+			AND A.FK_id_marca = C.id_marca";
 	include "conexao.php";
-	$cadastro = $conn -> prepare($sql);
-	$cadastro -> execute();
+	$produtos = $conn -> prepare($sql);
+	$produtos -> execute();
 	$conn = null;
-	
+
 	$sql1 = "SELECT * FROM tb_Categoria";
 	include "conexao.php";
 	$categorias = $conn -> prepare($sql1);
 	$categorias -> execute();
 	$conn = null;
+
 ?>
 
 <!DOCTYPE html>
@@ -32,19 +37,20 @@
 			<div id="title">
 			<h1>GABINETEC</h1> 
 			</div>
-			<input class="search" type="search" placeholder="Pesquisa (Nome; Modelo; Cor; etc...)">
+			<input class="search" type="search" placeholder="Pesquisa (Nome, Modelo, Marca, etc...)">
+			<a href="login.php" id="cart" title="Carrinho"><i class="fa fa-shopping-cart"></i></a>
 			<a id="icon" href="login.php" title="Logar-se"> <i class="fa fa-user-circle-o"></i></a>
 		</header>
 		
 		<aside>
 		<div class="dropdown">
-		<a class="botoes">Categoria <i class="fa fa-caret-down"></i></a>
+		<a class="categoria">Categoria <i class="fa fa-caret-down"></i></a>
 			<div class="dropdown-content">
 			<?php
 				foreach($categorias as $cate) {
 				
 					$categ = $cate['id_categoria'];
-					$nome = $cate['nome'];
+					$nome = $cate['categoria'];
 
 					echo "<a>$nome</a>";
 				}
@@ -56,12 +62,13 @@
 		<main>
 		<div class='produtos-grid'>
 		<?php
-			foreach($cadastro as $prod) {
+			foreach($produtos as $prod) {
 				
 				$id_prod = $prod['id_prod'];
 				$desc = $prod['descricao'];
 				$valor = $prod['valor_unit'];
-				$fab = $prod['fabricante'];
+				$fab = $prod['marca'];
+				$categ = $prod['categoria'];
 				$img = $prod['img'];
 				
 				/*---------------------------------------------------- Produtos ----------------------------------------------------*/
@@ -70,8 +77,8 @@
 					
 					echo "<fieldset>";
 
-					echo "<div id='img' title='$desc'>";
-						echo "<img src='imge/$img.jpg'>";
+					echo "<div id='img'>";
+						echo "<img src='imge/$img.jpg' title='$desc'>";
 					echo "</div>";
 				
 					echo "<hr>";
@@ -83,7 +90,7 @@
 					echo "</div>";
 					
 					echo "<div id='fab'>";
-						echo "<p>por $fab</p>";
+						echo "<p>Vendido por $fab</p>";
 					echo "</div>";
 				
 					echo "<div id='valor'>";
@@ -91,7 +98,7 @@
 					echo "</div>";
 					
 					echo "<br>";
-					
+
 					echo "<div>";
 					echo "<a title='Comprar' href='login.php'><button id='compra'><i class='fa fa-cart-arrow-down'></i> Comprar</button></a>";
 					echo "<button id='ver' data-toggle='modal' data-target='#modalProduto$id_prod' title='Ver Produto'><i class='fa fa-search'></i> Visualizar</button>";	
@@ -112,13 +119,16 @@
 							<img src='imge/$img.jpg'>
 							<br>
 							<div id='fabVis'>
-							por $fab
+							Vendido por $fab
+							</div>
+							<div id='valVis'>
+							<h2>R$ $valor</h2>
 							</div>
 						  </div>
 						  <div class='modal-footer'>
-						  <div id='valVis'>
-						  <h2>R$ $valor</h2>
-						  </div>
+							<div id='categVis'>
+							<h2>Categoria: $categ</h2>
+							</div>
 						  </div>
 						</div>
 					  </div>
