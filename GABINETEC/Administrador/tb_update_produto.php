@@ -11,8 +11,23 @@
 	$produtos = $conn -> prepare($sql);
 	$produtos -> execute();	
 	$conn = null;
+	
+	$sql1 = "SELECT * FROM tb_Categorias";
+	include "conexao.php";
+	$categorias = $conn -> prepare($sql1);
+	$categorias -> execute();
+	$conn = null;
+	
+	$sql2 = "SELECT * FROM tb_Marcas";
+	include "conexao.php";
+	$marcas = $conn -> prepare($sql2);
+	$marcas -> execute();
+	$conn = null;
+	
 	foreach($produtos as $prod){
-		$categ = prod['categoria'];
+		$FK_id_categoria = $prod['FK_id_categoria'];
+		$FK_id_marca = $prod['FK_id_marca'];
+		$categ = $prod['categoria'];
 		$desc = $prod["descricao"];
 		$valor = $prod["valor_unit"];
 		$fab = $prod['marca'];
@@ -30,17 +45,17 @@
 		
 	$sql = "
 		UPDATE tb_Produtos SET
-		FK_id_categoria=?,	
-		descricao=?,
-		valor_unit=?,
-		FK_id_marca=?,
-		qntd=?,
-		img=?
-		WHERE id_prod=?
+		FK_id_categoria = ?,	
+		descricao = ?,
+		valor_unit = ?,
+		FK_id_marca = ?,
+		qntd = ?,
+		img = ?
+		WHERE id_prod = ?
 	";
 	include "conexao.php";
 	$alterar = $conn -> prepare($sql);
-	$alterar -> execute(array($categ, $desc, $valor, $fab, $qntd, $img, $id));	
+	$alterar -> execute(array($categ, $desc, $valor, $fab, $qntd, $img, $id_prod));	
 	$conn = null;
 	
 	echo" <script>
@@ -71,35 +86,36 @@
 		
 			Categoria <br>
 			<select name="categ" class="campo" required>
-				<option></option>
-				<?php
-				foreach($produtos as $prod) {
+				<option value="<?php echo $FK_id_categoria ?>"><?php echo $categ; ?></option>
 				
-					$categ = $prod['id_categoria'];
-					$nomeC = $prod['categoria'];
+				<?php
+				foreach($categorias as $cate) {
+				
+					$categC = $cate['id_categoria'];
+					$nomeC = $cate['categoria'];
 
-					echo "<option value='$categ'>$nomeC</a>";
+					echo "<option value='$categC'>$nomeC</a>";
 				}
 				?>
 			</select>
 			<br><br>
 		
 			Descrição <br>
-			<input type="text" name="desc" class="campo" required>
+			<input type="text" name="desc" class="campo" value="<?php echo $desc; ?>" required>
 			<br><br>
 			
 			Preço (R$) <br>
-			<input type="text" name="valor" class="campo" required>
+			<input type="text" name="valor" class="campo" value="<?php echo $valor; ?>" required>
 			<br><br>
 			
 			Fabricante <br>
 			<select name="fab" class="campo" required>
-			<option></option>
-				<?php
-				foreach($produtos as $marc) {
+			<option value="<?php echo $FK_id_marca ?>"><?php echo $fab; ?></option>
+			<?php
+				foreach($marcas as $marc) {
 				
-					$marca = $prod['id_marca'];
-					$nomeM = $prod['marca'];
+					$marca = $marc['id_marca'];
+					$nomeM = $marc['marca'];
 
 					echo "<option value='$marca'>$nomeM</a>";
 				}
@@ -108,11 +124,11 @@
 			<br><br>
 			
 			Quantidade <br>
-			<input type="number" name="qntd" class="campo" required>
+			<input type="number" name="qntd" class="campo" value="<?php echo $qntd; ?>" required>
 			<br><br>
 			
 			Imagem <br>
-			<input type="file" name="img"> <br>
+			<input type="file" name="img" value="<?php echo $img; ?>"> <br>
 			<small style="font-size: 70%; color: gray;">Dimensão de Imagem <br>!!! RECOMENDADA !!!: 200 X 200</small>
 			<br><br>
 			

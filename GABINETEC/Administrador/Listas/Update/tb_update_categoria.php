@@ -1,34 +1,37 @@
 <?php
 	
-	$id = $_GET['id_categoria'];
-	$sql = "SELECT * FROM tb_Categorias WHERE id_categoria='$id'";
+	$id_categ = $_GET['id_categoria'];
+	$sql = "SELECT * FROM tb_Categorias WHERE id_categoria = '$id_categ'";
 	include "../../conexao.php";
 	$categ = $conn -> prepare($sql);
 	$categ -> execute();	
 	$conn = null;
+	
 	foreach($categ as $p){
-		$nome = $p["nome"];
+		$categoria = $p["categoria"];
 	}
 	
-	if(isset($_POST['salvar'])){
-		$nome = $_POST['nome'];
+	if(isset($_POST['salvar'])) {
+		$categoria = $_POST['categoria'];
 		
 	$sql = "
 		UPDATE tb_Categorias SET 
-		nome=?,
-		WHERE id_categoria=?
+		categoria = ?
+		WHERE id_categoria = ?
 	";
-	include "../conexao.php";
+	include "../../conexao.php";
 	$alterar = $conn -> prepare($sql);
-	$alterar -> execute(array($nome, $id));	
+	$alterar -> execute(array($categoria, $id_categ));	
 	$conn = null;
 	
 	echo" <script>
-		alert('Categoria alterada com sucesso!');
-		window.location.href='index.php';
-		</script>";
+				alert('Categoria alterada com sucesso!');
+				window.location.href='../lista_categorias.php';
+		  </script>";
 	}
 ?>
+
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <title>Alterar Categoria</title>
@@ -50,11 +53,11 @@
 		<form action="#" method="POST">
 		
 			Nome: 
-			<input type="text" name="nome" value="<?php echo $nome; ?>" class="campo" required>
+			<input type="text" name="categoria" value="<?php echo $categoria; ?>" class="campo" required>
 			<br><br>
 			
 			<input type="submit" name="salvar" value="Salvar" id="salvar">
-			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
+			<input type="button" value="Voltar"  onclick="window.location.href='../lista_categorias.php';" id="voltar">
 		</form>
 		</main>
   </div>	

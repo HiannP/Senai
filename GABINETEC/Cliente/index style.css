@@ -32,6 +32,11 @@ header {
 	grid-area: t;
 }
 
+#t {
+	color: #E3580D;
+	text-decoration: none;
+}
+
 @media (max-width: 1000px) {
 	#title {
 		font-size: 100%;

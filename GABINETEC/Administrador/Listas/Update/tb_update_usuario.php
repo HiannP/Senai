@@ -1,11 +1,12 @@
 <?php
 	
 	$id_user = $_GET['id_user'];
-	$sql1 = "SELECT * FROM tb_Usuarios WHERE id_user='$id_user'";
+	$sql1 = "SELECT * FROM tb_Usuarios WHERE id_user = '$id_user'";
 	include "../../conexao.php";
 	$user = $conn -> prepare($sql1);
 	$user -> execute();	
 	$conn = null;
+	
 	foreach($user as $p){
 		$nome = $p["nome"];
 		$sobre = $p["sobrenome"];
@@ -14,6 +15,34 @@
 		$perfil = $p["perfil"];
 	}
 	
+	if(isset($_POST['salvar'])) {
+		$nome = $_POST['nome'];
+		$sobre = $_POST['sobrenome'];
+		$email = $_POST['email'];	
+		$senha = $_POST['senha'];
+		$senhaSegura = md5($senha);
+		$perfil = $_POST['perfil'];		
+	
+	$sql = "
+		UPDATE tb_Usuarios SET 
+		nome = ?,
+		sobrenome = ?,
+		email = ?,
+		senha = ?,
+		perfil = ?
+		WHERE id_user = ?
+	";
+	include "../../conexao.php";
+	$alterar = $conn -> prepare($sql);
+	$alterar -> execute(array($nome, $sobre, $email, $senhaSegura, $perfil, $id_user));	
+	$conn = null;
+	
+	echo" <script>
+				alert('Usuário alterado com sucesso!');
+				window.location.href='../lista_usuarios.php';
+		  </script>";
+
+	}	
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +63,7 @@
 		</header>
 		
 		<main>
-		<form action="atualizarUsuario.php" method="POST">
-		
-			<input type="hidden" name="id_user" value="$id_user">
+		<form action="#" method="POST">
 		
 			Nome 
 			<input type="text" name="nome" value="<?php echo $nome; ?>" class="campo" required>

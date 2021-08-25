@@ -1,40 +1,42 @@
 <?php
 	
-	$id = $_GET['id_marcas'];
-	$sql = "SELECT * FROM tb_Marcas WHERE id_marcas='$id'";
+	$id_marca = $_GET['id_marca'];
+	$sql = "SELECT * FROM tb_Marcas WHERE id_marca = '$id_marca'";
 	include "../../conexao.php";
 	$forn = $conn -> prepare($sql);
 	$forn -> execute();	
 	$conn = null;
 	foreach($forn as $p){
-		$nome = $p["nome"];
+		$marca = $p["marca"];
 		$email = $p["email"];
 		$tel = $p["telefone"];
 	}
 	
-	if(isset($_POST['salvar'])){
-		$nome = $_POST['nome'];
+	if(isset($_POST['salvar'])) {
+		$marca = $_POST['marca'];
 		$email = $_POST['email'];
 		$tel = $_POST['telefone'];
 		
 	$sql = "
 		UPDATE tb_Marcas SET 
-		nome=?,
-		email=?,
-		telefone=?,
-		WHERE id_marcas=?
+		marca = ?,
+		email = ?,
+		telefone = ?
+		WHERE id_marca = ?
 	";
-	include "../conexao.php";
+	include "../../conexao.php";
 	$alterar = $conn -> prepare($sql);
-	$alterar -> execute(array($nome, $email, $tel, $id));	
+	$alterar -> execute(array($marca, $email, $tel, $id_marca));	
 	$conn = null;
 	
 	echo" <script>
-		alert('Fornecedor alterado com sucesso!');
-		window.location.href='index.php';
-		</script>";
+				alert('Fornecedor alterado com sucesso!');
+				window.location.href='../lista_fornecedores.php';
+		  </script>";
 	}
 ?>
+
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <title>Alterar Fornecedor</title>
@@ -56,7 +58,7 @@
 		<form action="#" method="POST">
 		
 			Nome: 
-			<input type="text" name="nome" value="<?php echo $nome; ?>" class="campo" required>
+			<input type="text" name="marca" value="<?php echo $marca; ?>" class="campo" required>
 			<br><br>
 			
 			Email:
@@ -64,11 +66,11 @@
 			<br><br>
 			
 			Telefone:
-			<input type="tel" name="tele" value="<?php echo $tel; ?>" pattern="[0-9]{4}-[0-9]{4}" class="campo"> <br><small style="color: gray;">(Opcional)</small>
+			<input type="tel" name="telefone" value="<?php echo $tel; ?>" pattern="[0-9]{4}-[0-9]{4}" class="campo"> <br><small style="color: gray;">(Opcional)</small>
 			<br><br>
 			
 			<input type="submit" name="salvar" value="Salvar" id="salvar">
-			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
+			<input type="button" value="Voltar"  onclick="window.location.href='../lista_fornecedores.php';" id="voltar">
 		</form>
 		</main>
   </div>		

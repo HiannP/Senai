@@ -40,16 +40,16 @@
 			</thead>
 		<?php
 			foreach($cadastro as $cad) {
-				$id = $cad['id_categoria'];
+				$id_categ = $cad['id_categoria'];
 				$categ = $cad['categoria'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tbody id='pesquisado'>";
 				echo "<tr>";
-				echo "<td>$id</td>";
+				echo "<td>$id_categ</td>";
 				echo "<td>$categ</td>";
-				echo "<td><a title='Editar' href='Update/tb_update_categoria.php?id_categoria=$id'><i class='fa fa-pencil'></i></a> 
-					  <a title='Excluir' href='Deletar/tb_delete_categoria.php?id_categoria=$id&categoria=$categ'><i class='fa fa-trash'></i></a></td>";
+				echo "<td><a title='Editar' href='Update/tb_update_categoria.php?id_categoria=$id_categ'><i class='fa fa-pencil'></i></a> 
+					  <a title='Excluir' href='Deletar/tb_delete_categoria.php?id_categoria=$id_categ&categoria=$categ'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				echo "</tbody>";
 				

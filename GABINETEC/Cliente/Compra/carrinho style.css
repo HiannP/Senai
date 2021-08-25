@@ -42,6 +42,11 @@ header {
 	}
 }
 
+#t {
+	color: #E3580D;
+	text-decoration: none;
+}
+
 #voltar {
 	width: 0;	
 	margin-left: 20px;

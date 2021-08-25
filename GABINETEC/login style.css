@@ -29,6 +29,11 @@ header {
 	}
 }
 
+#t {
+	color: #E3580D;
+	text-decoration: none;
+}
+
 body {
 	background-color: #001459;
 	background-image: url("back3.jpg");

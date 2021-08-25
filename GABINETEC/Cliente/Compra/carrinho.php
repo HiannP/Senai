@@ -46,7 +46,7 @@
 <div class="container"> 
 		<header>
 			<div id="title">
-			<h1>GABINETEC</h1>
+			<a href="../index.php" id="t"><h1>GABINETEC</h1></a> 
 			</div>
 			<a href="../index.php" id="voltar" title="Voltar"> <i class="fa fa-sign-out"></i></a>
 		</header>	

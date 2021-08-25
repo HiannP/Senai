@@ -35,7 +35,7 @@
 <div class="container"> 
 		<header>
 			<div id="title">
-			<h1>GABINETEC</h1> 
+			<a href="index.php" id="t"><h1>GABINETEC</h1></a> 
 			</div>
 			<a href="login.php" id="cart" title="Carrinho"><i class="fa fa-shopping-cart"></i></a>
 			<a id="icon" href="login.php" title="Logar-se"> <i class="fa fa-user-circle-o"></i></a>

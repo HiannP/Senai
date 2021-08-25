@@ -13,7 +13,7 @@
 			INNER JOIN tb_Categorias AS B 
 			INNER JOIN tb_Marcas AS C 
 			ON A.FK_id_categoria = B.id_categoria 
-			AND A.FK_id_marca = C.id_marca limit 20";
+			AND A.FK_id_marca = C.id_marca";
 	include "conexao.php";
 	$produtos = $conn -> prepare($sql);
 	$produtos -> execute();
@@ -46,7 +46,7 @@
 <div class="container"> 
 		<header>
 			<div id="title">
-			<h1>GABINETEC</h1> 
+			<a href="index.php" id="t"><h1>GABINETEC</h1></a> 
 			</div>
 			<a href="Compra/carrinho.php?id_user=<?php echo $id_user ?>" id="cart" title="Carrinho"><i class="fa fa-shopping-cart"></i></a>
 			<div id="perfil">
@@ -55,7 +55,7 @@
 					<a id="name"><?php echo $nome ?></a>
 					<hr>
 					<a href="Conta/perfil.php?id_user=<?php echo $id_user ?>" title="Perfil"><i class="fa fa-user-circle-o"></i> Perfil</a>
-					<a href="#"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
+					<a href="manual_usuario.php"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
 					<a href="../logout.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>

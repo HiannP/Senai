@@ -12,7 +12,7 @@
   <body>
   <div class="container"> 
 		<header>
-			<h1>GABINETEC</h1>
+			<a href="index.php" id="t"><h1>GABINETEC</h1></a> 
 		</header>
 		<br>
 		<main>

@@ -41,7 +41,7 @@
 		<br><br>
 			<form method="POST" action="#">
 				<input type="submit" name="sim" value="Sim" id="deletar">
-				<input type="button" value="Não" onclick='window.history.back();' id="voltar">
+				<input type="button" value="Não" onclick="window.location.href='index.php';" id="voltar">
 			</form>
 		</main>
   </div>		

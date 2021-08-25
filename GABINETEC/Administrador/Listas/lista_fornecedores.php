@@ -42,7 +42,7 @@
 			</thead>
 		<?php
 			foreach($cadastro as $cad) {
-				$id = $cad['id_marca'];
+				$id_marca = $cad['id_marca'];
 				$marca = $cad['marca'];
 				$email = $cad['email'];
 				$tel = $cad['telefone'];
@@ -50,12 +50,12 @@
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tbody id='pesquisado'>";
 				echo "<tr>";
-				echo "<td>$id</td>";
+				echo "<td>$id_marca</td>";
 				echo "<td>$marca</td>";
 				echo "<td>$email</td>";
 				echo "<td>$tel</td>";
-				echo "<td><a title='Editar' href='Update/tb_update_fornecedor.php?id_marcas=$id'><i class='fa fa-pencil'></i></a> 
-					  <a title='Excluir' href='Deletar/tb_delete_fornecedor.php?id_marcas=$id&marca=$marca'><i class='fa fa-trash'></i></a></td>";
+				echo "<td><a title='Editar' href='Update/tb_update_fornecedor.php?id_marca=$id_marca'><i class='fa fa-pencil'></i></a> 
+					  <a title='Excluir' href='Deletar/tb_delete_fornecedor.php?id_marca=$id_marca&marca=$marca'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				echo "</tbody>";
 				
