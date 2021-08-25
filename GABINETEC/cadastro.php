@@ -34,7 +34,7 @@
 			Senha:
 			<input type="password" id="senha" name="senha" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" 
 			title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial" required> <br>
-			<input type="checkbox" onclick="mostrarOcultarSenha()" id="checkbox"> <small id="legend" style="font-size: 70%; ">Mostrar Senha</small> <br><br>
+			<input type="checkbox" onclick="mostrarOcultarSenha()" id="checkbox"> <small id="legend" style="font-size: 70%;">Mostrar Senha</small> <br><br>
 			
 			Confirmar Senha:
 			<input type="password" id="confiSenha" name="confiSenha" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" 

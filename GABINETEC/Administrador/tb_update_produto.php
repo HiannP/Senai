@@ -1,35 +1,46 @@
 <?php
 	
-	$id = $_GET['id_prod'];
-	$sql = "SELECT * FROM tb_Produtos WHERE id_prod='$id'";
+	$id_prod = $_GET['id_prod'];
+	$sql = "SELECT * FROM tb_Produtos AS A
+			INNER JOIN tb_Categorias AS B
+			INNER JOIN tb_Marcas AS C
+			ON A.id_prod = $id_prod
+			AND A.FK_id_categoria = B.id_categoria
+			AND A.FK_id_marca = C.id_marca";
 	include "conexao.php";
-	$prod = $conn -> prepare($sql);
-	$prod -> execute();	
+	$produtos = $conn -> prepare($sql);
+	$produtos -> execute();	
 	$conn = null;
-	foreach($prod as $p){
-		$desc = $p["descricao"];
-		$valor = $p["valor_unit"];
-		$fab = $p["fabricante"];
-		$qntd = $p["qntd"];
+	foreach($produtos as $prod){
+		$categ = prod['categoria'];
+		$desc = $prod["descricao"];
+		$valor = $prod["valor_unit"];
+		$fab = $prod['marca'];
+		$qntd = $prod["qntd"];
+		$img = $prod["img"];
 	}
 	
 	if(isset($_POST['salvar'])){
+		$categ = $_POST['categ'];
 		$desc = $_POST['desc'];
 		$valor = $_POST['valor'];
 		$fab = $_POST['fab'];
 		$qntd = $_POST['qntd'];
+		$img = $_POST["img"];
 		
 	$sql = "
-		UPDATE Produtos_tb SET 
+		UPDATE tb_Produtos SET
+		FK_id_categoria=?,	
 		descricao=?,
 		valor_unit=?,
-		fabricante=?,
+		FK_id_marca=?,
 		qntd=?,
+		img=?
 		WHERE id_prod=?
 	";
 	include "conexao.php";
 	$alterar = $conn -> prepare($sql);
-	$alterar -> execute(array($desc, $valor, $fab, $qntd, $id));	
+	$alterar -> execute(array($categ, $desc, $valor, $fab, $qntd, $img, $id));	
 	$conn = null;
 	
 	echo" <script>
@@ -56,30 +67,57 @@
 		</header>
 		
 		<main>
-		<form action="#" method="POST">
+		<form action="#" method="POST" enctype="multipart/form-data">
 		
-			Descrição <br> 
-			<input type="text" name="desc" value="<?php echo $desc; ?>" class="campo" required>
+			Categoria <br>
+			<select name="categ" class="campo" required>
+				<option></option>
+				<?php
+				foreach($produtos as $prod) {
+				
+					$categ = $prod['id_categoria'];
+					$nomeC = $prod['categoria'];
+
+					echo "<option value='$categ'>$nomeC</a>";
+				}
+				?>
+			</select>
+			<br><br>
+		
+			Descrição <br>
+			<input type="text" name="desc" class="campo" required>
 			<br><br>
 			
-			Valor <br>
-			<input type="text" name="valor" value="<?php echo $valor; ?>" class="campo" required>
+			Preço (R$) <br>
+			<input type="text" name="valor" class="campo" required>
 			<br><br>
 			
 			Fabricante <br>
-			<input type="text" name="fab" value="<?php echo $fab; ?>" class="campo" required>
+			<select name="fab" class="campo" required>
+			<option></option>
+				<?php
+				foreach($produtos as $marc) {
+				
+					$marca = $prod['id_marca'];
+					$nomeM = $prod['marca'];
+
+					echo "<option value='$marca'>$nomeM</a>";
+				}
+				?>
+			</select>
 			<br><br>
 			
 			Quantidade <br>
-			<input type="number" name="qntd" value="<?php echo $qntd; ?>" class="campo" required>
+			<input type="number" name="qntd" class="campo" required>
 			<br><br>
 			
 			Imagem <br>
-			<input type="file" name="img" required>
+			<input type="file" name="img"> <br>
+			<small style="font-size: 70%; color: gray;">Dimensão de Imagem <br>!!! RECOMENDADA !!!: 200 X 200</small>
 			<br><br>
 			
 			<input type="submit" name="salvar" value="Salvar" id="salvar">
-			<input type="button" value="Voltar" onclick='window.history.back();' id="voltar">
+			<input type="button" value="Voltar" onclick="window.location.href='index.php';" id="voltar">
 		</form>
 		</main>
   </div>		

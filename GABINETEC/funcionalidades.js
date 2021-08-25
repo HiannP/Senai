@@ -60,6 +60,7 @@ function validar() {
 	}
 }
 
+/*----------- ADM(Filtro de Tabelas) -----------*/
 function pesquisa() {
 	$("#search").on("keyup", function() {
     var value = $(this).val().toLowerCase();

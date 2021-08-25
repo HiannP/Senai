@@ -24,12 +24,12 @@
 		<header>
 		<h1>Lista de Categorias</h1>
 		<div class="acoes">
-		<a class="inserir" href="#">INSERIR</a>
+		<a class="inserir" href="../Inserir/tb_insert_categoria.php">INSERIR</a>
 		<a class="voltar" href="../index.php">VOLTAR</a>
 		</div>
 		</header>
 		<main>
-		<input class="search" oninput="pesquisa()" id='search' type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
+		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
 		<table  border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<thead>
 			<tr>
@@ -41,15 +41,15 @@
 		<?php
 			foreach($cadastro as $cad) {
 				$id = $cad['id_categoria'];
-				$nome = $cad['categoria'];
+				$categ = $cad['categoria'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tbody id='pesquisado'>";
 				echo "<tr>";
 				echo "<td>$id</td>";
-				echo "<td>$nome</td>";
-				echo "<td><a title='Editar' href='tb_update_categoria.php?id_categoria=$id'><i class='fa fa-pencil'></i></a> 
-					  <a title='Excluir' href='tb_delete_categoria.php?id_categoria=$id&nome=$nome'><i class='fa fa-trash'></i></a></td>";
+				echo "<td>$categ</td>";
+				echo "<td><a title='Editar' href='Update/tb_update_categoria.php?id_categoria=$id'><i class='fa fa-pencil'></i></a> 
+					  <a title='Excluir' href='Deletar/tb_delete_categoria.php?id_categoria=$id&categoria=$categ'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				echo "</tbody>";
 				

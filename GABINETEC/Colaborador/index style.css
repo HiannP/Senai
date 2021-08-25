@@ -16,7 +16,7 @@
 
 header {
 	display: grid;
-	grid-template-columns: 1fr 0.05fr;
+	grid-template-columns: 1fr;
 	grid-template-areas:"t i";
 	background-color: #310162;
 	align-items: center;
@@ -29,6 +29,7 @@ header {
 	font-size: 130%;
 	font-family: "Audiowide", sans-serif;
 	color: #E3580D;
+	padding-right: 12px;
 	grid-area: t;
 }
 
@@ -56,6 +57,7 @@ header {
 	border-radius: 20px;
 	color: #FFFF00;
 	font-size: 230%;
+	margin-right: 30px;
 	justify-self: center;
 	text-decoration: none;
 }
@@ -104,7 +106,7 @@ header {
 
 .painel {
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	text-align: center;
 	align-items: center;
 	margin-top: 2em;
@@ -127,8 +129,6 @@ header {
 	padding: 15px;
 	border-style: solid;
 	border-width: 6px;
-	margin-left: 29em;
-	margin-right: 29em;
 	font-family: "Audiowide", sans-serif;
     font-size: 130%;
 }

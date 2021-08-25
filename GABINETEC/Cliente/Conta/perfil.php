@@ -1,7 +1,7 @@
 <?php
 	$id_user = $_GET['id_user'];
 	$sql = "SELECT * FROM tb_Usuarios WHERE id_user='$id_user'";
-	include "conexao.php";
+	include "../conexao.php";
 	$usuarios = $conn -> prepare($sql);
 	$usuarios -> execute();
 	$conn = null;

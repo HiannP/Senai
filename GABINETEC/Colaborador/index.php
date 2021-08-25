@@ -52,7 +52,13 @@
 			
 		<div class="painel">	
 			<div class="icones">		
-				<a class="ico" href='tb_insert_produto.php' title="Adicionar Produto"><i class='fa fa-cart-plus'></i></a>Adicionar Produto 
+				<a class="ico" href='Inserir/tb_insert_produto.php' title="Adicionar Produto"><i class='fa fa-cart-plus'></i></a>Adicionar Produto 
+			</div>
+			<div class="icones">		
+				<a class="ico" href='Listas/lista_categorias.php' title="Lista de Categorias"><i class='fa fa fa-paste'></i></a>Lista de Categorias 
+			</div>
+			<div class="icones">		
+				<a class="ico" href='Listas/lista_fornecedores.php' title="Lista de Fornecedores"><i class='fa fa fa-building'></i></a>Lista de Fornecedores
 			</div>
 		</div>	
 		

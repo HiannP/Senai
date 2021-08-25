@@ -16,29 +16,29 @@
 		</header>
 		
 		<main>
-		<form action="carregarUsuario.php" method="POST" enctype="multipart/form-data">
+		<form action="Envio/carregarUsuario.php" method="POST" enctype="multipart/form-data">
 		
-			Nome:
+			Nome
 			<input type="text" name="nome" class="campo" required>
 			<br><br>
 			
-			Sobrenome:
+			Sobrenome
 			<input type="text" name="sobrenome" class="campo" required>
 			<br><br>
 			
-			Email:
+			Email
 			<input type="email" name="email" class="campo" required>
 			<br><br>
 			
-			Senha:
+			Senha
 			<input type="text" name="senha" class="campo" required>
 			<br><br>
 			
-			Perfil:
+			Perfil
 			<input type="number" name="perfil" class="campo" required> <br><small style="color: gray; font-size: 45%;">(Níveis: 1 => Cliente | 3 => Colaborador | 5 => Administrador)</small>
 			<br><br>
 			
-			OBS:
+			OBS
 			<input type="text" name="obs" class="campo">
 			<br><br>
 			

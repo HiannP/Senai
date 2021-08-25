@@ -1,17 +1,17 @@
 <?php
 	$id = $_GET['id_marcas'];
-	$nome = $_GET['nome'];
+	$marca = $_GET['marca'];
 
 	if(isset($_POST['sim'])){
 	$sql = "DELETE FROM tb_Marcas WHERE id_marcas='$id'";
-	include "../conexao.php";
+	include "../../conexao.php";
 	$delete = $conn -> prepare($sql);
 	$delete -> execute();	
 	$conn = null;
 	
 	echo "<script>
 				alert('Fornecedor excluido com sucesso!'); 
-				window.location.href='lista_fornecedores.php'; 
+				window.location.href='../lista_fornecedores.php'; 
 		 </script>";
 	}
 ?>
@@ -33,7 +33,7 @@
 		
 		<main>
 			ID: <?php echo $id; ?> <br><br>
-			Fornecedor: <?php echo $nome; ?>
+			Fornecedor: <?php echo $marca; ?>
 			<br><br>
 			<form method="POST" action="#">
 				<input type="submit" name="sim" value="Sim" id="deletar">

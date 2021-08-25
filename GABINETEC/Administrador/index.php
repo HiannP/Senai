@@ -75,10 +75,10 @@
 			<div class="icones">
 				<a class="ico" href='Listas/relatorio.php' title="Relatórios Semanais"> <i class='fa fa-file-text-o'></i></a>Relatórios
 			</div>
-			
 		</div>
+		
 		<main>
-		<input class="search" oninput="pesquisa()" id='search' type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
+		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<thead>
 			<tr>

@@ -17,15 +17,14 @@
 header {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-areas:"t c p"
-						"s c p";
+	grid-template-areas:"t c p";
 	background-color: #310162;
 	align-items: center;
 	grid-area: h;
 }
 
 #title {
-	margin-left: 140px;
+	margin-left: 150px;
 	justify-self: center;
 	font-size: 130%;
 	font-family: "Audiowide", sans-serif;
@@ -43,24 +42,6 @@ header {
 @media (width: 1024px) {
 	#title {
 		margin-left: 48px;
-	}
-}
-
-.search {
-	border-radius: 12px;
-	width: 18%;
-	padding: 3px;
-	border :none;
-	margin-bottom: 12px;
-	margin-left: 140px;
-	justify-self: center;
-	grid-area: s;
-}
-
-@media (max-width: 1024px) {
-	.search {
-		margin-left: 52px;
-		width: 65%;
 	}
 }
 
@@ -107,6 +88,7 @@ header {
 		top: 18px;
 		left: 12px;
 		right: 8em;
+		width: 0;
 	}
 }
 
@@ -227,7 +209,7 @@ aside {
 
 /*----------------------- Agendamento -----------------------*/
 
-.agendar {
+#agendar {
 	font-family: "Audiowide", sans-serif;
 	color: #E3580D;
 	font-size: 120%;
@@ -236,7 +218,7 @@ aside {
 }
 
 @media (max-width: 1000px) {
-	.agendar {
+	#agendar {
 		margin-left: 25px;
 		font-size: 100%;
 	}

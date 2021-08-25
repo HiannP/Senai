@@ -2,7 +2,7 @@
 	
 	$id = $_GET['id_marcas'];
 	$sql = "SELECT * FROM tb_Marcas WHERE id_marcas='$id'";
-	include "../conexao.php";
+	include "../../conexao.php";
 	$forn = $conn -> prepare($sql);
 	$forn -> execute();	
 	$conn = null;
@@ -40,7 +40,7 @@
     <title>Alterar Fornecedor</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../Inserir/insert style.css">
+	<link rel="stylesheet" type="text/css" href="../../Inserir/insert style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
   </head>
   

@@ -29,7 +29,7 @@
 		<h1>Relatórios</h1>
 		</header>
 		<main>
-		<input class="search" oninput="pesquisa()" id='search' type="search" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
+		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<thead>
 			<tr>
@@ -64,7 +64,7 @@
 				echo "<td>$valor</td>";
 				echo "<td>$situacao</td>";
 				echo "<td><a title='Editar' href='#'><i class='fa fa-pencil'></i></a> 
-					  <a title='Excluir' href='tb_delete_relatorio.php?id_venda=$id&data_compra=$data&situacao=$situacao'><i class='fa fa-trash'></i></a></td>";
+					  <a title='Excluir' href='Deletar/tb_delete_relatorio.php?id_venda=$id&data_compra=$data&situacao=$situacao'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				echo "</tbody>";
 				

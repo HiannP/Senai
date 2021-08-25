@@ -31,7 +31,7 @@
 		</header>
 		
 		<main>
-		<form action="carregarProduto.php" method="POST" enctype="multipart/form-data">
+		<form action="Envio/carregarProduto.php" method="POST" enctype="multipart/form-data">
 		
 			Categoria <br>
 			<select name="categ" class="campo" required>

@@ -16,10 +16,10 @@
 		</header>
 		
 		<main>
-		<form action="carregarCategoria.php" method="POST" enctype="multipart/form-data">
+		<form action="Envio/carregarCategoria.php" method="POST" enctype="multipart/form-data">
 		
 			Nome:
-			<input type="text" name="nome" class="campo" required>
+			<input type="text" name="categ" class="campo" required>
 			<br><br>
 			
 			<input type="submit" name="salvar" value="Salvar" id="salvar">

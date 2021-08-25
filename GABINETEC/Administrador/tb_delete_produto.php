@@ -1,4 +1,5 @@
 <?php
+
 	$id = $_GET['id_prod'];
 	$desc = $_GET['descricao'];
 	$img = $_GET['img'];
@@ -22,7 +23,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="Listas/delete style.css">
+		<link rel="stylesheet" type="text/css" href="Listas/Deletar/delete style.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<title>Deletar Produtos</title>

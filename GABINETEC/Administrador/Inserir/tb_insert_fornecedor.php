@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	$Perfil = $_SESSION['perfil'];
+	
+	if(!isset($Perfil) or ($Perfil != 5)) {
+		header('Location: ../login.php');
+	}	
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -16,10 +25,10 @@
 		</header>
 		
 		<main>
-		<form action="carregarFornecedor.php" method="POST" enctype="multipart/form-data">
+		<form action="Envio/carregarFornecedor.php" method="POST" enctype="multipart/form-data">
 		
 			Nome:
-			<input type="text" name="nome" class="campo" required>
+			<input type="text" name="marca" class="campo" required>
 			<br><br>
 			
 			Email:

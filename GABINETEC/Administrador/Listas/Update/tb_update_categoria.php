@@ -2,7 +2,7 @@
 	
 	$id = $_GET['id_categoria'];
 	$sql = "SELECT * FROM tb_Categorias WHERE id_categoria='$id'";
-	include "../conexao.php";
+	include "../../conexao.php";
 	$categ = $conn -> prepare($sql);
 	$categ -> execute();	
 	$conn = null;
@@ -34,7 +34,7 @@
     <title>Alterar Categoria</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../Inserir/insert style.css">
+	<link rel="stylesheet" type="text/css" href="../../Inserir/insert style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
   </head>
   

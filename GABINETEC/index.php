@@ -9,7 +9,7 @@
 	$produtos -> execute();
 	$conn = null;
 
-	$sql1 = "SELECT * FROM tb_Categoria";
+	$sql1 = "SELECT * FROM tb_Categorias";
 	include "conexao.php";
 	$categorias = $conn -> prepare($sql1);
 	$categorias -> execute();
@@ -37,7 +37,6 @@
 			<div id="title">
 			<h1>GABINETEC</h1> 
 			</div>
-			<input class="search" type="search" placeholder="Pesquisa (Nome, Modelo, Marca, etc...)">
 			<a href="login.php" id="cart" title="Carrinho"><i class="fa fa-shopping-cart"></i></a>
 			<a id="icon" href="login.php" title="Logar-se"> <i class="fa fa-user-circle-o"></i></a>
 		</header>
@@ -78,7 +77,7 @@
 					echo "<fieldset>";
 
 					echo "<div id='img'>";
-						echo "<img src='imge/$img.jpg' title='$desc'>";
+						echo "<img src='imge/$img.jpg' title='$desc' height='200' width='200'>";
 					echo "</div>";
 				
 					echo "<hr>";

@@ -26,13 +26,40 @@
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
-  animation-duration: 0.4s
+  animation-duration: 0.4s;
+}
+
+#agendaHeader {
+	text-align: center;
+	font-size: 18px;
+	animation: changeBackgroundColor 1.7s infinite;
+}
+
+@keyframes changeBackgroundColor {
+  0% {
+    background-color: #00CC00;
+  }
+  25% {
+    background-color: #FFFF00;
+  }
+  50% {
+    background-color: #9900FF;
+  }
+  100% {
+    background-color: #00CC00;
+  }
 }
 
 @media (max-width: 1000px) {
 	.modal-content {
 		width: 85%;
 	}
+}
+
+#agendaBody{
+	text-align: center;
+	font-size: 17px;
+	color: #000;
 }
 
 /* Add Animation */
@@ -44,6 +71,53 @@
 @keyframes animatetop {
   from {top:-300px; opacity:0}
   to {top:0; opacity:1}
+}
+
+input[type="date"] {
+	width: 200px;
+    height: 30px;
+	font-size: 20px;
+}
+
+#salvar {
+	background-color: #4CAF50; 
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-size: 16px;
+	padding: 8px 10px;
+
+}
+
+#contentCancelar {
+	color: #CC0000;
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+    border: 1px solid #888;
+	width: 30%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+}
+
+@media (max-width: 760px) {
+	#contentCancelar {
+		width: 85%;
+	}
+}
+
+#confiCancelar {
+	background-color: #CC0000; 
+	text-decoration: none;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-size: 16px;
+	padding: 8px 10px;
 }
 
 /* The Close Button */

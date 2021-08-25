@@ -1,17 +1,17 @@
 <?php
 	$id = $_GET['id_categoria'];
-	$nome = $_GET['nome'];
+	$categ = $_GET['categoria'];
 
 	if(isset($_POST['sim'])){
 	$sql = "DELETE FROM tb_Categorias WHERE id_categoria='$id'";
-	include "../conexao.php";
+	include "../../conexao.php";
 	$delete = $conn -> prepare($sql);
 	$delete -> execute();	
 	$conn = null;
 	
 	echo "<script>
 				alert('Categoria excluida com sucesso!'); 
-				window.location.href='lista_categorias.php'; 
+				window.location.href='../lista_categorias.php'; 
 		 </script>";
 	}
 ?>
@@ -33,7 +33,7 @@
 		
 		<main>
 			ID: <?php echo $id; ?> <br><br>
-			Categoria: <?php echo $nome; ?>
+			Categoria: <?php echo $categ; ?>
 			<br><br>
 			<form method="POST" action="#">
 				<input type="submit" name="sim" value="Sim" id="deletar">
