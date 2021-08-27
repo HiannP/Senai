@@ -1,9 +1,9 @@
 <?php
-	$id = $_GET['id_marcas'];
+	$id_marca = $_GET['id_marca'];
 	$marca = $_GET['marca'];
 
 	if(isset($_POST['sim'])){
-	$sql = "DELETE FROM tb_Marcas WHERE id_marcas='$id'";
+	$sql = "DELETE FROM tb_Marcas WHERE id_marca='$id_marca'";
 	include "../../conexao.php";
 	$delete = $conn -> prepare($sql);
 	$delete -> execute();	
@@ -32,12 +32,12 @@
 	</header>
 		
 		<main>
-			ID: <?php echo $id; ?> <br><br>
+			ID: <?php echo $id_marca; ?> <br><br>
 			Fornecedor: <?php echo $marca; ?>
 			<br><br>
 			<form method="POST" action="#">
 				<input type="submit" name="sim" value="Sim" id="deletar">
-				<input type="button" value="Não" onclick='window.history.back();' id="voltar">
+				<input type="button" value="Não" onclick="window.location.href='../lista_fornecedores.php';" id="voltar">
 			</form>
 		</main>
   </div>		

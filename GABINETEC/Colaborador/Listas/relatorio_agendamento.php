@@ -1,15 +1,17 @@
 <?php
-	$sql = "SELECT * FROM tb_Marcas";
+	$sql = "SELECT * FROM tb_Agendamentos AS A
+			INNER JOIN tb_Usuarios AS B
+			ON A.FK_id_user = B.id_user";
 	include "../conexao.php";
-	$cadastro = $conn -> prepare($sql);
-	$cadastro -> execute();
+	$agenda = $conn -> prepare($sql);
+	$agenda -> execute();
 	$conn = null;
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Lista de Fornecedores</title>
+    <title>Relatório de Agendamentos</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="lista style.css">
@@ -22,37 +24,37 @@
   <body>
   <div class="container"> 
 		<header>
-		<h1>Lista de Fornecedores</h1>
+		<h1>Relatório de Agendamentos</h1>
 		<div class="acoes">
-		<a class="inserir" href="../Inserir/tb_insert_fornecedor.php">INSERIR</a>
-		<a class="voltar" href="../index.php">VOLTAR</a>
 		</div>
 		</header>
 		<main>
 		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
-		<table  border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
+		<a href="relatorio.php" title="Relatório"> <i class="fa fa-arrow-left" style="margin-left: 15px; color: #fff; font-size: 23px;"></i></a>
+		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<thead>
 			<tr>
 				<th>ID</th>
-				<th>Nome</th>
-				<th>Email</th>
-				<th>Opções</th>
+				<th>Nome do Solicitador</th>
+				<th>Data de Pedido</th>
+				<th>Data Agendada</th>
 			</tr>
 			</thead>
 		<?php
-			foreach($cadastro as $cad) {
-				$id_marca = $cad['id_marca'];
-				$marca = $cad['marca'];
-				$email = $cad['email'];
+			foreach($agenda as $age) {
+				$id_agendamento = $age['id_agendamento'];
+				$nome = $age['nome'];
+				$sobre = $age['sobrenome'];
+				$data = $age['data_solicitacao'];
+				$data_agendada = $age['data_agendada'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tbody id='pesquisado'>";
 				echo "<tr>";
-				echo "<td>$id_marca</td>";
-				echo "<td>$marca</td>";
-				echo "<td>$email</td>";
-				echo "<td><a title='Editar' href='Update/tb_update_fornecedor.php?id_marca=$id_marca'><i class='fa fa-pencil'></i></a> 
-					  <a title='Excluir' href='Deletar/tb_delete_fornecedor.php?id_marca=$id_marca&marca=$marca'><i class='fa fa-trash'></i></a></td>";
+				echo "<td>$id_agendamento</td>";
+				echo "<td>$nome $sobre</td>";
+				echo "<td>$data</td>";
+				echo "<td>$data_agendada</td>";
 				echo "</tr>";
 				echo "</tbody>";
 				

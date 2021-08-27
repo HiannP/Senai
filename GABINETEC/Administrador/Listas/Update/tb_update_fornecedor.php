@@ -9,24 +9,21 @@
 	foreach($forn as $p){
 		$marca = $p["marca"];
 		$email = $p["email"];
-		$tel = $p["telefone"];
 	}
 	
 	if(isset($_POST['salvar'])) {
 		$marca = $_POST['marca'];
 		$email = $_POST['email'];
-		$tel = $_POST['telefone'];
 		
 	$sql = "
 		UPDATE tb_Marcas SET 
 		marca = ?,
-		email = ?,
-		telefone = ?
+		email = ?
 		WHERE id_marca = ?
 	";
 	include "../../conexao.php";
 	$alterar = $conn -> prepare($sql);
-	$alterar -> execute(array($marca, $email, $tel, $id_marca));	
+	$alterar -> execute(array($marca, $email, $id_marca));	
 	$conn = null;
 	
 	echo" <script>
@@ -63,10 +60,6 @@
 			
 			Email:
 			<input type="text" name="email" value="<?php echo $email; ?>" class="campo" required>
-			<br><br>
-			
-			Telefone:
-			<input type="tel" name="telefone" value="<?php echo $tel; ?>" pattern="[0-9]{4}-[0-9]{4}" class="campo"> <br><small style="color: gray;">(Opcional)</small>
 			<br><br>
 			
 			<input type="submit" name="salvar" value="Salvar" id="salvar">

@@ -56,7 +56,7 @@
 					<hr>
 					<a href="Conta/perfil.php?id_user=<?php echo $id_user ?>" title="Perfil"><i class="fa fa-user-circle-o"></i> Perfil</a>
 					<a href="manual_usuario.php"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
-					<a href="../logout.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
+					<a href="../logout.php"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>
 		</header>

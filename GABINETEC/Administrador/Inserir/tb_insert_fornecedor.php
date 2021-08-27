@@ -1,12 +1,3 @@
-<?php
-	session_start();
-	$Perfil = $_SESSION['perfil'];
-	
-	if(!isset($Perfil) or ($Perfil != 5)) {
-		header('Location: ../login.php');
-	}	
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -34,11 +25,7 @@
 			Email:
 			<input type="email" name="email" class="campo" required>
 			<br><br>
-			
-			Telefone:
-			<input type="tel" name="tele" placeholder="Ex: 3223-9339" pattern="[0-9]{4}-[0-9]{4}" class="campo"> <br><small style="color: gray;">(Opcional)</small>
-			<br><br>
-			
+
 			<input type="submit" name="salvar" value="Salvar" id="salvar">
 			<input type="button" value="Voltar" onclick="window.location.href='../index.php';" id="voltar">
 		</form>

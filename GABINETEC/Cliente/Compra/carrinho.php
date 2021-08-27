@@ -55,7 +55,6 @@
 			foreach($produtos as $prod) {
 				
 				$id_prod = $prod['id_prod'];
-				$FK_id_user = $prod['FK_id_user'];
 				$situacao = $prod['situacao'];
 				$desc = $prod['descricao'];
 				$valor = $prod['valor_unit'];
@@ -87,7 +86,7 @@
 					echo "</form>";
 					echo "<a data-toggle='modal' data-target='#modalCancelar'><button id='cancelar'>Cancelar</button></a>";
 					
-					echo "<div class='modal fade' id='modalCancelar' tabindex='-1' role='dialog' aria-labelledby='ModalLabel' aria-hidden='true'>
+				echo "<div class='modal fade' id='modalCancelar' tabindex='-1' role='dialog' aria-labelledby='ModalLabel' aria-hidden='true'>
 					  <div class='modal-dialog' role='document'>
 						<div class='modal-content' id='contentCancelar'>
 						  <div class='modal-header'>

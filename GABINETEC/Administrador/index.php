@@ -100,19 +100,19 @@
 				$categ = $prod['categoria'];
 				$qntd = $prod['qntd'];
 				$valor = $prod['valor_unit'];
-				$img = $prod['img'];
+				$imge = $prod['img'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tbody id='pesquisado'>";
 				echo "<tr>";
-				echo "<td id='img'><img src='../imge/$img.jpg' height='100' width='100'></td>";
+				echo "<td id='img'><img src='../imge/$imge.jpg' height='100' width='100'></td>";
 				echo "<td>$desc</td>";
 				echo "<td>$fab</td>";
 				echo "<td>$categ</td>";
 				echo "<td>$qntd</td>";
 				echo "<td>$valor</td>";
-				echo "<td><a title='Editar' href='tb_update_produto.php?id_prod=$id_prod'><i class='fa fa-pencil'></i></a> 
-					  <a title='Excluir' href='tb_delete_produto.php?id_prod=$id_prod&descricao=$desc&img=$img'><i class='fa fa-trash'></i></a></td>";
+				echo "<td><a title='Editar' href='tb_update_produto.php?id_prod=$id_prod&img=$imge'><i class='fa fa-pencil'></i></a> 
+					  <a title='Excluir' href='tb_delete_produto.php?id_prod=$id_prod&descricao=$desc&img=$imge'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				echo "</tbody>";
 				

@@ -20,11 +20,13 @@
 		<form name="formCadastrar" action="carregarCadastro.php" method="POST" enctype="multipart/form-data">
 		
 			Nome:
-			<input type="text" name="nome" class="campo" required>
+			<input type="text" name="nome" maxlength="12" class="campo" pattern="[A-Za ]+$" 
+			title="Apenas letras sem acentos podem ser inseridas neste campo." required>
 			<br><br>
 			
 			Sobrenome:
-			<input type="text" name="sobrenome" class="campo" required>
+			<input type="text" name="sobrenome" maxlength="20" class="campo" pattern="[A-Za ]+$" 
+			title="Apenas letras podem ser inseridas neste campo." required>
 			<br><br>
 			
 			Email:
@@ -33,12 +35,12 @@
 			
 			Senha:
 			<input type="password" id="senha" name="senha" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" 
-			title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial" required> <br>
+			title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial." required> <br>
 			<input type="checkbox" onclick="mostrarOcultarSenha()" id="checkbox"> <small id="legend" style="font-size: 70%;">Mostrar Senha</small> <br><br>
 			
 			Confirmar Senha:
 			<input type="password" id="confiSenha" name="confiSenha" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" 
-			title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial" required> <br>
+			title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial." required> <br>
 			<br>
 			
 			<input type="submit" name="salvar" value="Salvar" onclick="validar()" id="salvar">

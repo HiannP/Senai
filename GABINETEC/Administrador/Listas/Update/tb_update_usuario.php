@@ -83,8 +83,13 @@
 			<small style='color: gray; font-size: 70%;'>Apague o campo e preencha com a nova senha</small>
 			<br><br>
 			
-			Perfil
-			<input type="number" name="perfil" value="<?php echo $perfil; ?>" class="campo" required>
+			Perfil <br>
+			<input type="radio" name="perfil" value="1" required>
+			<label class="campo" for="html">Cliente</label>
+			<input type="radio" name="perfil" value="3" required>
+			<label class="campo" for="css">Colaborador</label>
+			<input type="radio" name="perfil" value="5" required>
+			<label class="campo" for="javascript">ADM</label>
 			<br><br>
 			
 			<input type="submit" name="salvar" value="Salvar" id="salvar">

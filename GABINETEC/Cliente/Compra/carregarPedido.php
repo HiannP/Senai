@@ -13,8 +13,10 @@
 	$alterar -> execute();	
 	$conn = null;
 	
-	echo" <script>
-		alert('Compra realizada com sucesso!');
-		window.location.href='../index.php';
-		</script>";
+	
+	
+	echo "<script>
+				alert('Compra realizada com sucesso!');
+				window.location.href='../index.php';
+		 </script>";
 ?>

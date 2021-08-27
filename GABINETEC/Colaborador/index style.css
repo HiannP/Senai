@@ -106,7 +106,7 @@ header {
 
 .painel {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	text-align: center;
 	align-items: center;
 	margin-top: 2em;

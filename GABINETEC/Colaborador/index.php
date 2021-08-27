@@ -44,8 +44,8 @@
 					<a id="name"><?php echo $nome ?></a>
 					<hr>
 					<a class="botoes"><i class="fa fa-user-circle-o"></i> Perfil</a>
-					<a class="botoes"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
-					<a class="botoes" href="../logout.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
+					<a class="botoes" href="manual_usuario.php"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
+					<a class="botoes" href="../logout.php"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>
 		</header>
@@ -59,6 +59,9 @@
 			</div>
 			<div class="icones">		
 				<a class="ico" href='Listas/lista_fornecedores.php' title="Lista de Fornecedores"><i class='fa fa fa-building'></i></a>Lista de Fornecedores
+			</div>
+			<div class="icones">
+				<a class="ico" href='Listas/relatorio.php' title="Relatórios Semanais"> <i class='fa fa-file-text-o'></i></a>Relatórios
 			</div>
 		</div>	
 		

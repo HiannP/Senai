@@ -31,11 +31,17 @@
 			<br><br>
 			
 			Senha
-			<input type="text" name="senha" class="campo" required>
+			<input type="text" name="senha" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" 
+			title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial" required>
 			<br><br>
 			
-			Perfil
-			<input type="number" name="perfil" class="campo" required> <br><small style="color: gray; font-size: 45%;">(Níveis: 1 => Cliente | 3 => Colaborador | 5 => Administrador)</small>
+			Perfil <br>
+			<input type="radio" name="perfil" value="1" required>
+			<label class="campo" for="html">Cliente</label>
+			<input type="radio" name="perfil" value="3" required>
+			<label class="campo" for="css">Colaborador</label>
+			<input type="radio" name="perfil" value="5" required>
+			<label class="campo" for="javascript">ADM</label>
 			<br><br>
 			
 			OBS

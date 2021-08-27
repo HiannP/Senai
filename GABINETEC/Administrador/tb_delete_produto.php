@@ -2,10 +2,10 @@
 
 	$id = $_GET['id_prod'];
 	$desc = $_GET['descricao'];
-	$img = $_GET['img'];
+	$imge = $_GET['img'];
 
 	if(isset($_POST['sim'])){
-	unlink("../imge/$img.jpg");
+	unlink("../imge/$imge.jpg");
 	$sql = "DELETE FROM tb_Produtos WHERE id_prod='$id'";
 	include "conexao.php";
 	$delete = $conn -> prepare($sql);
@@ -36,7 +36,7 @@
 	</header>
 		
 		<main>
-		<?php echo "<img src='../imge/$img.jpg'>"; ?> <br><br>
+		<?php echo "<img src='../imge/$imge.jpg'>"; ?> <br><br>
 		<?php echo $desc; ?>
 		<br><br>
 			<form method="POST" action="#">

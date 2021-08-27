@@ -3,12 +3,11 @@
 $id_marca = "";
 $marca = $_POST['marca'];
 $email = $_POST['email'];
-$tele = $_POST['tele'];
 
-	$sql = "INSERT INTO tb_Marcas(marca, email, telefone) VALUES (:marca, :email, :telefone)";
+	$sql = "INSERT INTO tb_Marcas(marca, email) VALUES (:marca, :email)";
 	include "../../conexao.php";
 	$cadastro = $conn -> prepare($sql);
-	$cadastro -> execute(array(':marca'=>$marca, ':email'=>$email, ':telefone'=>$tele));
+	$cadastro -> execute(array(':marca'=>$marca, ':email'=>$email));
 	$conn = null;
 	
 	echo "<script>

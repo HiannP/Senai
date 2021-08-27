@@ -1,15 +1,19 @@
 <?php
-	$sql = "SELECT * FROM tb_Marcas";
+	$sql = "SELECT * FROM tb_Vendas AS A
+			INNER JOIN tb_Produtos AS B
+			INNER JOIN tb_Usuarios AS C
+			ON A.FK_id_prod = B.id_prod
+			AND A.FK_id_user = C.id_user";
 	include "../conexao.php";
-	$cadastro = $conn -> prepare($sql);
-	$cadastro -> execute();
+	$vendas = $conn -> prepare($sql);
+	$vendas -> execute();
 	$conn = null;
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Lista de Fornecedores</title>
+    <title>Relatório de Compras</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="lista style.css">
@@ -22,37 +26,47 @@
   <body>
   <div class="container"> 
 		<header>
-		<h1>Lista de Fornecedores</h1>
+		<h1>Relatório de Compras</h1>
 		<div class="acoes">
-		<a class="inserir" href="../Inserir/tb_insert_fornecedor.php">INSERIR</a>
 		<a class="voltar" href="../index.php">VOLTAR</a>
 		</div>
 		</header>
 		<main>
 		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
-		<table  border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
+		<a href="relatorio_agendamento.php" title="Relatório de Agendamentos"> <i class="fa fa-arrow-right" style="margin-left: 15px; color: #fff; font-size: 23px;"></i></a>
+		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<thead>
 			<tr>
 				<th>ID</th>
-				<th>Nome</th>
-				<th>Email</th>
-				<th>Opções</th>
+				<th>Produto</th>
+				<th>Cliente</th>
+				<th>Quantidade</th>
+				<th>Data de Compra</th>
+				<th>Preço (R$)</th>
+				<th>Situação</th>
 			</tr>
 			</thead>
 		<?php
-			foreach($cadastro as $cad) {
-				$id_marca = $cad['id_marca'];
-				$marca = $cad['marca'];
-				$email = $cad['email'];
+			foreach($vendas as $vend) {
+				$id = $vend['id_venda'];
+				$prod = $vend['descricao'];
+				$nome = $vend['nome'];
+				$sobre = $vend['sobrenome'];
+				$qntd = $vend['qntd_pedido'];
+				$data = $vend['data_compra'];
+				$valor = $vend['valor_unit'];
+				$situacao = $vend['situacao'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tbody id='pesquisado'>";
 				echo "<tr>";
-				echo "<td>$id_marca</td>";
-				echo "<td>$marca</td>";
-				echo "<td>$email</td>";
-				echo "<td><a title='Editar' href='Update/tb_update_fornecedor.php?id_marca=$id_marca'><i class='fa fa-pencil'></i></a> 
-					  <a title='Excluir' href='Deletar/tb_delete_fornecedor.php?id_marca=$id_marca&marca=$marca'><i class='fa fa-trash'></i></a></td>";
+				echo "<td>$id</td>";
+				echo "<td>$prod</td>";
+				echo "<td>$nome $sobre</td>";
+				echo "<td>$qntd</td>";
+				echo "<td>$data</td>";
+				echo "<td>$valor</td>";
+				echo "<td>$situacao</td>";
 				echo "</tr>";
 				echo "</tbody>";
 				

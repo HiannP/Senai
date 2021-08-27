@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Relatórios</title>
+    <title>Relatório</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="lista style.css">
@@ -27,9 +27,13 @@
   <div class="container"> 
 		<header>
 		<h1>Relatórios</h1>
+		<div class="acoes">
+		<a class="voltar" href="../index.php">VOLTAR</a>
+		</div>
 		</header>
 		<main>
 		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
+		<a href="relatorio_agendamento.php" title="Relatório de Agendamentos"> <i class="fa fa-arrow-right" style="margin-left: 15px; color: #fff; font-size: 23px;"></i></a>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<thead>
 			<tr>
@@ -48,6 +52,7 @@
 				$id = $vend['id_venda'];
 				$prod = $vend['descricao'];
 				$nome = $vend['nome'];
+				$sobre = $vend['sobrenome'];
 				$qntd = $vend['qntd_pedido'];
 				$data = $vend['data_compra'];
 				$valor = $vend['valor_unit'];
@@ -58,13 +63,12 @@
 				echo "<tr>";
 				echo "<td>$id</td>";
 				echo "<td>$prod</td>";
-				echo "<td>$nome</td>";
+				echo "<td>$nome $sobre</td>";
 				echo "<td>$qntd</td>";
 				echo "<td>$data</td>";
 				echo "<td>$valor</td>";
 				echo "<td>$situacao</td>";
-				echo "<td><a title='Editar' href='#'><i class='fa fa-pencil'></i></a> 
-					  <a title='Excluir' href='Deletar/tb_delete_relatorio.php?id_venda=$id&data_compra=$data&situacao=$situacao'><i class='fa fa-trash'></i></a></td>";
+				echo "<td><a title='Excluir' href='Deletar/tb_delete_relatorio.php?id_venda=$id&data_compra=$data&situacao=$situacao'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				echo "</tbody>";
 				

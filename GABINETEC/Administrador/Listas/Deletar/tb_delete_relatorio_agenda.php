@@ -1,18 +1,19 @@
 <?php
-	$id = $_GET['id_venda'];
-	$data = $_GET['data_compra'];
-	$situacao = $_GET['situacao'];
+	$id_agendamento = $_GET['id_agendamento'];
+	$nome = $_GET['nome'];
+	$sobre = $_GET['sobrenome'];
+	$data_agendada = $_GET['data_agendada'];
 
 	if(isset($_POST['sim'])){
-	$sql = "DELETE FROM tb_Vendas WHERE id_venda='$id'";
+	$sql = "DELETE FROM tb_Agendamentos WHERE id_agendamento='$id_agendamento'";
 	include "../../conexao.php";
 	$delete = $conn -> prepare($sql);
 	$delete -> execute();	
 	$conn = null;
 	
 	echo "<script>
-				alert('Relatório excluido com sucesso!'); 
-				window.location.href='../relatorio.php'; 
+				alert('Agendamento excluido com sucesso!'); 
+				window.location.href='../relatório.php'; 
 		 </script>";
 	}
 ?>
@@ -33,12 +34,12 @@
 	</header>
 		
 		<main>
-			ID: <?php echo $id; ?> <br><br>
-			Data de Requisição: <?php echo $data; ?> <br><br>
-			Situação: <?php echo $situacao; ?> <br><br>
+			ID: <?php echo $id_agendamento; ?> <br><br>
+			Nome do Cliente: <?php echo $nome; ?> <?php echo $sobre; ?> <br><br>
+			Data Agendada: <?php echo $data_agendada; ?> <br><br>
 			<form method="POST" action="#">
 				<input type="submit" name="sim" value="Sim" id="deletar">
-				<input type="button" value="Não" onclick="window.location.href='../relatorio.php';" id="voltar">
+				<input type="button" value="Não" onclick="window.location.href='../relatorio_agendamento.php';" id="voltar">
 			</form>
 		</main>
   </div>		

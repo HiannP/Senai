@@ -83,7 +83,6 @@ header {
 @media (max-width: 1024px) {
 	#cart {
 		position: absolute;
-		top: 18px;
 		left: 12px;
 		right: 8em;
 		width: 0;

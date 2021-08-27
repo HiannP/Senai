@@ -24,7 +24,7 @@
 	$marcas -> execute();
 	$conn = null;
 	
-	foreach($produtos as $prod){
+	foreach($produtos as $prod) {
 		$FK_id_categoria = $prod['FK_id_categoria'];
 		$FK_id_marca = $prod['FK_id_marca'];
 		$categ = $prod['categoria'];
@@ -35,14 +35,23 @@
 		$img = $prod["img"];
 	}
 	
-	if(isset($_POST['salvar'])){
+	$imge = $_GET['img'];
+	if(isset($_POST['salvar'])) {
+		unlink("../imge/$imge.jpg");
 		$categ = $_POST['categ'];
 		$desc = $_POST['desc'];
 		$valor = $_POST['valor'];
 		$fab = $_POST['fab'];
 		$qntd = $_POST['qntd'];
-		$img = $_POST["img"];
-		
+		$arquivo = $_FILES['img'];
+		$img_name = $arquivo['name'];
+		$img_size = $arquivo['size'];
+		$img_temp = $arquivo['tmp_name'];
+		$formato = pathinfo($img_name, PATHINFO_EXTENSION);
+		$img = uniqid().".".$formato;
+		$upload = move_uploaded_file($img_temp, '../imge/'.$img);
+
+if(isset($upload)) {		
 	$sql = "
 		UPDATE tb_Produtos SET
 		FK_id_categoria = ?,	
@@ -59,9 +68,11 @@
 	$conn = null;
 	
 	echo" <script>
-		alert('Produto alterado com sucesso!');
-		window.location.href='index.php';
-		</script>";
+				alert('Produto alterado com sucesso!');
+				window.location.href='index.php';
+		  </script>";
+		
+		}
 	}
 ?>
 <html lang="pt-br">
@@ -128,7 +139,7 @@
 			<br><br>
 			
 			Imagem <br>
-			<input type="file" name="img" value="<?php echo $img; ?>"> <br>
+			<input type="file" name="img"> <br>
 			<small style="font-size: 70%; color: gray;">Dimensão de Imagem <br>!!! RECOMENDADA !!!: 200 X 200</small>
 			<br><br>
 			
