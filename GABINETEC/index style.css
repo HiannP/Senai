@@ -68,6 +68,7 @@ header {
 @media (max-width: 1000px) {
 	#icon {
 		margin-right: 10px;
+		font-size: 200%;
 	}
 }
 

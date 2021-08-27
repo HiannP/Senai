@@ -75,6 +75,7 @@ header {
 @media (max-width: 1024px) {
 	#icon {
 		margin-right: 10px;
+		font-size: 200%;
 	}
 }
 

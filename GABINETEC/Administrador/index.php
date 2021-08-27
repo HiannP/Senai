@@ -25,9 +25,10 @@
     <title>ADM</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="index style.css">
 	<script type="text/javascript" src="../funcionalidades.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="index style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -78,7 +79,8 @@
 		</div>
 		
 		<main>
-		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
+		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i id="lupa" class="fa fa-search" style="color: #fff;"></i>
+		<a id="print" href="#" onClick="print();">Imprimir</a>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<thead>
 			<tr>
@@ -88,7 +90,7 @@
 				<th>Categoria</th>
 				<th>Quantidade</th>
 				<th>Preço (R$)</th>
-				<th>Opções</th>
+				<th class="op">Opções</th>
 			</tr>
 			</thead>
 		<?php
@@ -111,7 +113,7 @@
 				echo "<td>$categ</td>";
 				echo "<td>$qntd</td>";
 				echo "<td>$valor</td>";
-				echo "<td><a title='Editar' href='tb_update_produto.php?id_prod=$id_prod&img=$imge'><i class='fa fa-pencil'></i></a> 
+				echo "<td class='op'><a title='Editar' href='tb_update_produto.php?id_prod=$id_prod&img=$imge'><i class='fa fa-pencil'></i></a> 
 					  <a title='Excluir' href='tb_delete_produto.php?id_prod=$id_prod&descricao=$desc&img=$imge'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				echo "</tbody>";

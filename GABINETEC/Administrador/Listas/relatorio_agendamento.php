@@ -15,6 +15,7 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="lista style.css">
+	<link rel="stylesheet" href="print.css" media="print" />
 	<script type="text/javascript" src="../../funcionalidades.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
@@ -24,12 +25,13 @@
   <body>
   <div class="container"> 
 		<header>
-		<h1>Relatório de Agendamentos</h1>
+		<h1 id="title">Relatório de Agendamentos</h1>
 		<div class="acoes">
 		</div>
 		</header>
 		<main>
-		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
+		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i id="lupa" class="fa fa-search" style="color: #fff;"></i>
+		<a id="print" href="#" onClick="print();">Imprimir</a>
 		<a href="relatorio.php" title="Relatório"> <i class="fa fa-arrow-left" style="margin-left: 15px; color: #fff; font-size: 23px;"></i></a>
 		<table border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<thead>
@@ -38,7 +40,7 @@
 				<th>Nome do Solicitador</th>
 				<th>Data de Pedido</th>
 				<th>Data Agendada</th>
-				<th>Opções</th>
+				<th class="op">Opções</th>
 			</tr>
 			</thead>
 		<?php
@@ -56,7 +58,7 @@
 				echo "<td>$nome $sobre</td>";
 				echo "<td>$data</td>";
 				echo "<td>$data_agendada</td>";
-				echo "<td><a title='Excluir' href='Deletar/tb_delete_relatorio_agenda.php?id_agendamento=$id_agendamento&nome=$nome&sobrenome=$sobre&data_agendada=$data_agendada'><i class='fa fa-trash'></i></a></td>";
+				echo "<td class='op'><a title='Excluir' href='Deletar/tb_delete_relatorio_agenda.php?id_agendamento=$id_agendamento&nome=$nome&sobrenome=$sobre&data_agendada=$data_agendada'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				echo "</tbody>";
 				

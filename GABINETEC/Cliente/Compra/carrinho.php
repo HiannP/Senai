@@ -50,6 +50,7 @@
 			</div>
 			<a href="../index.php" id="voltar" title="Voltar"> <i class="fa fa-sign-out"></i></a>
 		</header>	
+		
 		<main>
 		<?php
 			foreach($produtos as $prod) {
@@ -58,7 +59,7 @@
 				$situacao = $prod['situacao'];
 				$desc = $prod['descricao'];
 				$valor = $prod['valor_unit'];
-				$qntd = $prod['qntd_pedido'];
+				$qntd_pedido = $prod['qntd_pedido'];
 				$categ = $prod['categoria'];
 				$fab = $prod['marca'];
 				$img = $prod['img'];
@@ -70,6 +71,8 @@
 				echo "<fieldset>";
 				echo "<form name='formFinal' action='carregarPedido.php' method='POST' enctype='multipart/form-data'>";
 					echo "<input type='hidden' value='$id_user' name='id_user'>";
+					echo "<input type='hidden' value='$id_prod' name='id_prod'>";
+					echo "<input type='hidden' value='$qntd_pedido' name='qntd_pedido'>";
 					echo "<div id='img' title='$desc'><img src='../../imge/$img.jpg'></div>";
 					echo "<div id='desc'><h4>$desc<h4></div>";
 					echo "<div id='fab'>Marca: $fab</div>";

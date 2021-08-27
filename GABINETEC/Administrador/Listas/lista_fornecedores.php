@@ -13,6 +13,7 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="lista style.css">
+	<link rel="stylesheet" href="print.css" media="print" />
 	<script type="text/javascript" src="../../funcionalidades.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
@@ -22,21 +23,22 @@
   <body>
   <div class="container"> 
 		<header>
-		<h1>Lista de Fornecedores</h1>
+		<h1 id="title">Lista de Fornecedores</h1>
 		<div class="acoes">
 		<a class="inserir" href="../Inserir/tb_insert_fornecedor.php">INSERIR</a>
 		<a class="voltar" href="../index.php">VOLTAR</a>
 		</div>
 		</header>
 		<main>
-		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i class="fa fa-search" style="color: #fff;"></i>
+		<input class="search" oninput="pesquisa()" id='search' type="text" placeholder="Pesquisa"> <i id="lupa" class="fa fa-search" style="color: #fff;"></i>
+		<a id="print" href="#" onClick="print();">Imprimir</a>
 		<table  border="1" style="text-align: center; margin: auto; width: 95%; font-size: 150%; border-width: 0; background-color: #000;">
 			<thead>
 			<tr>
 				<th>ID</th>
 				<th>Nome</th>
 				<th>Email</th>
-				<th>Opções</th>
+				<th class="op">Opções</th>
 			</tr>
 			</thead>
 		<?php
@@ -51,7 +53,7 @@
 				echo "<td>$id_marca</td>";
 				echo "<td>$marca</td>";
 				echo "<td>$email</td>";
-				echo "<td><a title='Editar' href='Update/tb_update_fornecedor.php?id_marca=$id_marca'><i class='fa fa-pencil'></i></a> 
+				echo "<td class='op'><a title='Editar' href='Update/tb_update_fornecedor.php?id_marca=$id_marca'><i class='fa fa-pencil'></i></a> 
 					  <a title='Excluir' href='Deletar/tb_delete_fornecedor.php?id_marca=$id_marca&marca=$marca'><i class='fa fa-trash'></i></a></td>";
 				echo "</tr>";
 				echo "</tbody>";
