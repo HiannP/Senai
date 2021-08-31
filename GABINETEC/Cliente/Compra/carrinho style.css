@@ -56,6 +56,12 @@ header {
 	grid-area: v;
 }
 
+@media (max-width: 1000px) {
+	#voltar {
+		font-size: 160%;
+	}
+}
+
 main {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -165,7 +171,7 @@ img {
 
 body {
 	background-color: #001459;
-	background-image: url("../../back3.jpg");
+	background-image: url("../../fundo/back3.jpg");
 	font-family: sans-serif;
 	font-size: 1em;
 	margin-bottom: 100px;

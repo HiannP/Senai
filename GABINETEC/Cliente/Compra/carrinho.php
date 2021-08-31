@@ -16,7 +16,7 @@
 	$conn = null;	
 	
 	$situacaoC = 'Solicitado';
-	$sqlP = "SELECT SUM(valor_unit) AS soma FROM tb_Vendas WHERE FK_id_user = $id_user AND situacao = :situacaoC"; 
+	$sqlP = "SELECT SUM(valor_unit * qntd_pedido) AS soma FROM tb_Vendas WHERE FK_id_user = $id_user AND situacao = :situacaoC"; 
 	include "../conexao.php";
 	$sqlP = $conn -> prepare($sqlP);
 	$sqlP -> bindValue(':situacaoC', $situacaoC);
@@ -69,7 +69,7 @@
 				
 				echo "<div id='campoP'>";
 				echo "<fieldset>";
-				echo "<form name='formFinal' action='carregarPedido.php' method='POST' enctype='multipart/form-data'>";
+				echo "<form name='formFinal' action='carregarPedido.php' method='POST'>";
 					echo "<input type='hidden' value='$id_user' name='id_user'>";
 					echo "<input type='hidden' value='$id_prod' name='id_prod'>";
 					echo "<input type='hidden' value='$qntd_pedido' name='qntd_pedido'>";

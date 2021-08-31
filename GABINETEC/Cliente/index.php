@@ -6,7 +6,7 @@
 	$id_user = $_SESSION['id_user'];
 	
 	if(!isset($Perfil) or ($Perfil != 1)) {
-		header('Location: ../login.php');
+		header('Location: ../Login/login.php');
 	}	
 	
 	$sql = "SELECT * FROM tb_Produtos AS A
@@ -17,12 +17,6 @@
 	include "conexao.php";
 	$produtos = $conn -> prepare($sql);
 	$produtos -> execute();
-	$conn = null;
-
-	$sql1 = "SELECT * FROM tb_Categorias";
-	include "conexao.php";
-	$categorias = $conn -> prepare($sql1);
-	$categorias -> execute();
 	$conn = null;
 	
 ?>
@@ -48,34 +42,19 @@
 			<div id="title">
 			<a href="index.php" id="t"><h1>GABINETEC</h1></a> 
 			</div>
-			<a href="Compra/carrinho.php?id_user=<?php echo $id_user ?>" id="cart" title="Carrinho"><i class="fa fa-shopping-cart"></i></a>
+			<a href="Compra/carrinho.php?id_user=<?php echo $id_user ?>" id="cart" title="Carrinho de Compras"><i class="fa fa-shopping-cart"></i></a>
 			<div id="perfil">
 			<a id="icon" title="Perfil"> <i class="fa fa-user-circle"></i></a>
 				<div class="campoP">
 					<a id="name"><?php echo $nome ?></a>
 					<hr>
-					<a href="Conta/perfil.php?id_user=<?php echo $id_user ?>" title="Perfil"><i class="fa fa-user-circle-o"></i> Perfil</a>
 					<a href="manual_usuario.php"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
-					<a href="../logout.php"> <i class="fa fa-sign-out"></i> Sair</a>
+					<a href="../Login/logout.php"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>
 		</header>
 		
 		<aside>
-		<div class="dropdown">
-		<a class="categoria">Categoria <i class="fa fa-caret-down"></i></a>
-			<div class="dropdown-content">
-			<?php
-				foreach($categorias as $cate) {
-				
-					$categ = $cate['id_categoria'];
-					$nomeG = $cate['categoria'];
-
-					echo "<a>$nomeG</a>";
-				}
-			?>	
-			</div>
-		</div>
 		<a id="agendar" data-toggle="modal" data-target="#modalAgendamento">Agendar Personalização <i class="fa fa-calendar"></i></a>	
 		</aside>		
 		
@@ -119,9 +98,9 @@
 					echo "<div class='produtos-item'>";
 					
 					echo "<fieldset>";
-					
+	
 					echo "<div id='img' title='$desc'>";
-						echo "<img src='../imge/$img.jpg'  height='200' width='200'>";
+						echo "<img src='../imge/$img.jpg' height='200' width='200'>";
 					echo "</div>";
 				
 					echo "<hr>";
@@ -159,7 +138,7 @@
 							</button>
 						  </div>
 						  <div class='modal-body'>
-							<img src='../imge/$img.jpg'>
+							<img src='../imge/$img.jpg' height='200' width='200'>
 							<br>
 							<div id='fabVis'>
 							Vendido por $fab

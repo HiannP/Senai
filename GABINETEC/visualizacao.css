@@ -144,7 +144,28 @@ input[type="date"] {
   color: #000;
 }
 
+#redefinir {
+    width: 30%;		
+}
+
+@media (max-width: 770px) {
+	#redefinir {
+		width: 85%;
+	}
+}
+
 .modal-body {padding: 2px 16px;}
+
+#verificar {
+	text-align: center;
+	color: #000;
+	font-size: 18px;
+}
+
+.campo {
+	padding: 5px;
+	font-size: 20px;
+}
 
 .modal-footer {
   padding: 2px 16px;

@@ -78,18 +78,18 @@
 			<br><br>
 			
 			Senha
-			<input type="text" name="senha" value="<?php echo $senha; ?>" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" 
+			<input type="text" name="senha" class="campo" maxlength="16" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,16}$).*$" 
 			title="A senha deve conter de 8 a 16 caracteres com pelo menos uma letra maiúscula e minúscula, um número e um caractere especial" required> <br>
-			<small style='color: gray; font-size: 70%;'>Apague o campo e preencha com a nova senha</small>
+			<small style="color: gray; font-size: 70%;">Insira uma nova senha</small>
 			<br><br>
 			
 			Perfil <br>
 			<input type="radio" name="perfil" value="1" required>
-			<label class="campo" for="html">Cliente</label>
+			<label class="campo" for="html">1-Cliente</label>
 			<input type="radio" name="perfil" value="3" required>
-			<label class="campo" for="css">Colaborador</label>
+			<label class="campo" for="css">3-Colaborador</label>
 			<input type="radio" name="perfil" value="5" required>
-			<label class="campo" for="javascript">ADM</label>
+			<label class="campo" for="javascript">5-ADM</label>
 			<br><br>
 			
 			<input type="submit" name="salvar" value="Salvar" id="salvar">

@@ -19,14 +19,6 @@ $data_actual = date('Y-m-d H:i:s', time());
 	include "conexao.php";
 	$cadastro = $conn -> prepare($sql);
 	$cadastro -> execute(array(':nome'=>$nome, ':sobrenome'=>$sobre, ':email'=>$email, ':senha'=>$senhaSegura, ':perfil'=>$perfil, ':create_date'=>$data_actual));
-/*	$query = 
-	if($sql -> 'email' == ':email') {
-		echo "<script>
-				alert('Este email já foi cadastrado!'); 
-				window.location.href='login.php'; 
-		 </script>";
-		 exit;
-	} */
 	$conn = null;
 	
 	echo "<script>

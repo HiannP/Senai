@@ -77,7 +77,7 @@
 			
 			Imagem <br>
 			<input type="file" name="img"> <br>
-			<small style="font-size: 70%; color: gray;">Dimensão de Imagem <br>!!! RECOMENDADA !!!: 200 X 200</small>
+			<small style="font-size: 70%; color: gray;">Dimensão de Imagem <br> Padrão: 200 X 200</small>
 			<br><br>
 			
 			<input type="submit" name="salvar" value="Salvar" id="salvar">

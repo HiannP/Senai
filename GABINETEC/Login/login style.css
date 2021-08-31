@@ -19,7 +19,6 @@ header {
     font-size: 130%;
     color: #E3580D;
 	text-align: center;
-	align-items: center;
 	grid-area: h;
 }
 
@@ -36,7 +35,7 @@ header {
 
 body {
 	background-color: #001459;
-	background-image: url("back3.jpg");
+	background-image: url("../fundo/back3.jpg");
 	font-family: sans-serif;
 	overflow: hidden;
 }
@@ -139,5 +138,10 @@ label {
 
 #cadastro1 {
 	font-size: 100%;
+	text-decoration: none;
+}
+
+#esquecer_senha {
+	font-size: 70%;
 	text-decoration: none;
 }

@@ -9,12 +9,6 @@
 	$produtos -> execute();
 	$conn = null;
 
-	$sql1 = "SELECT * FROM tb_Categorias";
-	include "conexao.php";
-	$categorias = $conn -> prepare($sql1);
-	$categorias -> execute();
-	$conn = null;
-
 ?>
 
 <!DOCTYPE html>
@@ -37,25 +31,12 @@
 			<div id="title">
 			<a href="index.php" id="t"><h1>GABINETEC</h1></a> 
 			</div>
-			<a href="login.php" id="cart" title="Carrinho"><i class="fa fa-shopping-cart"></i></a>
-			<a id="icon" href="login.php" title="Logar-se"> <i class="fa fa-user-circle-o"></i></a>
+			<a href="Login/login.php" id="cart" title="Carrinho"><i class="fa fa-shopping-cart"></i></a>
+			<a id="icon" href="Login/login.php" title="Logar-se"> <i class="fa fa-user-circle-o"></i></a>
 		</header>
 		
 		<aside>
-		<div class="dropdown">
-		<a class="categoria">Categoria <i class="fa fa-caret-down"></i></a>
-			<div class="dropdown-content">
-			<?php
-				foreach($categorias as $cate) {
-				
-					$categ = $cate['id_categoria'];
-					$nome = $cate['categoria'];
-
-					echo "<a>$nome</a>";
-				}
-			?>	
-			</div>
-		</div>
+		<a class="sobre" href="sobre_sistema.php">Sobre o Sistema <i class="fa fa-question-circle"></i></a>
 		</aside>		
 		
 		<main>
@@ -76,8 +57,8 @@
 					
 					echo "<fieldset>";
 
-					echo "<div id='img'>";
-						echo "<img src='imge/$img.jpg' title='$desc' height='200' width='200'>";
+					echo "<div id='img' title='$desc'>";
+						echo "<img src='imge/$img.jpg' height='200' width='200'>";
 					echo "</div>";
 				
 					echo "<hr>";
@@ -99,7 +80,7 @@
 					echo "<br>";
 
 					echo "<div>";
-					echo "<a title='Comprar' href='login.php'><button id='compra'><i class='fa fa-cart-arrow-down'></i> Comprar</button></a>";
+					echo "<a title='Comprar' href='Login/login.php'><button id='compra'><i class='fa fa-cart-arrow-down'></i> Comprar</button></a>";
 					echo "<button id='ver' data-toggle='modal' data-target='#modalProduto$id_prod' title='Ver Produto'><i class='fa fa-search'></i> Visualizar</button>";	
 					echo "</div>";
 					
@@ -115,7 +96,7 @@
 							</button>
 						  </div>
 						  <div class='modal-body'>
-							<img src='imge/$img.jpg'>
+							<img src='imge/$img.jpg' height='200' width='200'>
 							<br>
 							<div id='fabVis'>
 							Vendido por $fab
@@ -143,15 +124,6 @@
 		<footer>
 		 <br> <p>© 2021 de GABINETEC. Todos os direitos reservados.</p> <br>
 		</footer>
-		<script type="text/javascript">
-		  window._mfq = window._mfq || [];
-		  (function() {
-			var mf = document.createElement("script");
-			mf.type = "text/javascript"; mf.defer = true;
-			mf.src = "//cdn.mouseflow.com/projects/ec8b8a87-793d-4016-aa0a-9ed100792e59.js";
-			document.getElementsByTagName("head")[0].appendChild(mf);
-		  })();
-		</script>
 </div>		
   </body> 
 </html>

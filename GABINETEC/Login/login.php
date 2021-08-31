@@ -4,7 +4,10 @@
     <title>Login</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script type="text/javascript" src="funcionalidades.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../funcionalidades.js"></script>
+	<link rel="stylesheet" type="text/css" href="../visualizacao.css">
 	<link rel="stylesheet" type="text/css" href="login style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 
@@ -12,7 +15,7 @@
   <body>
   <div class="container"> 
 		<header>
-			<a href="index.php" id="t"><h1>GABINETEC</h1></a> 
+			<a href="../index.php" id="t"><h1>GABINETEC</h1></a> 
 		</header>
 		<br>
 		<main>
@@ -27,14 +30,14 @@
 			<input type="checkbox" onclick="mostrarOcultarSenha()" id="checkbox"> <small id="legend" style="font-size: 70%; ">Mostrar Senha</small> <br><br>
 			
 			<input type="submit" value="Logar" id="buttonlogi1">
-			<input type="button" value="Voltar" onclick="window.location.href='index.php';" id="buttonlogi2">
+			<input type="button" value="Voltar" onclick="window.location.href='../index.php';" id="buttonlogi2">
 			
 			<br><br>
 			<p class="cadastro">Não possui um cadastro? <a id="cadastro1" href="cadastro.php">Clique aqui.</a></p>
 			</form>		
 		</fieldset>
 		</div>
-		</main>
+		</main>	
   </div>
   </body>
 </html>

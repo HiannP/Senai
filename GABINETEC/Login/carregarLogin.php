@@ -23,20 +23,20 @@
 			$_SESSION['id_user'] = $Id;
 			
 			if($Perfil == 5){
-				header("Location: Administrador/");
+				header("Location: ../Administrador/");
 			}
 			if($Perfil == 3){
-				header("Location: Colaborador/");
+				header("Location: ../Colaborador/");
 			}
 			if($Perfil == 1){
-				header("Location: Cliente/");
+				header("Location: ../Cliente/");
 			}
 		}		
 	}
 	else {
-		echo" <script>
-		alert('Usuário ou Senha icorreto(s)');
-		window.location.href='login.php';
-		</script>";
+		echo "<script>
+					alert('Usuário ou Senha icorreto(s)');
+					window.location.href='login.php';
+			  </script>";
 	}
 ?>

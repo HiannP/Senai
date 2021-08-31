@@ -35,7 +35,6 @@
 				<th>ID</th>
 				<th>Nome</th>
 				<th>Email</th>
-				<th>Telefone</th>
 			</tr>
 			</thead>
 		<?php
@@ -43,7 +42,6 @@
 				$id = $cad['id_marca'];
 				$nome = $cad['marca'];
 				$email = $cad['email'];
-				$tel = $cad['telefone'];
 				
 				//---------------------------------------- HTML ----------------------------------------\\
 				echo "<tbody id='pesquisado'>";
@@ -51,7 +49,6 @@
 				echo "<td>$id</td>";
 				echo "<td>$nome</td>";
 				echo "<td>$email</td>";
-				echo "<td>$tel</td>";
 				echo "</tr>";
 				echo "</tbody>";
 				

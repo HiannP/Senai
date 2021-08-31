@@ -5,7 +5,7 @@
 	$id_user = $_SESSION['id_user'];
 
 	if(!isset($Perfil) or ($Perfil != 5)) {
-		header('Location: ../login.php');
+		header('Location: ../Login/login.php');
 	}	
 	
 	$sql = "SELECT * FROM tb_Produtos AS A
@@ -44,9 +44,8 @@
 				<div class="campoP">
 					<a id="name"><?php echo $nome ?></a>
 					<hr>
-					<a class="botoes" href="#" title="Perfil"><i class="fa fa-user-circle-o"></i> Perfil</a>
 					<a class="botoes" href="manual_usuario.php" title="Manual do Usuário"><i class="fa fa-info-circle"></i> Manual do Usuário</a>
-					<a class="botoes" href="../logout.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
+					<a class="botoes" href="../Login/logout.php" title="Sair"> <i class="fa fa-sign-out"></i> Sair</a>
 				</div>
 			</div>
 		</header>
